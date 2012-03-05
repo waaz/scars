@@ -1,5 +1,6 @@
 class Booking < ActiveRecord::Base
 has_one :payement
+has_one :car
 belongs_to :user
 belongs_to :customer
 accepts_nested_attributes_for :car

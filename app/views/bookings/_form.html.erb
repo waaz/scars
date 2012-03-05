@@ -19,11 +19,7 @@
     <%= f.label :date_of_arrival, "Return date:" %>
     <div id = "dor"><%= f.date_select :date_of_arrival %></div>
   </div>
-  
-  <div class="field">
-	<%= f.label :car_class, "Car Class:"%>
-	<%= f.select :car_class, [['Sport','sport'],['Peope Carrier','people_carrier'],['HatchBack','hatchback']]%>
-  </div>
+
   
   <div class="field">
     <%= f.select :collect,[["I want my car delivered",false],["I want to collect My Car",true]] %>

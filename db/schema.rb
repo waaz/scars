@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120206195615) do
+ActiveRecord::Schema.define(:version => 20120305134908) do
 
   create_table "bookings", :force => true do |t|
     t.datetime "date_of_departure"
@@ -20,20 +20,29 @@ ActiveRecord::Schema.define(:version => 20120206195615) do
     t.integer  "user_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.string   "car_class"
     t.string   "booking_address"
     t.string   "booking_postcode"
     t.string   "promocode"
+    t.integer  "customer_id"
+    t.integer  "car_id"
+  end
+
+  create_table "car_classes", :force => true do |t|
+    t.text     "type"
+    t.integer  "cost"
+    t.string   "image_url"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "cars", :force => true do |t|
     t.string   "reg"
     t.string   "model"
-    t.string   "class"
     t.boolean  "repair"
-    t.integer  "booking_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "car_class_id"
   end
 
   create_table "customers", :force => true do |t|

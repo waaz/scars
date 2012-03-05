@@ -1,0 +1,2 @@
+module CarClassesHelper
+end

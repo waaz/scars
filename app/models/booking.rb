@@ -1,6 +1,7 @@
 class Booking < ActiveRecord::Base
-has_one :car
+has_one :payement
 belongs_to :user
+belongs_to :customer
 accepts_nested_attributes_for :car
 
 validates :booking_address, :presence => true, :uniqueness => true, :if => Proc.new { |o| o.collect != true }

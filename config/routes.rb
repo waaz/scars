@@ -1,6 +1,8 @@
 Scars::Application.routes.draw do
  
 
+  resources :car_classes
+
   resources :payements
 
  get "login" => "sessions#new", :as => "login"

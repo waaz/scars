@@ -43,7 +43,7 @@ class BookingsController < ApplicationController
     respond_to do |format|
       if @booking.save
         format.html do
-          redirect_to new_payements_path, notice: 'Booking was successfully created.'
+          redirect_to :controller => 'payements', :action => 'create', notice: 'Booking was successfully created.'
         end
         #format.json do
           #render json: @booking, status: :created, location: @booking

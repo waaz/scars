@@ -1,6 +1,10 @@
+User ID | Email<br/>
 <% @users.each do |user| %>
+ <%= link_to 'edit', edit_user_path(user.id) %>
+ <%= link_to 'destroy', user, confirm: 'Are you sure?', method: :delete %>
  <%= user.id %>
- <%= user.email %>
+ <%= user.email %><br/>
 <% end %>
+<br/>
 <%= link_to "Create", new_user_path %>
 

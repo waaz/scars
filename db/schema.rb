@@ -27,15 +27,6 @@ ActiveRecord::Schema.define(:version => 20120305134908) do
     t.integer  "car_id"
   end
 
-  create_table "car_classes", :force => true do |t|
-    t.text     "type"
-    t.integer  "cost"
-    t.string   "image_url"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
   create_table "cars", :force => true do |t|
     t.string   "reg"
     t.string   "model"

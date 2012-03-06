@@ -36,4 +36,32 @@ class UsersController < ApplicationController
    redirect_to root_url, notice: "Unauthorised!" 
   end
  end
+ 
+ def edit
+  if current_user
+   if current_user.is_admin? && params[:id]
+    @user = User.find(params[:id])
+    @customer = Customer.where(user_id: @user.id).first
+   else
+    @user = current_user
+    @customer = Customer.where(user_id: current_user.id).first
+   end
+  else
+   redirect_to root_url, notice: "Unauthorised!" 
+  end
+ end
+ 
+ def update
+   @user = User.find(params[:id])
+   
+   if params[:user][:email]
+	redirect_to edit_user_path, notice: "Cannot modify email address"
+   else 	
+	 if @user.update_attributes(params[:user])
+      redirect_to @user, notice: 'User was successfully updated.'
+     else
+      render action: "edit"
+    end
+   end
+ end
 end

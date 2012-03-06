@@ -1,0 +1,8 @@
+<% @customers.each do |customer| %>
+ <%= link_to 'edit', edit_customer_path(customer.id) %>
+ <%= link_to 'destroy', customer, confirm: 'Are you sure?', method: :delete %>
+ <%= customer.user_id %>
+ <%= customer.id %>
+ <%= customer.first_name %>
+ <%= customer.last_name %><br/>
+<% end %>

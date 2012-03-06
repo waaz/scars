@@ -1,7 +1,15 @@
-<h1>Profile:</h1>
+<h1>Account Details:</h1>
 <p>User ID: <%= @user.id %></p>
-<p>Customer ID: <%= @customer.id unless @user.is_admin %></p>
 <p>Email:  <%= @user.email %></p>
+
+<% if @user.is_customer == true %>
+ <p>Customer ID: <%= @customer.id %></p>
+ <p>First Name: <%= @customer.first_name %>
+ <p>Last Name: <%= @customer.last_name %>
+<% end %>
+
 <% if @user.is_admin %>
-<p>Administrator</p>
+ <p>User is Administrator</p>
+<% else %>
+ <p><%= link_to 'Update Details', edit_customer_path %></p>
 <% end %>

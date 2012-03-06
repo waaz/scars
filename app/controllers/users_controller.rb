@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   @user = User.new(params[:user])
 
   if @user.save
-   @customer = Customer.create(user_id: @user.id) unless @user.is_admin
-   session[:user_id] = @user.id
+   @customer = Customer.create(user_id: @user.id) unless @user.is_admin?
+   session[:user_id] = @user.id unless current_user.is_admin?
    redirect_to user_path(@user.id)
   else
    render 'new'
@@ -63,5 +63,21 @@ class UsersController < ApplicationController
       render action: "edit"
     end
    end
+ end
+ 
+ def destroy
+  if current_user
+   if current_user.is_admin?
+    @user = User.find(params[:id])
+	if not current_user.id == @user.id
+     @user.destroy
+     redirect_to "users#index"
+	else
+	 redirect_to root_url, notice: "Cannot delete current user!"
+    end
+   end
+  else
+	redirect_to root_url, notice: "Unauthorised!" 
+  end
  end
 end

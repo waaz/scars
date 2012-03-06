@@ -30,5 +30,17 @@
   <%= f.label :is_admin, "Admin: " %>
   <%= f.check_box :is_admin, default: false %>
  </div>
+ <% if not @user.is_admin %>
+	 <%= f.fields_for :customer do |c| %>
+	 <div>
+	  <%= c.label :first_name, "First Name: " %>
+	  <%= c.text_field :first_name%>
+	 </div>
+	 <div>
+	  <%= c.label :last_name, "First Name: " %>
+	  <%= c.text_field :last_name%>
+	 </div>
+	 <% end %>
+ <% end %>
  <div class="actions"><%= f.submit %></div>
 <% end %>

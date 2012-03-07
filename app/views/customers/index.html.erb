@@ -1,10 +1,11 @@
 <table>
 <thead>
-<tr><td>Edit</td><td>Destroy</td><td>Customer ID</td><td>User ID</td><td>First Name</td><td>Last Name</td></tr>
+<tr><td>Full</td><td>Edit</td><td>Destroy</td><td>Customer ID</td><td>User ID</td><td>First Name</td><td>Last Name</td></tr>
 </thead>
 <tbody>
 <% @customers.each do |customer| %>
  <tr>
+ <td><%= link_to 'show', customer_path(customer.id) %></td>
  <td><%= link_to 'edit', edit_customer_path(customer.id) %></td>
  <td><%= link_to 'destroy', customer, confirm: 'Are you sure?', method: :delete %></td>
  <td><%= customer.id %></td>
@@ -15,3 +16,4 @@
 <% end %>
 </tbody>
 </table>
+<%= link_to 'create', new_customer_path %>

@@ -3,5 +3,10 @@
 <p>User ID:  <%= @customer.user_id %></p>
 <p>First Name: <%= @customer.first_name %>
 <p>Last Name: <%= @customer.last_name %>
-<p><%= link_to 'Edit Details', edit_customer_path(@customer.id) %></p>
+<p>Address Line One: <%= @customer.address_one %></p>
+<p>Address Line Two: <%= @customer.address_two %></p>
+<p>City: <%= @customer.city %></p>
+<p>Postcde: <%= @customer.postcode %></p>
+<p><%= link_to 'Edit Details', edit_customer_path(@customer.id) %> |
+<%= link_to 'Index', customers_url %></p>
 

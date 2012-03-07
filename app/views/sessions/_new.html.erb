@@ -1,9 +1,5 @@
+<%= stylesheet_link_tag "newUser" %>
 <h1>Login</h1>
-
-<% if flash[:alert] %>
- <p class="alert"><%= flash[:alert] %></p>
-<% end %>
-
 <%= form_tag sessions_path do %>
  <div class="field">
   <%= label_tag :email %>
@@ -15,3 +11,4 @@
  </div>
  <div class="actions"><%= submit_tag "Login" %></div>
 <% end %>
+<%=link_to "Not Registered?", new_user_path %>

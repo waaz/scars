@@ -20,11 +20,7 @@
 		</ul>
        <% end %>
 	   <div id="login_dropdown">
-			<p>Username<br />
-			<input type="text" /></p>
-			<p>Password<br />
-			<input type="password" /><br />
-			<a href="#"><%=link_to "Not Registered?", new_user_path%></a></p>
+			<%= render partial: "sessions/new" %>
         </div>
 	  </header>
 	 <div id="main_nav">

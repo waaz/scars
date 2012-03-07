@@ -2,3 +2,7 @@
 
 
 == Todo
+Customer - Make sure user_id is valid and unique when linking a user to a customer.
+Customer - Maybe simplify process of linking user accounts to customer details?
+User - Remove admin checkbox and make replacement.
+

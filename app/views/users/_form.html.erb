@@ -1,0 +1,46 @@
+<%= form_for @user do |f| %>
+ <% if @user.errors.any? %>
+  <div class="error_messages">
+   <h2>Form is invalid</h2>
+   <ul>
+    <% for message in @user.errors.full_messages %>
+     <li><%= message %></li>
+    <% end %>
+   </ul>
+  </div>
+ <% end %>
+ <% if @user.email && current_user %>
+  <%= f.label :email, "Email: " %>
+  <%= @user.email %><br/>
+ <% else %>
+ <div class="field">
+  <%= f.label :email, "Email: " %>
+  <%= f.text_field :email %><br/>
+ </div>
+ <% end %>
+ <div class="field">
+  <%= f.label :password, "Password: " %>
+  <%= f.password_field :password %><br/><br/>
+ </div>
+ <div>
+  <%= f.label :password_confirmation, "Confirm Password: " %><br/>
+  <%= f.password_field :password_confirmation %>
+ </div>
+ <div>
+  <%= f.label :is_admin, "Admin: " %>
+  <%= f.check_box :is_admin, default: false %>
+ </div>
+ <% if not @user.is_admin %>
+	 <%= f.fields_for :customer do |c| %>
+	 <div>
+	  <%= c.label :first_name, "First Name: " %>
+	  <%= c.text_field :first_name%>
+	 </div>
+	 <div>
+	  <%= c.label :last_name, "First Name: " %>
+	  <%= c.text_field :last_name %>
+	 </div>
+	 <% end %>
+ <% end %>
+ <div class="actions"><%= f.submit %></div>
+<% end %>

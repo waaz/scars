@@ -13,13 +13,12 @@
 
   <div class="field">
     <%= f.label :date_of_departure, "Departure date:" %>
-    <div id = "dod"><%= f.date_select :date_of_departure %></div>
+    <div id = "dod"><%= f.text_field :date_of_departure %></div>
   </div>
   <div class="field">
     <%= f.label :date_of_arrival, "Return date:" %>
-    <div id = "dor"><%= f.date_select :date_of_arrival %></div>
+    <div id = "dor"><%= f.text_field :date_of_arrival %></div>
   </div>
-
   
   <div class="field">
     <%= f.select :collect,[["I want my car delivered",false],["I want to collect My Car",true]] %>

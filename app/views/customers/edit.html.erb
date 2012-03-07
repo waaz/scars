@@ -1,0 +1,7 @@
+<h1>Link Account</h1>
+<%= render 'form' %>
+<% if current_user && current_user.is_admin? %>
+ <%= link_to 'Back', customers_url %>
+<% else %>
+ <%= link_to 'Home', root_url %>
+<% end %>

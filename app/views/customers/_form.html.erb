@@ -9,10 +9,12 @@
    </ul>
   </div>
  <% end %>
+ <% if @customer.id != nil %>
  <div class="field">
-  <%= f.label :user_id, "Customer ID:" %>
+  <%= f.label :customer_id, "Customer ID:" %>
   <%= @customer.id %><br/>
  </div>
+ <% end %>
  <div class="field">
   <%= f.label :user_id, "User ID:" %>
   <%= f.text_field :user_id %><br/>

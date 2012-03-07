@@ -1,4 +1,17 @@
 class CustomersController < ApplicationController
+ def new
+   @customer = Customer.new
+ end
+
+ def create
+  @customer = Customer.new(params[:customer])
+  if @customer.save
+	redirect_to customers_url
+  else
+	render 'new'
+  end
+ end
+ 
 def index
   if current_user && current_user.is_admin?
    @customers = Customer.all
@@ -36,6 +49,16 @@ def index
    redirect_to customers_url, notice: 'Details were successfully updated.'
   else
    render action: "edit"
+  end
+ end
+ 
+ def destroy
+   if current_user && current_user.is_admin?
+    @customer = Customer.find(params[:id])
+	@customer.destroy
+    redirect_to customers_url
+  else
+   redirect_to root_url, notice: "Unauthorised!" 
   end
  end
 end

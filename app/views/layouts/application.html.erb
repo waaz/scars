@@ -47,8 +47,23 @@
 	 </footer>
 	</div>
    </body>
-   
-   <script>
+
+    <script language="JavaScript" type="text/javascript">
+        window.onload = function(){
+            new JsDatePick({
+                useMode:2,
+                target:"dorInput",
+                dateFormat:"%Y-%m-%d",
+                yearsRange:[2012,2014]
+            });
+            new JsDatePick({
+             useMode:2,
+             target:"dodInput",
+             dateFormat:"%Y-%m-%d",
+             yearsRange:[2012,2014]
+             });
+        };
+
    function myFunction(){
    var drop = document.getElementById('login_dropdown');
    var arrow = document.getElementById('Arrow');

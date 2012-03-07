@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :date_of_departure, "Departure date:" %>
-    <div id = "dod"><%= f.text_field :date_of_departure %></div>
+    <div id = "dod"><%= f.text_field :date_of_departure, :id=>"dodInput" %></div>
   </div>
   <div class="field">
     <%= f.label :date_of_arrival, "Return date:" %>
-    <div id = "dor"><%= f.text_field :date_of_arrival %></div>
+    <div id = "dor"><%= f.text_field :date_of_arrival, :id=>"dorInput" %></div>
   </div>
   
   <div class="field">
@@ -33,7 +33,7 @@
   <div class="field">
 	<%= f.label :booking_postcode, "PostCode:"%>
 	<%= f.text_field :booking_postcode, :size =>7%><br/>
-  </div>
+  </div><br/>
   
   <div class="field">
 	<%= f.label :promocode, "Promocode:"%>

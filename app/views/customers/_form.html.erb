@@ -10,12 +10,20 @@
   </div>
  <% end %>
  <div class="field">
-  <%= f.label :first_name, "First Name:" %>
-  <%= f.text_field :first_name%><br/>
+  <%= f.label :user_id, "Customer ID:" %>
+  <%= @customer.id %><br/>
  </div>
  <div class="field">
-  <%= f.label :last_name, "Last Name: " %>
-  <%= f.text_field :last_name %><br/><br/>
+  <%= f.label :user_id, "User ID:" %>
+  <%= f.text_field :user_id %><br/>
+ </div>
+ <div class="field">
+  <%= f.label :first_name, "First Name:" %>
+  <%= f.text_field :first_name %><br/>
+ </div>
+ <div class="field">
+  <%= f.label :last_name, "Last Name:" %>
+  <%= f.text_field :last_name %><br/>
  </div>
  <div class="actions"><%= f.submit %></div>
 <% end %>

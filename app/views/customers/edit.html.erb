@@ -1,3 +1,7 @@
-<h1>Editing Customer</h1>
+<h1>Link Account</h1>
 <%= render 'form' %>
-<%= link_to 'Back', @user %>
+<% if current_user && current_user.is_admin? %>
+ <%= link_to 'Back', customers_url %>
+<% else %>
+ <%= link_to 'Home', root_url %>
+<% end %>

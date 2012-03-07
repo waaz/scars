@@ -1,0 +1,7 @@
+<h1>Customer Details:</h1>
+<p>Customer ID: <%= @customer.id %></p>
+<p>User ID:  <%= @customer.user_id %></p>
+<p>First Name: <%= @customer.first_name %>
+<p>Last Name: <%= @customer.last_name %>
+<p><%= link_to 'Edit Details', edit_customer_path(@customer.id) %></p>
+

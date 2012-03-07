@@ -1,4 +1,4 @@
-<h1>Account Details:</h1>
+<h1>User Details:</h1>
 <p>User ID: <%= @user.id %></p>
 <p>Email:  <%= @user.email %></p>
 
@@ -10,6 +10,6 @@
 
 <% if @user.is_admin %>
  <p>User is Administrator</p>
-<% else %>
- <p><%= link_to 'Update Details', edit_user_path %></p>
 <% end %>
+<p><%= link_to 'Edit Details', edit_user_path(@user.id) %></p>
+

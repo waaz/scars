@@ -9,7 +9,7 @@
    </ul>
   </div>
  <% end %>
- <% if @user.email %>
+ <% if @user.email && current_user %>
   <%= f.label :email, "Email: " %>
   <%= @user.email %><br/>
  <% else %>
@@ -38,7 +38,7 @@
 	 </div>
 	 <div>
 	  <%= c.label :last_name, "First Name: " %>
-	  <%= c.text_field :last_name%>
+	  <%= c.text_field :last_name %>
 	 </div>
 	 <% end %>
  <% end %>

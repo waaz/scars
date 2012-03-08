@@ -42,7 +42,6 @@ header
 	margin-bottom: 0px;
 	border-bottom-color:#78affb;
 	border-bottom:solid 3px;
-	padding
 }
 #header li a:hover{
   color:#136BE4;
@@ -110,7 +109,6 @@ aside
 article
 {
 	width: 700px;
-	height: 400px;
 	display: inline-block;
 	/*border: 2px solid #000000;*/
 }
@@ -149,6 +147,13 @@ article
 #Arrow
 {
 	padding-left: 5px;
+}
+
+.error
+{
+    font-size: 0.7em;
+    color: #900;
+    background-color : #ffff00;
 }
 
 /*#Line

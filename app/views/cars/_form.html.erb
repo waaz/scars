@@ -20,8 +20,8 @@
     <%= f.text_field :model %>
   </div>
   <div class="field">
-    <%= f.label :car_class_id %><br />
-    <%= f.text_field :car_class_id %>
+    <%= f.label :car_class_id, "Car class:" %>
+    <%= f.collection_select(:car_class_id, CarClass.all, :id, :car_class_name) %>
   </div>
   <div class="field">
     <%= f.label :status %><br />

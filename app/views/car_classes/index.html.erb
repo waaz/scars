@@ -10,7 +10,7 @@
 
 <% @car_classes.each do |car_class| %>
   <tr>
-    <td><%= car_class.class_name %></td>
+    <td><%= car_class.car_class_name %></td>
     <td><%= link_to 'Show', car_class %></td>
     <td><%= link_to 'Edit', edit_car_class_path(car_class) %></td>
     <td><%= link_to 'Destroy', car_class, confirm: 'Are you sure?', method: :delete %></td>

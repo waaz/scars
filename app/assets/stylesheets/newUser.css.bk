@@ -1,0 +1,32 @@
+form{
+border:solid;
+border-color:#78AFFB;
+border-radius: 5px;
+padding:5px;
+width:400px;
+}
+
+form label{
+font-weight:bold;
+text-align:right;
+width:140px;
+float:left;
+}
+form input{
+float:left;
+font-size:12px;
+padding:4px 2px;
+border:solid 1px #aacfe4;
+width:200px;
+margin:2px 0px 20px 0px;
+padding:1px;
+}
+form #user_password{
+width:150px;
+}
+form #user_password_confirmation{
+width:150px;
+}
+form #user_is_admin{
+margin-left:2px;
+}

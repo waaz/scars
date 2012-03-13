@@ -22,12 +22,6 @@
   <%= f.label :password, "Password: " %>
   <%= f.password_field :password, :id =>"password" %><br/><br/>
  </div>
-
-    <div class='pwdwidgetdiv' id='thepwddiv'></div>
-    <noscript>
-      <input type='password' name='password' id='password' maxlength="24"/>
-    </noscript>
-
 <div class="field">
   <%= f.label :password_confirmation, "Confirm Password: " %><br/>
   <%= f.password_field :password_confirmation, :id =>"password_confirmation" %>
@@ -49,23 +43,4 @@
 	 <% end %>
  <% end %>
  <div class="actions"><%= f.submit %></div>
-
-
-
-<script language="JavaScript" type="text/javascript">
-    var pwdwidget = new PasswordWidget('thepwddiv','password');
-    pwdwidget.MakePWDWidget();
-
-    var frmvalidator  = new Validator("new_user");
-    frmvalidator.EnableMsgsTogether();
-    frmvalidator.addValidation("email","req","Missing \"Email\"");
-    frmvalidator.addValidation("email","email","Invalid \"Email\"");
-    frmvalidator.addValidation("password","req","Missing \"Password\"");
-    frmvalidator.addValidation("password","minlen=8","The length of \"Password\" must be bigger than 8");
-    frmvalidator.addValidation("password","neelmnt=email","The password should not be same as email");
-    frmvalidator.addValidation("password_confirmation","req","Missing \"Confirm Password\"");
-    frmvalidator.addValidation("password_confirmation","eqelmnt=password","The confirmed password is not same as password");
-
-</script>
-
 <% end %>

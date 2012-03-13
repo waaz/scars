@@ -1,84 +1,53 @@
 class BookingsController < ApplicationController
-  # GET /bookings
-  # GET /bookings.json
   def index
     @bookings = Booking.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @bookings }
-    end
   end
 
-  # GET /bookings/1
-  # GET /bookings/1.json
   def show
     @booking = Booking.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @booking }
-    end
   end
 
-  # GET /bookings/new
-  # GET /bookings/new.json
   def new
     @booking = Booking.new
-	
-
-	
   end
 
-  # GET /bookings/1/edit
   def edit
     @booking = Booking.find(params[:id])
   end
 
-  # POST /bookings
-  # POST /bookings.json
   def create
     @booking = Booking.new(params[:booking])
-
-    respond_to do |format|
-      if @booking.save
-        format.html do
-          redirect_to new_payements_path, notice: 'Booking was successfully created.'
-        end
-        #format.json do
-          #render json: @booking, status: :created, location: @booking
-       # end
-      else
-        format.html { render action: "new" }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
-      end
+	
+	@cars = Car.all
+	
+	@cars.each do |c|
+	 @bookings = Booking.where(:car_id, c.id).where(:date_of_departure => (params[:booking][:date_of_departure].to_date)..(params[:booking][:date_of_arrival].to_date))
+	 if @bookings.empty?
+	  @booking.car_id = c.id
+	  break
+	 end
+	end
+	
+    if @booking.save
+     redirect_to new_payement_url, notice: 'Booking was successfully created.'
+	else
+     render action: "new"
     end
   end
-
-  # PUT /bookings/1
-  # PUT /bookings/1.json
+  
   def update
     @booking = Booking.find(params[:id])
 
-    respond_to do |format|
-      if @booking.update_attributes(params[:booking])
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }      end
+    if @booking.update_attributes(params[:booking])
+     redirect_to @booking, notice: 'Booking was successfully updated.'
+	else
+     render action: "edit"
     end
   end
 
-  # DELETE /bookings/1
-  # DELETE /bookings/1.json
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-
-    respond_to do |format|
-      format.html { redirect_to bookings_url }
-      format.json { head :no_content }
-    end
+    redirect_to bookings_url
   end
 end

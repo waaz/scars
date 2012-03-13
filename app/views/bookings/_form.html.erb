@@ -15,24 +15,40 @@
     <%= f.label :date_of_departure, "Departure date:" %>
     <div id = "dod"><%= f.text_field :date_of_departure, :id=>"dodInput" %></div>
   </div>
+  
   <div class="field">
     <%= f.label :date_of_arrival, "Return date:" %>
     <div id = "dor"><%= f.text_field :date_of_arrival, :id=>"dorInput" %></div>
   </div>
   
   <div class="field">
+    <%= f.label :collect, "Deliver/Collect" %>
     <%= f.select :collect,[["I want my car delivered",false],["I want to collect My Car",true]] %>
   </div>
   
-  
   <div class="field">
-	<%= f.label :booking_address, "Booking Address:"%>
-	<%= f.text_area :booking_address, :id =>"address", :size =>"25x3"%>
+    <%= f.label :car_class, "Car class:" %>
+    <%= f.collection_select(:car_class, CarClass.all, :id, :class_name) %>
   </div>
   
   <div class="field">
-	<%= f.label :booking_postcode, "PostCode:"%>
-	<%= f.text_field :booking_postcode, :id =>"postcode", :size =>7%><br/>
+	<%= f.label :address_one, "Address Line One:"%>
+	<%= f.text_field :address_one, :id =>"address_one", :size =>"25"%>
+  </div>
+  
+  <div class="field">
+	<%= f.label :address_two, "Address Line Two:"%>
+	<%= f.text_field :address_two, :id =>"address_two", :size =>"25"%>
+  </div>
+  
+  <div class="field">
+	<%= f.label :city, "City:"%>
+	<%= f.text_field :city, :id =>"city", :size =>"25"%>
+  </div>
+    
+  <div class="field">
+	<%= f.label :postcode, "PostCode:"%>
+	<%= f.text_field :postcode, :id =>"postcode", :size =>7%><br/>
   </div><br/>
   
   <div class="field">
@@ -68,8 +84,8 @@
     frmvalidator.addValidation("dodInput","req","Missing \"Departure date\"");
     frmvalidator.addValidation("dorInput","req","Missing \"Return date\"");
 
-    frmvalidator.addValidation("address","req","Missing \"Address\"");
-    frmvalidator.addValidation("address","alnum_s","Alphabetic, numeric and space characters only on \"Address\"");
+    frmvalidator.addValidation("address_one","req","Missing \"Address\"");
+    frmvalidator.addValidation("address_one","alnum_s","Alphabetic, numeric and space characters only on \"Address\"");
 
 
     }

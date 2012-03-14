@@ -82,7 +82,6 @@
 
     function DoCustomDateValidation()
     {
-        try {
             var frm = document.forms['bookingForm'];
             var dod = new Date(frm.dodInput.value);
             var dor = new Date(frm.dorInput.value);
@@ -101,11 +100,6 @@
             {
                 return true;
             }
-        }
-        catch(e)
-        {
-            e.message;
-        }
     }
 
     var frmvalidator  = new Validator("bookingForm");
@@ -123,7 +117,10 @@
 
     function DoCustomPostcodeValidation()
     {
-        try {
+        var e = document.getElementById("booking_collect");
+        var method = e.options[e.selectedIndex].value;
+
+        if (method == "false"){
             var frm = document.forms['bookingForm'];
 
             var postCodeValue = frm.postcode.value.replace(/\s/g, "");
@@ -137,25 +134,8 @@
                 return true;
             }
         }
-        catch(e)
-        {
-            e.message;
-        }
     }
-
-    var counter = 0;
-
-    $("#booking_collect").change(function () {
-        var e = document.getElementById("booking_collect");
-        var method = e.options[e.selectedIndex].value;
-
-        if (counter == 0){
-            if (method == "false"){
-            frmvalidator.setAddnlValidationFunction(DoCustomPostcodeValidation);
-                counter = 1;
-            }
-        }
-    });
+    frmvalidator.setAddnlValidationFunction(DoCustomPostcodeValidation);
 
     function carInfo(obj){
         if (obj.value == "none") {

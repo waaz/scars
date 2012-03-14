@@ -51,6 +51,7 @@ class BookingsController < ApplicationController
     if current_user
      @booking = Booking.new(params[:booking])
 	 @cars = Car.where("car_class_id = ?", @booking.car_class)
+
 	
 	@cars.each do |c|
 	 @bookings = Booking.where("car_id = ?", c.id).where("(:start_date >= date_of_departure AND :start_date <= date_of_arrival) OR (:end_date >= date_of_departure AND :end_date <= date_of_arrival)",
@@ -76,6 +77,10 @@ class BookingsController < ApplicationController
   end
  end
   
+<<<<<<< HEAD
+=======
+##
+>>>>>>> 1c4a186427f782c0cc835a3729b483195f770c94
   def update
     @booking = Booking.find(params[:id])
     if current_user
@@ -101,4 +106,9 @@ class BookingsController < ApplicationController
       redirect_to bookings_url, notice: 'Access Denied: Admin Only!!'
     end
   end
+<<<<<<< HEAD
 end
+=======
+
+
+>>>>>>> 1c4a186427f782c0cc835a3729b483195f770c94

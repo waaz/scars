@@ -52,7 +52,7 @@ class BookingsController < ApplicationController
      @booking = Booking.new(params[:booking])
      @cars = Car.all
 	
-<<<<<<< HEAD
+##
 	   @cars.each do |c|
 	    @bookings= Booking.where(:car_id, c.id).where(:date_of_departure => (params[:booking][:date_of_departure].to_date)..(params[:booking][:date_of_arrival].to_date))
 	    if @bookings.empty?
@@ -70,7 +70,7 @@ class BookingsController < ApplicationController
       redirect_to root_url, notice: 'logged in'
     end
 end
-=======
+ ##
 	@cars = Car.where("car_class_id = ?", @booking.car_class)
 	
 	@cars.each do |c|
@@ -94,7 +94,7 @@ end
 	end
   end
   
->>>>>>> 5de0fbe71f159cf1eebd2a08959acac6bd433541
+##
   def update
     @booking = Booking.find(params[:id])
 
@@ -122,4 +122,4 @@ end
     end
   end
 
-end
+

@@ -25,11 +25,11 @@
   
   <div class="field">
     <%= f.label :collect, "Deliver/Collect" %>
-<<<<<<< HEAD
-    <%= f.select :collect,[["I want to collect My Car",false],["I want my car delivered",true]], :id => "deliverySelect" %>
-=======
+
+
+
     <%= f.select :collect,[["",""],["I want my car delivered",false],["I want to collect My Car",true]] %>
->>>>>>> 5de0fbe71f159cf1eebd2a08959acac6bd433541
+
   </div>
   
   <div class="field">
@@ -64,55 +64,40 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-<<<<<<< HEAD
+
  </div><!-- end of addressinfo -->
-<script language="JavaScript" type="text/javascript">
-
-    window.onload = function(){
-
-        $('body').delegate('#booking_collect','change', function(){
-            if($("#booking_collect").val() ==  'false'){
-                $("#addressInfo").hide("slow");
-            }
-            else{
-                $("#addressInfo").show("slow");
-            }
-        });
-
-
-    new JsDatePick({
-    useMode:2,
-    target:"dorInput",
-    dateFormat:"%Y-%m-%d",
-    yearsRange:[2012,2014]
-    });
-    new JsDatePick({
-    useMode:2,
-    target:"dodInput",
-    dateFormat:"%Y/%m/%d",
-    yearsRange:[2012,2014]
-    });
-=======
 <% end %>
 </div>
 <div id="carInfoDiv" style="float:left;border:1px solid red;visibility:hidden;width:250px;height:350px;"></div>
 <script language="JavaScript" type="text/javascript">
 
     window.onload = function(){
-        new JsDatePick({
-            useMode:2,
-            target:"dorInput",
-            dateFormat:"%Y-%m-%d",
-            yearsRange:[2012,2014]
-        });
-        new JsDatePick({
-            useMode:2,
-            target:"dodInput",
-            dateFormat:"%Y/%m/%d",
-            yearsRange:[2012,2014]
-        });
->>>>>>> 5de0fbe71f159cf1eebd2a08959acac6bd433541
+     $('body').delegate('#booking_collect','change', function(){
+      if($("#booking_collect").val() ==  'false'){
+       $("#addressInfo").hide("slow");
+      }
+      else{
+       $("#addressInfo").show("slow");
+      }
+      });
+
+      new JsDatePick({
+       useMode:2,
+       target:"dorInput",
+       dateFormat:"%Y-%m-%d",
+       yearsRange:[2012,2014]
+      });
+      new JsDatePick({
+       useMode:2,
+       target:"dodInput",
+       dateFormat:"%Y/%m/%d",
+       yearsRange:[2012,2014]
+      });
     };
+
+
+
+
 
     function DoCustomDateValidation()
     {

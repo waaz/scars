@@ -12,7 +12,7 @@
 
 <p>
   <b>Class:</b>
-  <%= @car.class %>
+  <%= CarClass.find(@car.car_class_id).car_class_name%>
 </p>
 
 <p>

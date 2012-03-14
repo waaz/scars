@@ -52,6 +52,7 @@ class BookingsController < ApplicationController
      @booking = Booking.new(params[:booking])
      @cars = Car.all
 	
+<<<<<<< HEAD
 	   @cars.each do |c|
 	    @bookings= Booking.where(:car_id, c.id).where(:date_of_departure => (params[:booking][:date_of_departure].to_date)..(params[:booking][:date_of_arrival].to_date))
 	    if @bookings.empty?
@@ -69,6 +70,31 @@ class BookingsController < ApplicationController
       redirect_to root_url, notice: 'logged in'
     end
 end
+=======
+	@cars = Car.where("car_class_id = ?", @booking.car_class)
+	
+	@cars.each do |c|
+	 @bookings = Booking.where("car_id = ?", c.id).where("(:start_date >= date_of_departure AND :start_date <= date_of_arrival) OR (:end_date >= date_of_departure AND :end_date <= date_of_arrival)",
+  {:start_date => @booking.date_of_departure, :end_date => @booking.date_of_arrival})
+	 if @bookings.empty?
+	  @booking.car_id = c.id
+	  break
+	 end
+	end
+	
+	if @booking.car_id == nil
+	 redirect_to new_booking_path, notice: 'Selected car class not available for selected dates.'
+	else
+	
+     if @booking.save
+      redirect_to new_payement_url, notice: 'Booking was successfully created.'
+	 else
+      render action: "new"
+     end
+	end
+  end
+  
+>>>>>>> 5de0fbe71f159cf1eebd2a08959acac6bd433541
   def update
     @booking = Booking.find(params[:id])
 

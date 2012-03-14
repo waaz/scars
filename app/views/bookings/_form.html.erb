@@ -1,3 +1,5 @@
+<div style="float:left;">
+
 <%= form_for(@booking, :html => {:id => 'bookingForm', :onSubmit => "return validate_date_fields();" }) do |f| %>
   <% if @booking.errors.any? %>
     <div id="error_explanation">
@@ -23,12 +25,16 @@
   
   <div class="field">
     <%= f.label :collect, "Deliver/Collect" %>
+<<<<<<< HEAD
     <%= f.select :collect,[["I want to collect My Car",false],["I want my car delivered",true]], :id => "deliverySelect" %>
+=======
+    <%= f.select :collect,[["",""],["I want my car delivered",false],["I want to collect My Car",true]] %>
+>>>>>>> 5de0fbe71f159cf1eebd2a08959acac6bd433541
   </div>
   
   <div class="field">
     <%= f.label :car_class, "Car class:" %>
-    <%= f.collection_select(:car_class, CarClass.all, :id, :class_name) %>
+    <%= f.collection_select(:car_class, CarClass.all, :id, :car_class_name) %>
   </div>
   <div id="addressInfo" style="display: none;">
   <div class="field">
@@ -58,6 +64,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+<<<<<<< HEAD
  </div><!-- end of addressinfo -->
 <script language="JavaScript" type="text/javascript">
 
@@ -85,81 +92,95 @@
     dateFormat:"%Y/%m/%d",
     yearsRange:[2012,2014]
     });
+=======
+<% end %>
+</div>
+<div id="carInfoDiv" style="float:left;border:1px solid red;visibility:hidden;width:250px;height:350px;"></div>
+<script language="JavaScript" type="text/javascript">
+
+    window.onload = function(){
+        new JsDatePick({
+            useMode:2,
+            target:"dorInput",
+            dateFormat:"%Y-%m-%d",
+            yearsRange:[2012,2014]
+        });
+        new JsDatePick({
+            useMode:2,
+            target:"dodInput",
+            dateFormat:"%Y/%m/%d",
+            yearsRange:[2012,2014]
+        });
+>>>>>>> 5de0fbe71f159cf1eebd2a08959acac6bd433541
     };
-
-    try{
-    var frmvalidator  = new Validator("bookingForm");
-    frmvalidator.EnableMsgsTogether();
-    frmvalidator.EnableFocusOnError(false);
-    frmvalidator.addValidation("postcode","req","Missing \"Postcode\"");
-    frmvalidator.addValidation("dodInput","req","Missing \"Departure date\"");
-    frmvalidator.addValidation("dorInput","req","Missing \"Return date\"");
-
-    frmvalidator.addValidation("address_one","req","Missing \"Address\"");
-    frmvalidator.addValidation("address_one","alnum_s","Alphabetic, numeric and space characters only on \"Address\"");
-
-
-    }
-    catch(e)
-    {
-    e.message;
-    }
-
 
     function DoCustomDateValidation()
     {
-    try {
-    var frm = document.forms['bookingForm'];
-    var dod = new Date(frm.dodInput.value);
-    var dor = new Date(frm.dorInput.value);
-    var today = new Date();
+            var frm = document.forms['bookingForm'];
+            var dod = new Date(frm.dodInput.value);
+            var dor = new Date(frm.dorInput.value);
+            var today = new Date();
 
-    if (dod.getYear()>today.getYear() || dod.getMonth()>today.getMonth() || (dod.getMonth()==today.getMonth() && dod.getDate()<today.getDate())){
-    sfm_show_error_msg('Departure date is before today!');
-    return false;
+            if (dod.getYear()>today.getYear() || dod.getMonth()>today.getMonth() || (dod.getMonth()==today.getMonth() && dod.getDate()<today.getDate())){
+                sfm_show_error_msg('Departure date is before today!');
+                return false;
+            }
+            else if(dod.getTime()>dor.getTime())
+            {
+                sfm_show_error_msg('Departure date is before return date!');
+                return false;
+            }
+            else
+            {
+                return true;
+            }
     }
-    else if(dod.getTime()>dor.getTime())
-    {
-    sfm_show_error_msg('Departure date is before return date!');
-    return false;
-    }
-    else
-    {
-    return true;
-    }
-    }
-    catch(e)
-    {
-    e.message;
-    }
-    }
+
+    var frmvalidator  = new Validator("bookingForm");
+    frmvalidator.EnableMsgsTogether();
+    frmvalidator.EnableFocusOnError(false);
+    frmvalidator.addValidation("dodInput","req","Missing \"Departure date\"");
+    frmvalidator.addValidation("dorInput","req","Missing \"Return date\"");
     frmvalidator.setAddnlValidationFunction(DoCustomDateValidation);
+
+    frmvalidator.addValidation("postcode","req","Missing \"Postcode\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
+    frmvalidator.addValidation("city","req","Missing \"City\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
+    frmvalidator.addValidation("city","alpha","Allow only alphabetic characters on \"City\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
+    frmvalidator.addValidation("address_one","req","Missing \"Address\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
+    frmvalidator.addValidation("address_one","alnum_s","Alphabetic, numeric and space characters only on \"Address\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
+
     function DoCustomPostcodeValidation()
     {
-    try {
-    var frm = document.forms['bookingForm'];
+        var e = document.getElementById("booking_collect");
+        var method = e.options[e.selectedIndex].value;
 
-    var postCodeValue = frm.postcode.value.replace(/\s/g, "");
-    postCodeValue = postCodeValue.toUpperCase();
-    var matchPostcode = /^((((A[BL]|B[ABDHLNRSTX]?|C[ABFHMORTVW]|D[ADEGHLNTY]|E[HNX]?|F[KY]|G[LUY]?|H[ADGPRSUX]|I[GMPV]|JE|K[ATWY]|L[ADELNSU]?|M[EKL]?|N[EGNPRW]?|O[LX]|P[AEHLOR]|R[GHM]|S[AEGKLMNOPRSTY]?|T[ADFNQRSW]|UB|W[ADFNRSV]|YO|ZE)[1-9]?[0-9]|((E|N|NW|SE|SW|W)1|EC[1-4]|WC[12])[A-HJKMNPR-Y]|(SW|W)([2-9]|[1-9][0-9])|EC[1-9][0-9])[0-9])[ABD-HJLNP-UW-Z]{2}|GIR0AA)$/.test(postCodeValue);
-    if (!matchPostcode){
-    sfm_show_error_msg('Invalid Postcode!');
-    return false;
-    }
-    else{
-    return true;
-    }
-    }
-    catch(e)
-    {
-    e.message;
-    }
+        if (method == "false"){
+            var frm = document.forms['bookingForm'];
+
+            var postCodeValue = frm.postcode.value.replace(/\s/g, "");
+            postCodeValue = postCodeValue.toUpperCase();
+            var matchPostcode = /^((((A[BL]|B[ABDHLNRSTX]?|C[ABFHMORTVW]|D[ADEGHLNTY]|E[HNX]?|F[KY]|G[LUY]?|H[ADGPRSUX]|I[GMPV]|JE|K[ATWY]|L[ADELNSU]?|M[EKL]?|N[EGNPRW]?|O[LX]|P[AEHLOR]|R[GHM]|S[AEGKLMNOPRSTY]?|T[ADFNQRSW]|UB|W[ADFNRSV]|YO|ZE)[1-9]?[0-9]|((E|N|NW|SE|SW|W)1|EC[1-4]|WC[12])[A-HJKMNPR-Y]|(SW|W)([2-9]|[1-9][0-9])|EC[1-9][0-9])[0-9])[ABD-HJLNP-UW-Z]{2}|GIR0AA)$/.test(postCodeValue);
+            if (!matchPostcode){
+                sfm_show_error_msg('Invalid Postcode!');
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
     }
     frmvalidator.setAddnlValidationFunction(DoCustomPostcodeValidation);
     //$(document).ready(function() {
 
     //});
 
+    function carInfo(obj){
+        if (obj.value == "none") {
+            $("#carInfoDiv").css("visibility","hidden");
+        }
+        else {
+            $("#carInfoDiv").css("visibility","visible");
+            $("#carInfoDiv").html("Car Information<br/>Car Class: "+obj.value);
+        }
+    }
 </script>
-
-<% end %>

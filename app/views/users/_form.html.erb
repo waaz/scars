@@ -44,3 +44,16 @@
  <% end %>
  <div class="actions"><%= f.submit %></div>
 <% end %>
+<script language="JavaScript" type="text/javascript">
+
+    var frmvalidator  = new Validator("new_user");
+    frmvalidator.EnableMsgsTogether();
+    frmvalidator.EnableFocusOnError(false);
+    frmvalidator.addValidation("email","req","Missing \"Email\"");
+    frmvalidator.addValidation("password","req","Missing \"Password\"");
+    frmvalidator.addValidation("password_confirmation","req","Missing \"Confirm Password\"");
+
+    frmvalidator.addValidation("email","email","Invalid \"Email\"");
+    frmvalidator.addValidation("password_confirmation","eqelmnt=password","The confirmed password is not same as password");
+
+</script>

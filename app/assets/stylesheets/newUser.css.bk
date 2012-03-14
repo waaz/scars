@@ -4,7 +4,6 @@ border-color:#78AFFB;
 border-radius: 5px;
 padding:5px;
 width:400px;
-height:auto;
 }
 
 form label{
@@ -22,24 +21,12 @@ width:200px;
 margin:2px 0px 20px 0px;
 padding:1px;
 }
-form #booking_collect{
-margin-left:142px;
+form #user_password{
+width:150px;
 }
-form #booking_booking_postcode{
-margin-bottom: 0px;
+form #user_password_confirmation{
+width:150px;
+}
+form #user_is_admin{
 margin-left:2px;
-width:100px;
-}
-form #booking_promocode{
-width:100px;
-margin-left:2px;
-}
-.actions input{
-display:inline-block;
-width:120px;
-float:right;
-border-radius:100px;
-}
-textarea {
-    resize: none;
 }

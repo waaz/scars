@@ -1,84 +1,99 @@
 class BookingsController < ApplicationController
-  # GET /bookings
-  # GET /bookings.json
   def index
-    @bookings = Booking.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @bookings }
-    end
+   if current_user
+       if current_user.is_admin?
+         @bookings = Booking.all
+       else
+         @bookings = Booking.where("user_id = ?", current_user.id)
+       end
+    else
+     redirect_to :back, notice: 'access denied'
+   end
   end
 
-  # GET /bookings/1
-  # GET /bookings/1.json
   def show
-    @booking = Booking.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @booking }
-    end
-  end
-
-  # GET /bookings/new
-  # GET /bookings/new.json
-  def new
-    @booking = Booking.new
-	
-
-	
-  end
-
-  # GET /bookings/1/edit
-  def edit
-    @booking = Booking.find(params[:id])
-  end
-
-  # POST /bookings
-  # POST /bookings.json
-  def create
-    @booking = Booking.new(params[:booking])
-
-    respond_to do |format|
-      if @booking.save
-        format.html do
-          redirect_to :controller => 'payements', :action => 'create', notice: 'Booking was successfully created.'
-        end
-        #format.json do
-          #render json: @booking, status: :created, location: @booking
-       # end
+    if current_user
+      if current_user.is_admin || current_user.id == params[:id]
+        @bookings = Booking.find(params[:id])
       else
-        format.html { render action: "new" }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
+        redirect_to :back, notice: 'access denied.'
       end
+    else
+      redirect_to :back, notice: 'must be logged in'
     end
   end
 
-  # PUT /bookings/1
-  # PUT /bookings/1.json
+  def new
+   if current_user
+     @booking = Booking.new
+
+   else
+     redirect_to root_url, notice: 'Must be logged in to create booking.'
+   end
+  end
+
+  def edit
+    @bookings = Booking.find(params[:id])
+    if current_user
+      if current_user.is_admin? || current_user.id == @bookings.user_id
+       @booking = Booking.find(params[:id])
+      else
+       redirect_to root_url, notice: 'Not Authorized: must be admin.'
+      end
+    else
+      redirect_to new_user_path
+    end
+  end
+
+  def create
+    if current_user
+     @booking = Booking.new(params[:booking])
+     @cars = Car.all
+	
+	   @cars.each do |c|
+	    @bookings= Booking.where(:car_id, c.id).where(:date_of_departure => (params[:booking][:date_of_departure].to_date)..(params[:booking][:date_of_arrival].to_date))
+	    if @bookings.empty?
+	     @booking.car_id = c.id
+	     break
+	    end
+	   end
+	   @booking.user_id = current_user.id
+     if @booking.save
+      redirect_to new_payement_url, notice: 'Booking was successfully created.'
+	   else
+      render action: "new"
+     end
+    else
+      redirect_to root_url, notice: 'logged in'
+    end
+end
   def update
     @booking = Booking.find(params[:id])
 
-    respond_to do |format|
+    if current_user
+     if  current_user.id == @booking.user_id || current_user.is_admin
       if @booking.update_attributes(params[:booking])
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }      end
+       redirect_to @booking, notice: 'Booking was successfully updated.'
+	    else
+       render action: "edit"
+      end
+     else
+      redirect_to :back, notice: 'access denied'
+     end
+    else
+      redirect_to :back,notice: 'must be logged in'
     end
   end
-
-  # DELETE /bookings/1
-  # DELETE /bookings/1.json
   def destroy
-    @booking = Booking.find(params[:id])
-    @booking.destroy
-
-    respond_to do |format|
-      format.html { redirect_to bookings_url }
-      format.json { head :no_content }
+    if current_user && current_user.is_admin?
+     @booking = Booking.find(params[:id])
+     @booking.destroy
+     redirect_to bookings_url
+    else
+      redirect_to bookings_url, notice: 'Access Denied: Admin Only!!'
     end
   end
+
 end

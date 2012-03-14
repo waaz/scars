@@ -4,7 +4,6 @@ border-color:#78AFFB;
 border-radius: 5px;
 padding:5px;
 width:400px;
-height:auto;
 }
 
 form label{

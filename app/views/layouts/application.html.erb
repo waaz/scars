@@ -14,14 +14,14 @@
 	   <% if current_user %>
         <p>Logged in as <%= current_user.email %>.</p>
         <%= link_to "Logout", "/logout" %>
-        <% else %>
+       <% else %>
         <ul>
          <li id="main_login"><a href="#" onclick=myFunction();>Login<%= image_tag("arrow_down.png", :alt => "Arrow Down", :id => "Arrow") %></a></li>
 		</ul>
-       <% end %>
-	   <div id="login_dropdown">
+		<div id="login_dropdown">
 			<%= render partial: "sessions/new" %>
         </div>
+       <% end %>	   
 	  </header>
 	 <div id="main_nav">
 	  <nav>
@@ -36,6 +36,7 @@
 	 <section>
 	  <article>
 	   <%= yield %>
+       <div style="clear:both;"></div>
 	  </article>
 	  <aside>
 	   <h1>New Offer </h1>

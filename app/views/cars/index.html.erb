@@ -5,8 +5,7 @@
     <th>Reg</th>
     <th>Model</th>
     <th>Class</th>
-    <th>Repair</th>
-    <th>Booking</th>
+    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,9 +15,8 @@
   <tr>
     <td><%= car.reg %></td>
     <td><%= car.model %></td>
-    <td><%= car.class %></td>
-    <td><%= car.repair %></td>
-    <td><%= car.booking_id %></td>
+    <td><%= car.car_class %></td>
+    <td><%= car.status %></td>
     <td><%= link_to 'Show', car %></td>
     <td><%= link_to 'Edit', edit_car_path(car) %></td>
     <td><%= link_to 'Destroy', car, confirm: 'Are you sure?', method: :delete %></td>

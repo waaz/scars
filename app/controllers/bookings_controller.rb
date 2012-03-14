@@ -76,11 +76,7 @@ class BookingsController < ApplicationController
    end
   end
  end
-  
-<<<<<<< HEAD
-=======
-##
->>>>>>> 1c4a186427f782c0cc835a3729b483195f770c94
+
   def update
     @booking = Booking.find(params[:id])
     if current_user
@@ -106,9 +102,5 @@ class BookingsController < ApplicationController
       redirect_to bookings_url, notice: 'Access Denied: Admin Only!!'
     end
   end
-<<<<<<< HEAD
 end
-=======
 
-
->>>>>>> 1c4a186427f782c0cc835a3729b483195f770c94

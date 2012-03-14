@@ -28,7 +28,7 @@
 
 
 
-    <%= f.select :collect,[["",""],["I want my car delivered",false],["I want to collect My Car",true]] %>
+    <%= f.select :collect,[["",0],["I want my car delivered",false],["I want to collect My Car",true]] %>
 
   </div>
   
@@ -56,7 +56,8 @@
 	<%= f.label :postcode, "PostCode:"%>
 	<%= f.text_field :postcode, :id =>"postcode", :size =>7%><br/>
   </div><br/>
-  
+  </div><!-- end of addressinfo -->
+
   <div class="field">
 	<%= f.label :promocode, "Promocode:"%>
 	<%= f.text_field :promocode%><br/>
@@ -65,7 +66,6 @@
     <%= f.submit %>
   </div>
 
- </div><!-- end of addressinfo -->
 <% end %>
 </div>
 <div id="carInfoDiv" style="float:left;border:1px solid red;visibility:hidden;width:250px;height:350px;"></div>
@@ -74,10 +74,10 @@
     window.onload = function(){
      $('body').delegate('#booking_collect','change', function(){
       if($("#booking_collect").val() ==  'false'){
-       $("#addressInfo").hide("slow");
+       $("#addressInfo").show("slow");
       }
       else{
-       $("#addressInfo").show("slow");
+       $("#addressInfo").hide("slow");
       }
       });
 
@@ -95,10 +95,6 @@
       });
     };
 
-
-
-
-
     function DoCustomDateValidation()
     {
             var frm = document.forms['bookingForm'];
@@ -106,7 +102,7 @@
             var dor = new Date(frm.dorInput.value);
             var today = new Date();
 
-            if (dod.getYear()>today.getYear() || dod.getMonth()>today.getMonth() || (dod.getMonth()==today.getMonth() && dod.getDate()<today.getDate())){
+            if (dod.getYear()<today.getYear() || dod.getMonth()<today.getMonth() || (dod.getMonth()==today.getMonth() && dod.getDate()<today.getDate())){
                 sfm_show_error_msg('Departure date is before today!');
                 return false;
             }
@@ -127,7 +123,7 @@
     frmvalidator.addValidation("dodInput","req","Missing \"Departure date\"");
     frmvalidator.addValidation("dorInput","req","Missing \"Return date\"");
     frmvalidator.setAddnlValidationFunction(DoCustomDateValidation);
-
+    frmvalidator.addValidation("booking_collect","dontselect=0","Missing \"Collection Method\"");
     frmvalidator.addValidation("postcode","req","Missing \"Postcode\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
     frmvalidator.addValidation("city","req","Missing \"City\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
     frmvalidator.addValidation("city","alpha","Allow only alphabetic characters on \"City\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");

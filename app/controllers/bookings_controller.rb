@@ -74,6 +74,7 @@ class BookingsController < ApplicationController
    end
   end
 
+
   def update
     @booking = Booking.find(params[:id])
     if current_user

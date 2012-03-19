@@ -1,20 +1,33 @@
 class PayementsController < ApplicationController
-
+  before_filter do
+    @booking = Booking.find_by_id(params[:booking_id])
+  end
   def index
-    @payements = Payement.all
+    if current_user.is_admin?
+      @payements = Payement.all
+    end
+    if current_user
+      @payements = Payement.where("booking_id = ?", @booking.id)
+    else
+       redirect_to root_url, :notice => "must be logged in to view payments"
+    end
   end
 
   def show
-    @payement = Payement.find(params[:id])
+    @payement = @booking.payements.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @payement }
+    end
   end
 
   def new
-    @booking = Booking.find_by_id(params[:booking_id])
     @payement = @booking.payements.build
-end
+  end
 
   def edit
-    @payement = Payement.find(params[:id])
+    @payement = @booking.payements.find(params[:id])
   end
   def create
     @payement = Payement.new(params[:payement])
@@ -30,7 +43,7 @@ end
     @payement = Payement.find(params[:id])
 
     if @payement.update_attributes(params[:payement])
-     redirect_to @payement, notice: 'Payement was successfully updated.'
+     redirect_to booking_payement_url(@payement.booking_id), notice: 'Payement was successfully updated.'
     else
      render action: "edit"
     end
@@ -41,4 +54,5 @@ end
     @payement.destroy
     redirect_to payements_url
   end
+
 end

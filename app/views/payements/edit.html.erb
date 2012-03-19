@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @payement %> |
-<%= link_to 'Back', payements_path %>
+<%= link_to 'Show', booking_payements_path(@payement.id) %> |
+<%= link_to 'Back', booking_payements_path(@booking) %>

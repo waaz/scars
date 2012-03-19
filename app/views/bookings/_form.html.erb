@@ -34,8 +34,8 @@
   
   <div class="field">
     <%= f.label :car_class, "Car class:" %>
-    <%= f.collection_select(:car_class, CarClass.all, :id, :car_class_name) %>
-  </div>
+    <%= f.collection_select(:car_class, CarClass.all, :id, :car_class_name, :onchange => 'carInfo(this.value)') %>
+      </div>
   <div id="addressInfo" style="display: none;">
   <div class="field">
 	<%= f.label :address_one, "Address Line One:"%>
@@ -61,19 +61,27 @@
 	<%= f.label :promocode, "Promocode:"%>
 	<%= f.text_field :promocode%><br/>
   </div>
+  </div><!-- end of addressinfo -->
   <div class="actions">
     <%= f.submit %>
   </div>
 
- </div><!-- end of addressinfo -->
+
 <% end %>
 </div>
-<div id="carInfoDiv" style="float:left;border:1px solid red;visibility:hidden;width:250px;height:350px;"></div>
+<div id="carInfoDiv" style="float:left;border:1px solid red;visibility:hidden;width:250px;height:350px;">
+
+</div>
 <script language="JavaScript" type="text/javascript">
 
     window.onload = function(){
+
+     //$('#booking_car_class').onchange(function()){
+       //    $post($(this).value, $this.serialize()
+       // }
+       //
      $('body').delegate('#booking_collect','change', function(){
-      if($("#booking_collect").val() ==  'false'){
+      if($("#booking_collect").val() ==  'true'){
        $("#addressInfo").hide("slow");
       }
       else{
@@ -160,12 +168,14 @@
     //});
 
     function carInfo(obj){
-        if (obj.value == "none") {
+        console.log('test');
+        if (obj.value == "") {
             $("#carInfoDiv").css("visibility","hidden");
         }
         else {
             $("#carInfoDiv").css("visibility","visible");
-            $("#carInfoDiv").html("Car Information<br/>Car Class: "+obj.value);
+            //$("#carInfoDiv").html("Car Information<br/>Car Class: "+obj.value);
+
         }
     }
 </script>

@@ -9,18 +9,18 @@ class PayementsController < ApplicationController
   end
 
   def new
-    @payement = Payement.new
-  end
+    @booking = Booking.find_by_id(params[:booking_id])
+    @payement = @booking.payements.build
+end
 
   def edit
     @payement = Payement.find(params[:id])
   end
-
   def create
     @payement = Payement.new(params[:payement])
-
+    @payement.booking_id = params[:booking_id]
     if @payement.save
-     redirect_to @payement, notice: 'Payement was successfully created.'
+     redirect_to root_url, notice: 'Payement was successfully created.'
     else
      render action: "new"
     end

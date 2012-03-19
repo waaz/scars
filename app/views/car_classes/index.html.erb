@@ -10,12 +10,12 @@
 
 <% @car_classes.each do |car_class| %>
   <tr>
-<<<<<<< HEAD
+
     <td><%= car_class.id%></td>
-    <td><%= car_class.class_name %></td>
-=======
     <td><%= car_class.car_class_name %></td>
->>>>>>> 5de0fbe71f159cf1eebd2a08959acac6bd433541
+    <td><%= car_class.description%></td>
+    <td><%= car_class.tarrif %></td>
+    <td><%= image_tag(car_class.image_url) %></td>
     <td><%= link_to 'Show', car_class %></td>
     <td><%= link_to 'Edit', edit_car_class_path(car_class) %></td>
     <td><%= link_to 'Destroy', car_class, confirm: 'Are you sure?', method: :delete %></td>

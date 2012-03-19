@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
          @bookings = Booking.where("user_id = ?", current_user.id)
        end
     else
-     redirect_to :back, notice: 'access denied'
+     redirect_to root_url, notice: 'access denied'
    end
   end
 
@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
 
     if current_user
       if current_user.is_admin || current_user.id == params[:id]
-        @bookings = Booking.find(params[:id])
+        @booking = Booking.find(params[:id])
       else
         redirect_to :back, notice: 'access denied.'
       end
@@ -48,39 +48,32 @@ class BookingsController < ApplicationController
   end
 
   def create
-    if current_user
-     @booking = Booking.new(params[:booking])
-	 @cars = Car.where("car_class_id = ?", @booking.car_class)
+   if current_user
+    @booking = Booking.new(params[:booking])
+	  @cars = Car.where("car_class_id = ?", @booking.car_class)
 
+    @cars.each do |c|
+	   @bookings = Booking.where("car_id = ?", c.id).where("(:start_date >= date_of_departure AND :start_date <= date_of_arrival) OR (:end_date >= date_of_departure AND :end_date <= date_of_arrival)",
+      {:start_date => @booking.date_of_departure, :end_date => @booking.date_of_arrival})
+	   if @bookings.empty?
+	    @booking.car_id = c.id
+	    break
+	   end
+	  end
 	
-	@cars.each do |c|
-	 @bookings = Booking.where("car_id = ?", c.id).where("(:start_date >= date_of_departure AND :start_date <= date_of_arrival) OR (:end_date >= date_of_departure AND :end_date <= date_of_arrival)",
-  {:start_date => @booking.date_of_departure, :end_date => @booking.date_of_arrival})
-	 if @bookings.empty?
-	  @booking.car_id = c.id
-	  break
-	 end
-	end
-	
-	if @booking.car_id == nil
-	 redirect_to new_booking_path, notice: 'Selected car class not available for selected dates.'
-	else
-	
-	@booking.user_id = current_user.id
-	
-    if @booking.save
-     redirect_to new_payement_url, notice: 'Booking was successfully created.'
-	else
-     render action: "new"
+	  if @booking.car_id == nil
+      redirect_to new_booking_path, notice: 'Selected car class not available for selected dates.'
+	  else
+	   @booking.user_id = current_user.id
+     if @booking.save
+      redirect_to new_booking_payement_path(@booking.id)
+	   else
+      render action: "new"
+     end
     end
    end
   end
- end
-  
-<<<<<<< HEAD
-=======
-##
->>>>>>> 1c4a186427f782c0cc835a3729b483195f770c94
+
   def update
     @booking = Booking.find(params[:id])
     if current_user
@@ -106,9 +99,5 @@ class BookingsController < ApplicationController
       redirect_to bookings_url, notice: 'Access Denied: Admin Only!!'
     end
   end
-<<<<<<< HEAD
 end
-=======
 
-
->>>>>>> 1c4a186427f782c0cc835a3729b483195f770c94

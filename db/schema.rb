@@ -40,10 +40,6 @@ ActiveRecord::Schema.define(:version => 20120305134908) do
     t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
-	t.string   "address_one"
-	t.string   "address_two"
-	t.string   "city"
-	t.string   "postcode"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -66,4 +62,5 @@ ActiveRecord::Schema.define(:version => 20120305134908) do
     t.datetime "updated_at",      :null => false
     t.boolean  "is_admin"
   end
+
 end

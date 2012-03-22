@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  payement_id: 1
+  ip_address_string: MyString
+  first_name: MyString
+  last_name: MyString
+  card_type: 
+  billing_address_line_1: MyString
+  billing_address_line_2: 
+
+two:
+  payement_id: 1
+  ip_address_string: MyString
+  first_name: MyString
+  last_name: MyString
+  card_type: 
+  billing_address_line_1: MyString
+  billing_address_line_2: 

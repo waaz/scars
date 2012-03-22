@@ -34,4 +34,14 @@ Scars::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+        :login => "ryanvi_1332202965_biz_api1.bigstring.com",
+        :password => "	1332203002",
+        :signature => "AKPG13-SsS.WiNbMATqrNZQcXA9nA4JOJfDYQbOElqJt0MzzHq0gYCqt"
+    )
+  end
+
 end

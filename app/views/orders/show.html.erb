@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Payement:</b>
+  <%= @order.payement_id %>
+</p>
+
+<p>
+  <b>Ip address string:</b>
+  <%= @order.ip_address_string %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%= @order.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @order.last_name %>
+</p>
+
+<p>
+  <b>Card type:</b>
+  <%= @order.card_type %>
+</p>
+
+<p>
+  <b>Billing address line 1:</b>
+  <%= @order.billing_address_line_1 %>
+</p>
+
+<p>
+  <b>Billing address line 2:</b>
+  <%= @order.billing_address_line_2 %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

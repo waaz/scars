@@ -1,6 +1,8 @@
 class PayementsController < ApplicationController
   before_filter do
     @booking = Booking.find_by_id(params[:booking_id])
+    @car= Car.find_by_id(@booking.car_id)
+    @car_class = CarClass.find_by_id(@car.car_class_id)
   end
   def index
     if current_user.is_admin?
@@ -24,6 +26,7 @@ class PayementsController < ApplicationController
 
   def new
     @payement = @booking.payements.build
+
   end
 
   def edit
@@ -33,7 +36,7 @@ class PayementsController < ApplicationController
     @payement = Payement.new(params[:payement])
     @payement.booking_id = params[:booking_id]
     if @payement.save
-     redirect_to root_url, notice: 'Payement was successfully created.'
+     redirect_to new_order_path, notice: 'Payement was successfully created.'
     else
      render action: "new"
     end

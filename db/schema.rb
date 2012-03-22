@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120314132619) do
+ActiveRecord::Schema.define(:version => 20120320144423) do
 
   create_table "bookings", :force => true do |t|
     t.datetime "date_of_departure"
@@ -60,6 +60,20 @@ ActiveRecord::Schema.define(:version => 20120314132619) do
   end
 
   add_index "customers", ["user_id"], :name => "index_customers_on_user_id"
+
+  create_table "orders", :force => true do |t|
+    t.integer  "payement_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "card_type"
+    t.string   "billing_address_line_1"
+    t.string   "billing_address_line_2"
+    t.string   "billing_postcode"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.date     "card_expires_on"
+    t.string   "ip_address"
+  end
 
   create_table "payements", :force => true do |t|
     t.integer  "amount"

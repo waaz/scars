@@ -40,3 +40,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'date_validator'
 
 gem 'going_postal'
+
+gem 'activemerchant'

@@ -1,6 +1,13 @@
+<% @tariff = @car_class.tarrif%> <br/>
+<%= (@booking.date_of_arrival)%> <br/>
+<%= (@booking.date_of_departure)%><br/>
+<% @daysOfRental = (((@booking.date_of_arrival) - (@booking.date_of_departure)).to_i) / 60 / 60 / 24%>
+<% @fullCost = @daysOfRental*@tariff%>
 <h1>New payement</h1>
+
 <div id="paymentInfo">
-test
+Cost of Rental = <b><%= @fullCost %></b><br/>
+Deposit = <b><%= @fullCost*0.1 %></b><br/>
 </div>
 <div id=paymentOptions>
  <%= render 'form' %>

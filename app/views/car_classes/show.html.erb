@@ -1,25 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+   <%= @tarrif%>
 <p>
-  <b>Class type:</b>
-  <%= @car_class.class_type %>
+  <%= render 'show_car'  %>>
 </p>
-
-<p>
-  <b>Description:</b>
-  <%= @car_class.description %>
-</p>
-
-<p>
-  <b>Image url:</b>
-  <%= @car_class.image_url %>
-</p>
-
-<p>
-  <b>Class cost:</b>
-  <%= @car_class.class_cost %>
-</p>
-
 
 <%= link_to 'Edit', edit_car_class_path(@car_class) %> |
 <%= link_to 'Back', car_classes_path %>

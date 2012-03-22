@@ -5,8 +5,7 @@
     <th>Reg</th>
     <th>Model</th>
     <th>Class</th>
-    <th>Repair</th>
-    <th>Booking</th>
+    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,9 +15,12 @@
   <tr>
     <td><%= car.reg %></td>
     <td><%= car.model %></td>
-    <td><%= car.class %></td>
-    <td><%= car.repair %></td>
-    <td><%= car.booking_id %></td>
+<<<<<<< HEAD
+    <td><%= car.car_class %></td>
+=======
+    <td><%= CarClass.find(car.car_class_id).car_class_name %></td>
+>>>>>>> 5de0fbe71f159cf1eebd2a08959acac6bd433541
+    <td><%= car.status %></td>
     <td><%= link_to 'Show', car %></td>
     <td><%= link_to 'Edit', edit_car_path(car) %></td>
     <td><%= link_to 'Destroy', car, confirm: 'Are you sure?', method: :delete %></td>
@@ -28,4 +30,4 @@
 
 <br />
 
-<%= link_to 'New Car', new_car_path %>
+	<%= link_to 'New Car', new_car_path %>

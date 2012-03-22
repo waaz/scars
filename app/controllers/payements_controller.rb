@@ -1,83 +1,58 @@
 class PayementsController < ApplicationController
-  # GET /payements
-  # GET /payements.json
+  before_filter do
+    @booking = Booking.find_by_id(params[:booking_id])
+  end
   def index
-    @payements = Payement.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @payements }
+    if current_user.is_admin?
+      @payements = Payement.all
+    end
+    if current_user
+      @payements = Payement.where("booking_id = ?", @booking.id)
+    else
+       redirect_to root_url, :notice => "must be logged in to view payments"
     end
   end
 
-  # GET /payements/1
-  # GET /payements/1.json
   def show
-    @payement = Payement.find(params[:id])
+    @payement = @booking.payements.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @payement }
+      format.xml  { render :xml => @payement }
     end
   end
 
-  # GET /payements/new
-  # GET /payements/new.json
   def new
-    @payement = Payement.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @payement }
-    end
+    @payement = @booking.payements.build
   end
 
-  # GET /payements/1/edit
   def edit
-    @payement = Payement.find(params[:id])
+    @payement = @booking.payements.find(params[:id])
   end
-
-  # POST /payements
-  # POST /payements.json
   def create
     @payement = Payement.new(params[:payement])
-
-    respond_to do |format|
-      if @payement.save
-        format.html { redirect_to @payement, notice: 'Payement was successfully created.' }
-        format.json { render json: @payement, status: :created, location: @payement }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @payement.errors, status: :unprocessable_entity }
-      end
+    @payement.booking_id = params[:booking_id]
+    if @payement.save
+     redirect_to root_url, notice: 'Payement was successfully created.'
+    else
+     render action: "new"
     end
   end
 
-  # PUT /payements/1
-  # PUT /payements/1.json
   def update
     @payement = Payement.find(params[:id])
 
-    respond_to do |format|
-      if @payement.update_attributes(params[:payement])
-        format.html { redirect_to @payement, notice: 'Payement was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @payement.errors, status: :unprocessable_entity }
-      end
+    if @payement.update_attributes(params[:payement])
+     redirect_to booking_payement_url(@payement.booking_id), notice: 'Payement was successfully updated.'
+    else
+     render action: "edit"
     end
   end
 
-  # DELETE /payements/1
-  # DELETE /payements/1.json
   def destroy
     @payement = Payement.find(params[:id])
     @payement.destroy
-
-    respond_to do |format|
-      format.html { redirect_to payements_url }
-      format.json { head :no_content }
-    end
+    redirect_to payements_url
   end
+
 end

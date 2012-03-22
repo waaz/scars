@@ -1,6 +1,5 @@
 Scars::Application.routes.draw do
  resources :car_classes
- resources :payements
 
  get "login" => "sessions#new", :as => "login"
  get "logout" => "sessions#destroy", :as => "logout"
@@ -11,5 +10,7 @@ Scars::Application.routes.draw do
  resources :customers
  resources :sessions
  resources :cars
- resources :bookings
+ resources :bookings do
+   resources :payements
+ end
 end

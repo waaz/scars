@@ -12,19 +12,13 @@
 
 <p>
   <b>Class:</b>
-  <%= @car.class %>
+  <%= CarClass.find(@car.car_class_id).car_class_name%>
 </p>
 
 <p>
-  <b>Repair:</b>
-  <%= @car.repair %>
+  <b>Status:</b>
+  <%= @car.status %>
 </p>
-
-<p>
-  <b>Booking:</b>
-  <%= @car.booking_id %>
-</p>
-
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>

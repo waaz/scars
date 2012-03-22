@@ -1,83 +1,69 @@
 class CarsController < ApplicationController
-  # GET /cars
-  # GET /cars.json
   def index
+   if current_user && current_user.is_admin?
     @cars = Car.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @cars }
-    end
+   else
+    redirect_to root_url, notice: 'Must be logged in as admin!'
+   end
   end
-
-  # GET /cars/1
-  # GET /cars/1.json
+  
   def show
+   if current_user && current_user.is_admin?
     @car = Car.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @car }
-    end
+   else
+    redirect_to root_url, notice: 'Must be logged in as admin!'
+   end
   end
 
-  # GET /cars/new
-  # GET /cars/new.json
   def new
+   if current_user && current_user.is_admin?
     @car = Car.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @car }
-    end
+   else
+    redirect_to root_url, notice: 'Must be logged in as admin!'
+   end
   end
 
-  # GET /cars/1/edit
   def edit
+   if current_user && current_user.is_admin?
     @car = Car.find(params[:id])
+   else
+    redirect_to root_url, notice: 'Must be logged in as admin!'
+   end
   end
 
-  # POST /cars
-  # POST /cars.json
   def create
+   if current_user && current_user.is_admin?
     @car = Car.new(params[:car])
-
-    respond_to do |format|
-      if @car.save
-        format.html { redirect_to @car, notice: 'Car was successfully created.' }
-        format.json { render json: @car, status: :created, location: @car }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @car.errors, status: :unprocessable_entity }
-      end
-    end
+     if @car.save
+      redirect_to @car, notice: 'Car was successfully created.'
+     else
+      render action: "new"
+     end
+	else
+	 redirect_to root_url, notice: 'Must be logged in as admin!'
+	end
   end
 
-  # PUT /cars/1
-  # PUT /cars/1.json
   def update
+   if current_user && current_user.is_admin?
     @car = Car.find(params[:id])
-
-    respond_to do |format|
-      if @car.update_attributes(params[:car])
-        format.html { redirect_to @car, notice: 'Car was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @car.errors, status: :unprocessable_entity }
-      end
+    if @car.update_attributes(params[:car])
+     redirect_to @car, notice: 'Car was successfully updated.'
+    else
+     render action: "edit"
     end
+   else
+    redirect_to root_url, notice: 'Must be logged in as admin!' 
+   end
   end
 
-  # DELETE /cars/1
-  # DELETE /cars/1.json
   def destroy
+   if current_user && current_user.is_admin?
     @car = Car.find(params[:id])
     @car.destroy
-
-    respond_to do |format|
-      format.html { redirect_to cars_url }
-      format.json { head :no_content }
-    end
+    redirect_to cars_url
+   else
+     redirect_to root_url, notice: 'Must be logged in as admin!'
+   end
   end
 end

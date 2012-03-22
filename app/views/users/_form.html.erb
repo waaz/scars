@@ -15,18 +15,18 @@
  <% else %>
  <div class="field">
   <%= f.label :email, "Email: " %>
-  <%= f.text_field :email %><br/>
+  <%= f.text_field :email, :id => "email" %><br/>
  </div>
  <% end %>
  <div class="field">
   <%= f.label :password, "Password: " %>
-  <%= f.password_field :password %><br/><br/>
+  <%= f.password_field :password, :id =>"password" %><br/><br/>
  </div>
- <div>
+<div class="field">
   <%= f.label :password_confirmation, "Confirm Password: " %><br/>
-  <%= f.password_field :password_confirmation %>
+  <%= f.password_field :password_confirmation, :id =>"password_confirmation" %>
  </div>
- <div>
+<div class="field">
   <%= f.label :is_admin, "Admin: " %>
   <%= f.check_box :is_admin, default: false %>
  </div>
@@ -44,3 +44,16 @@
  <% end %>
  <div class="actions"><%= f.submit %></div>
 <% end %>
+<script language="JavaScript" type="text/javascript">
+
+    var frmvalidator  = new Validator("new_user");
+    frmvalidator.EnableMsgsTogether();
+    frmvalidator.EnableFocusOnError(false);
+    frmvalidator.addValidation("email","req","Missing \"Email\"");
+    frmvalidator.addValidation("password","req","Missing \"Password\"");
+    frmvalidator.addValidation("password_confirmation","req","Missing \"Confirm Password\"");
+
+    frmvalidator.addValidation("email","email","Invalid \"Email\"");
+    frmvalidator.addValidation("password_confirmation","eqelmnt=password","The confirmed password is not same as password");
+
+</script>

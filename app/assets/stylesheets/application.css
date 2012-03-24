@@ -87,6 +87,7 @@ aside
 article
 {
 	width: 700px;
+	margin-right: 10px;
 	display: inline-block;
 	/*border: 2px solid #000000;*/
 }

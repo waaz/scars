@@ -1,0 +1,12 @@
+--- 
+cursor_positions: 
+  - :path: app/controllers/application_controller.rb
+    :cursor_offset: 398
+    :timestamp: 2012-03-23 17:30:56.539000 +00:00
+  - :path: app/models/booking.rb
+    :cursor_offset: 0
+    :timestamp: 2012-03-20 14:29:13.108000 +00:00
+  - :path: app/controllers/home_controller.rb
+    :cursor_offset: 175
+    :timestamp: 2012-03-07 13:24:44.429000 +00:00
+files_to_retain: 0

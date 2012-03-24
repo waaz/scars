@@ -25,6 +25,11 @@ class PayementsController < ApplicationController
   end
 
   def new
+
+    @booking_duration = (((@booking.date_of_arrival) - (@booking.date_of_departure)).to_i) / 60 / 60 / 24
+    @total_cost = @booking_duration * @car_class.tarrif
+    @deposit = @total_cost*0.1
+    @final_payment = @total_cost - @deposit
     @payement = @booking.payements.build
 
   end
@@ -34,19 +39,24 @@ class PayementsController < ApplicationController
   end
   def create
     @payement = Payement.new(params[:payement])
-    @payement.booking_id = params[:booking_id]
+    @payement.ip_address = request.remote_ip
     if @payement.save
-     redirect_to new_order_path, notice: 'Payement was successfully created.'
+      if @payement.purchase
+        render :action => "success"
+      else
+        render :action => "failure"
+      end
     else
-     render action: "new"
+      render :action => 'new'
     end
   end
+
 
   def update
     @payement = Payement.find(params[:id])
 
     if @payement.update_attributes(params[:payement])
-     redirect_to booking_payement_url(@payement.booking_id), notice: 'Payement was successfully updated.'
+     redirect_to booking_payement_url(@payement), notice: 'Payement was successfully updated.'
     else
      render action: "edit"
     end

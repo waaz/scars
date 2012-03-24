@@ -38,9 +38,9 @@ Scars::Application.configure do
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
     ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
-        :login => "ryanvi_1332202965_biz_api1.bigstring.com",
-        :password => "	1332203002",
-        :signature => "AKPG13-SsS.WiNbMATqrNZQcXA9nA4JOJfDYQbOElqJt0MzzHq0gYCqt"
+        :login => "testse_1332438982_biz_api1.bigstring.com",
+        :password => "1332439011",
+        :signature => "AbQvbnd565uvsEHiQJD8EJ8kRiHTAZmxrK8X3r.HMk.eEieJoJjREIMQ"
     )
   end
 

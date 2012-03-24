@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120320144423) do
+ActiveRecord::Schema.define(:version => 20120322154424) do
 
   create_table "bookings", :force => true do |t|
     t.datetime "date_of_departure"
@@ -79,8 +79,17 @@ ActiveRecord::Schema.define(:version => 20120320144423) do
     t.integer  "amount"
     t.string   "payement_type"
     t.integer  "booking_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "billing_address_line_1"
+    t.string   "billing_address_line_2"
+    t.string   "billing_postcode"
+    t.date     "expires_on"
+    t.string   "card_type"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "ip_address"
+    t.string   "billing_city"
   end
 
   create_table "users", :force => true do |t|

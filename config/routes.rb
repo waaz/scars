@@ -13,8 +13,6 @@ Scars::Application.routes.draw do
  resources :sessions
  resources :cars
  resources :bookings do
-   resources :payements do
-     resources :orders
-   end
+   resources :payements
  end
 end

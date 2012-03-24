@@ -11,17 +11,60 @@
       </ul>
     </div>
   <% end %>
-
-
+  <%fullstring = "Full Payment: £" << @total_cost.to_s%>
+  <%depositstring = "Deposit: £" << @deposit.to_s%>
+  <%additionalstring = "Final Payment: £" << @final_payment.to_s%>
+  <%options1 = [ ["", 0],[fullstring ,@total_cost],[depositstring, @deposit], [additionalstring, @final_payment]]%>
   <div class="field">
-    <%= f.label :payement_type %><br />
-    <%= f.select :payement_type, [["deposit","deposit"],["full","full"]] %>
+    <%= f.label :amount, "Please Select Payment Type" %><br />
+    <%= f.select :amount, options_for_select(options1) %>
   </div><br/>
+  <div id="personal Information">
+   <div class="field">
+     <%= f.label :first_name%>
+     <%= f.text_field :first_name %>
+   </div>
+   <div class="field">
+     <%= f.label :last_name%>
+     <%= f.text_field :last_name %>
+    </div>
     <div class="field">
-      <%= f.label :amount %><br />
-      <%= f.number_field :amount %>
-    </div><br/>
+      <%= f.label :billing_address_line_1%>
+      <%= f.text_field :billing_address_line_1 %>
+    </div>
+    <div class="field">
+      <%= f.label :billing_address_line_2%>
+      <%= f.text_field :billing_address_line_2 %>
+    </div>
+    <div class="field">
+      <%= f.label :billing_postcode%>
+      <%= f.text_field :billing_postcode %>
+    </div>
+   </div>
+   <div id="Card Information">
+     <div class="field">
+      <%= f.label :card_type %>
+      <%= f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+     </div>
+     <div class="field">
+       <%= f.label :card_number %>
+       <%= f.text_field :card_number %>
+     </div>
+     <div class="field">
+       <%= f.label :card_verification, "Card Verification Value (CVV)" %><br />
+       <%= f.text_field :card_verification %>
+     </div>
+     <div class="field">
+       <%= f.label :expires_on %><br />
+       <%= f.date_select :expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+     </div>
+   </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+

@@ -1,5 +1,6 @@
-<h1>Listing bookings</h1>
-
+<%= stylesheet_link_tag    "Index" %>
+<h1 id="listingBookings"><%= image_tag("arrow.png", :alt => "Arrow")%>Listing bookings</h1>
+<div id="List">
 <table>
   <tr>
     <th>Date of departure</th>
@@ -23,7 +24,7 @@
   </tr>
 <% end %>
 </table>
-
+</div>
 <br />
 
 <%= link_to 'New Booking', new_booking_path %>

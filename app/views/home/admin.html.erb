@@ -1,6 +1,35 @@
-<%= link_to 'Edit Users', users_url %><br/>
-<%= link_to 'Edit Customers', customers_url %><br/>
-<%= link_to 'Edit Cars', cars_url %><br/>
-<%= link_to 'Edit Car Classes', car_classes_url %><br/>
+<%= stylesheet_link_tag    "Admin" %>
+<h1 id="features"><%= image_tag("arrow.png", :alt => "Arrow")%>Features</h1>
 
-<%= link_to 'Edit Bookings', bookings_url %><br/>
+<div id="Section">
+	<div id="editUsers">
+		<%= image_tag("users.png", :alt => "Users", :id => "User")%><br/>
+		<%= link_to users_url, :id => "editLink" do %>
+			<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit Users</p>
+		<% end %>
+	</div>
+	<div id="editCust">
+		<%= image_tag("customer.jpg", :alt => "Customer", :id => "Customer")%><br/>
+		<%= link_to customers_url, :id => "editLink" do %>
+			<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit Customers</p>
+		<% end %>
+	</div>
+	<div id="editCars">
+		<%= image_tag("cars.png", :alt => "Cars", :id => "Cars")%><br/>
+		<%= link_to cars_url, :id => "editLink" do %>
+			<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit Cars</p>
+		<% end %>
+	</div>
+	<div id="editCarClasses">
+		<%= image_tag("cars.png", :alt => "Cars", :id => "CarClasses")%><br/>
+		<%= link_to car_classes_url, :id => "editLink" do %>
+			<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit Car Classes</p>
+		<% end %>
+	</div>
+	<div id="editBookings">
+		<%= image_tag("booking.png", :alt => "Booking", :id => "Booking")%><br/>
+		<%= link_to bookings_url, :id => "editLink" do %>
+			<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit Bookings</p>
+		<% end %>
+	</div>
+</div><br/>

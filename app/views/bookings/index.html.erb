@@ -7,9 +7,9 @@
     <th>Date of arrival</th>
     <th>Collect</th>
     <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th id="empty"></th>
+    <th id="empty"></th>
+    <th id="empty"></th>
   </tr>
 
 <% @bookings.each do |booking| %>
@@ -18,13 +18,24 @@
     <td><%= booking.date_of_arrival %></td>
     <td><%= booking.collect %></td>
     <td><%= booking.user_id %></td>
-    <td><%= link_to 'Show', booking %></td>
-    <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-    <td><%= link_to 'Destroy', booking, confirm: 'Are you sure?', method: :delete %></td>
+    <td id="empty"><%= link_to booking, :id => "showLink" do %>
+		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
+	<% end %>
+	</td>
+    <td id="empty"><%= link_to edit_booking_path(booking), :id => "editLink" do %>
+		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
+	<% end %>
+	</td>
+    <td id="empty"><%= link_to booking, confirm: 'Are you sure?', method: :delete, :id => "destroyLink" do %>
+		<p><%= image_tag("cross.png", :alt => "Cross")%>Destroy</p>
+	<% end %>
+	</td>
   </tr>
 <% end %>
 </table>
 </div>
 <br />
 
-<%= link_to 'New Booking', new_booking_path %>
+<%=link_to new_booking_path do %>
+	<h1 id="newBookingAccess"><%= image_tag("arrow.png", :alt => "Arrow")%>New Booking</h1>
+<% end %>

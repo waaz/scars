@@ -60,3 +60,32 @@ margin-left: 30px;
 textarea {
     resize: none;
 }
+
+#indexAccess
+{
+	color: white;
+	border: 5px outset #A9A9A9;
+	background: url(button3.png);
+	margin-bottom: 5px;
+	width: 262px;
+	padding-top: 8px;
+	padding-right: 5px;
+	padding-bottom: 8px;
+	padding-left:5px;
+}
+
+#indexAccess img
+{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+#indexAccess:hover
+{
+	border: 5px inset #A9A9A9;
+}

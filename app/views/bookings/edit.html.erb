@@ -1,4 +1,13 @@
-<h1>Editing booking</h1>
+<%= stylesheet_link_tag    "newBooking" %>
+<%= stylesheet_link_tag    "editBooking" %>
+<%= stylesheet_link_tag "jsDatePick_ltr.min" %>
+
+<%= link_to @booking, :id => "showLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
+<% end %> |
+<%= link_to bookings_path, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
+<% end %>
+
+<h1 id="newBooking"><%= image_tag("arrow.png", :alt => "Arrow")%>Editing booking</h1>
 <%= render 'form' %>
-<%= link_to 'Show', @booking %> |
-<%= link_to 'Back', bookings_path %>

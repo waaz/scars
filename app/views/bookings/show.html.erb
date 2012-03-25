@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag    "showBookings" %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -20,5 +22,9 @@
 	<%= @booking.car_class%>
 </p>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+<%= link_to edit_booking_path(@booking), :id => "editLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
+<% end %> |
+<%= link_to bookings_path, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
+<% end %>

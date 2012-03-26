@@ -1,4 +1,4 @@
-<%= form_for(@car_class) do |f| %>
+<%= form_for(@car_class, :html => {:id => 'newCarClassForm'}) do |f| %>
   <% if @car_class.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@car_class.errors.count, "error") %> prohibited this car_class from being saved:</h2>
@@ -31,3 +31,18 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script language="JavaScript" type="text/javascript">
+
+    var frmvalidator  = new Validator("newCarClassForm");
+    frmvalidator.EnableMsgsTogether();
+    frmvalidator.EnableFocusOnError(false);
+    frmvalidator.addValidation("car_class_car_class_name","req","Missing \"Car class name\"");
+    frmvalidator.addValidation("car_class_description","req","Missing \"Description\"");
+    frmvalidator.addValidation("car_class_tarrif","req","Missing \"Tarrif\"");
+    frmvalidator.addValidation("car_class_image_url","req","Missing \"Car Image\"");
+
+    frmvalidator.addValidation("car_class_car_class_name","alnum_s","Car class name allows only alphabetic, numeric and space characters ");
+    frmvalidator.addValidation("car_class_tarrif","num","Tarrif can only contain numbers");
+
+</script>

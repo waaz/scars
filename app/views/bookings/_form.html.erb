@@ -1,4 +1,4 @@
-<div id="BookingForm", style="float: left;">
+<div id="BookingForm" style="float: left;">
 
 <%= form_for(@booking, :html => {:id => 'bookingForm', :onSubmit => "return validate_date_fields();" }) do |f| %>
   <% if @booking.errors.any? %>
@@ -75,15 +75,23 @@
 <script language="JavaScript" type="text/javascript">
 
     window.onload = function(){
+    $('body').delegate('#booking_car_class','change', function(){
+        var carId = $("#booking_car_class").val();
+        if(carId !=  ''){
+         $.get("/car_classes/" + carId, function(data) {
+                 $("#carInfoDiv").html(data);
+             $("#carInfoDiv").css("visibility","visible");
+             alert("Data Loaded: " + data);
+         });
+        alert("OK");
+        }
+        else
+        {
+            $("#carInfoDiv").css("visibility","hidden");
+        }
+        });
 
-     //$('#booking_car_class').onchange(function()){
-       //    $post($(this).value, $this.serialize()
-       // }
-       //
      $('body').delegate('#booking_collect','change', function(){
-
-
-
       if($("#booking_collect").val() ==  'false'){
        $("#addressInfo").show("slow");
 
@@ -144,39 +152,27 @@
 
     function DoCustomPostcodeValidation()
     {
+        if($("#booking_collect").val() ==  'false'){
         var e = document.getElementById("booking_collect");
         var method = e.options[e.selectedIndex].value;
-
         if (method == "false"){
             var frm = document.forms['bookingForm'];
-
             var postCodeValue = frm.postcode.value.replace(/\s/g, "");
             postCodeValue = postCodeValue.toUpperCase();
             var matchPostcode = /^((((A[BL]|B[ABDHLNRSTX]?|C[ABFHMORTVW]|D[ADEGHLNTY]|E[HNX]?|F[KY]|G[LUY]?|H[ADGPRSUX]|I[GMPV]|JE|K[ATWY]|L[ADELNSU]?|M[EKL]?|N[EGNPRW]?|O[LX]|P[AEHLOR]|R[GHM]|S[AEGKLMNOPRSTY]?|T[ADFNQRSW]|UB|W[ADFNRSV]|YO|ZE)[1-9]?[0-9]|((E|N|NW|SE|SW|W)1|EC[1-4]|WC[12])[A-HJKMNPR-Y]|(SW|W)([2-9]|[1-9][0-9])|EC[1-9][0-9])[0-9])[ABD-HJLNP-UW-Z]{2}|GIR0AA)$/.test(postCodeValue);
             if (!matchPostcode){
                 sfm_show_error_msg('Invalid Postcode!');
                 return false;
+                }
+                else{
+                    return true;
+                }
             }
-            else{
-                return true;
-            }
+        }
+        else if($("#booking_collect").val() ==  'true')
+        {
+            return true;
         }
     }
     frmvalidator.setAddnlValidationFunction(DoCustomPostcodeValidation);
-    //$(document).ready(function() {
-
-    //});
-
-    /*function carInfo(obj){
-        console.log('test');
-        if (obj.value == "") {
-            $("#carInfoDiv").css("visibility","hidden");
-        }
-        else {
-            $.post('ajax/test.html', function(data) {
-                $("#carInfoDiv").html(data);
-            });
-            $("#carInfoDiv").css("visibility","visible");
-        }
-    } */
 </script>

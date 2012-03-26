@@ -1,28 +1,49 @@
-<h1>Modify Users</h1>
+<%= stylesheet_link_tag    "IndexUsers" %>
+<h1 id="modifyUsers"><%= image_tag("arrow.png", :alt => "Arrow")%>Modify Users</h1>
+
+<div id="List">
 <table>
-<thead>
-<tr><td>Edit</td><td>Destroy</td><td>User ID</td><td>Email</td><td>Details</td><td>Admin</td></tr>
-</thead>
-<tbody>
-<% @users.each do |user| %>
- <td><%= link_to 'edit', edit_user_path(user.id) %></td>
- <td><%= link_to 'destroy', user, confirm: 'Are you sure?', method: :delete %></td>
- <td><%= user.id %></td>
- <td><%= user.email %></td>
- <% if not user.is_admin %>
-	<% if user.is_customer %>
-	 <td>Yes</td>
-	 <td>No</td>
-	<% else %>
-	 <td>No</td>
-	 <td>No</td>
-	<% end %>
- <% else %>
-    <td>N/A</td>
-	<td>Yes</td>
- <% end %>
- </tr>
-<% end %>
-</tbody>
+
+	<thead>
+		<tr>
+			<th>User ID</th>
+			<th>Email</th>
+			<th>Details</th>
+			<th>Admin</th>
+			<th id="noBorder"></th>
+			<th id="noBorder" style="width: 120px;"></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= user.id %></td>
+				<td><%= user.email %></td>
+				<% if not user.is_admin %>
+					<% if user.is_customer %>
+						<td>Yes</td>
+						<td>No</td>
+					<% else %>
+						<td>No</td>
+						<td>No</td>
+					<% end %>
+				<% else %>
+					<td>N/A</td>
+					<td>Yes</td>
+				<% end %>
+				<td id="noBorder"><%= link_to edit_user_path(user.id), :id => "editLink" do %>
+					<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
+				<% end %>
+				</td>
+				<td id="noBorder"><%= link_to user, confirm: 'Are you sure?', method: :delete, :id => "destroyLink" do %>
+					<p><%= image_tag("cross.png", :alt => "Cross")%>Destroy</p>
+				<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+	
 </table>
+</div>
 <br/>

@@ -60,7 +60,10 @@
 	<%= f.label :promocode, "Promocode:"%>
 	<%= f.text_field :promocode%><br/>
   </div>
+<<<<<<< HEAD
+=======
 
+>>>>>>> b48d03e87338ad7160679860a355ed5d9116fa6f
   <div class="actions">
     <%= f.submit %>
   </div>

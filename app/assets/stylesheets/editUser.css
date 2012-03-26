@@ -1,4 +1,4 @@
-#signUp
+#editUser
 {
 	width: 410px;
 	background: url(button2.png);
@@ -11,7 +11,7 @@
 	border-top-right-radius: 10px;
 }
 
-#signUp img
+#editUser img
 {
 	margin-right: 5px;
 	margin-left: 5px;
@@ -24,7 +24,7 @@
 	border-color:#A9A9A9;
 	padding:5px;
 	width:400px;
-	height:185px;
+	height:150px;
 }
 
 form label
@@ -57,10 +57,48 @@ form input
 	width:120px;
 	float:right;
 	border-radius:100px;
-	margin-left: 120px;
+	margin-left: 30px;
 }
 
-#showLink, #backLink
+#showLink
 {
-	visibility: hidden;
+	text-decoration: none;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+#showLink p
+{
+	text-align: center;
+	width: 80px;
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonShow.png);
+}
+
+#showLink p img
+{
+	margin-right: 6px;
+}
+
+#backLink
+{
+	text-decoration: none;
+	display: inline-block;
+}
+
+#backLink p
+{
+	text-align: center;
+	width: 80px;
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonDestroy.png);
+}
+
+#backLink p img
+{
+	margin-right: 6px;
 }

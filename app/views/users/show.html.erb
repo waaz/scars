@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag    "showUsers" %>
 <h1>User Details:</h1>
 <p>User ID: <%= @user.id %></p>
 <p>Email:  <%= @user.email %></p>
@@ -11,5 +12,8 @@
 <% if @user.is_admin %>
  <p>User is Administrator</p>
 <% end %>
-<p><%= link_to 'Edit Details', edit_user_path(@user.id) %></p>
+<%= link_to edit_user_path(@user.id), :id => "editLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit Details</p>
+<% end %>
+<br/>
 

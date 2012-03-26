@@ -1,0 +1,20 @@
+#editLink
+{
+	text-decoration: none;
+	display: inline-block;
+}
+
+#editLink p
+{
+	text-align: center;
+	width: 150px;
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonEdit.png);
+}
+
+#editLink p img
+{
+	margin-right: 6px;
+}

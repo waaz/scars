@@ -1,0 +1,84 @@
+#modifyUsers
+{
+	width: 900px;
+	background: url(button2.png);
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left:5px;
+	color: white;
+	margin-bottom: 2px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#modifyUsers img
+{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+#List
+{
+	border:solid;
+	border-color:#A9A9A9;
+	width: 900px;
+}
+
+table
+{
+	margin: 5px;
+	width: 890px;
+	border-collapse: collapse;
+	padding:5px;
+	height:auto;
+}
+
+td, th
+{
+	text-align: center;
+    border: 1px solid black;
+}
+
+#noBorder
+{
+	border:none;
+}
+
+#editLink
+{
+	width: 100px;
+	text-decoration: none;
+}
+
+#editLink p
+{
+	margin: 5px;
+	margin-left: 10px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonEdit.png);
+}
+
+#editLink p img
+{
+	margin-right: 6px;
+}
+
+#destroyLink
+{
+	width: 100px;
+	text-decoration: none;
+}
+
+#destroyLink p
+{
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonDestroy.png);
+}
+
+#destroyLink p img
+{
+	margin-right: 6px;
+}

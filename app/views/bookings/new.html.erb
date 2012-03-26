@@ -1,4 +1,10 @@
-<h1>New booking</h1>
 <%= stylesheet_link_tag    "newBooking" %>
 <%= stylesheet_link_tag "jsDatePick_ltr.min" %>
+
+<%=link_to bookings_path do %>
+	<h1 id="indexAccess"><%= image_tag("arrow.png", :alt => "Arrow")%>Already created Bookings ?</h1>
+<% end %>
+
+<h1 id="newBooking"><%= image_tag("arrow.png", :alt => "Arrow")%>New booking</h1>
 <%= render 'form' %>
+

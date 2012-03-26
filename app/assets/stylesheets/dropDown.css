@@ -1,0 +1,32 @@
+form label
+{
+	font-weight:bold;
+	text-align:right;
+	padding-right: 10px;
+	width:80px;
+	float:left;
+}
+
+form input
+{
+	float:left;
+	font-size:12px;
+	padding:4px 2px;
+	border:solid 1px #aacfe4;
+	width:200px;
+	margin:2px 0px 20px 0px;
+	padding:1px;
+}
+
+.actions input
+{
+	width:120px;
+	float:right;
+	border-radius:100px;
+	margin-left: 120px;
+}
+
+#notRegis
+{
+	float: left;
+}

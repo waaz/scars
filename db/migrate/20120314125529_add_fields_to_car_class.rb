@@ -4,6 +4,6 @@ class AddFieldsToCarClass < ActiveRecord::Migration
 
     add_column :car_classes, :image_url, :string
 
-    add_column :car_classes, :tarrif, :decimal,
+    add_column :car_classes, :tarrif, :decimal
   end
 end

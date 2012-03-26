@@ -7,7 +7,7 @@ belongs_to :customer     # A Booking Belongs to a customer
 attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 
 #VALIDATE: user_id is present and is numerical 
-vslidates :user_id, :presence => true, :numericality => true
+validates :user_id, :presence => true, :numericality => true
 
 #VALIDATES  customer_id ????
 
@@ -21,7 +21,7 @@ validates :city, :presence => true, :if => Proc.new { |o| o.collect != true }
 validates :postcode, :presence => true, :if => Proc.new { |o| o.collect != true}
 
 #VALIDATES: the format of the postcode using a REGEX provided by the government,   
-validates_as_uk_postcode :postcode
+#validates_as_uk_postcode :postcode
 
 #VALIDATES: date of departure is after today and no further in the future than 1 year
 validates :date_of_departure, :date => {:after => Time.now - 1.day, :before => Time.now + 1.year}

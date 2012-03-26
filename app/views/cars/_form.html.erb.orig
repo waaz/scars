@@ -1,6 +1,10 @@
-<div id="CarForm">
+<<<<<<< HEAD
 <%= form_for(@car, :html => {:id => 'newCarForm'}) do |f| %>
+=======
+<div id="CarForm">
 
+<%= form_for(@car) do |f| %>
+>>>>>>> cd8dc2cb4c71e11dfba2fd4b7fcce4cd537ad8f8
   <% if @car.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
@@ -33,15 +37,7 @@
     <%= f.submit %>
   </div>
 <% end %>
-</div>
-<br/>
-<%= link_to @car, :id => "showLink" do %>
-	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
-<% end %> 
-<%= link_to cars_path, :id => "backLink" do %>
-	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
-<% end %>
-
+<<<<<<< HEAD
 
 <script language="JavaScript" type="text/javascript">
 
@@ -56,3 +52,14 @@
     frmvalidator.addValidation("car_model","alnum_s","Car model allows only alphabetic, numeric and space characters ");
 
 </script>
+=======
+</div>
+<br/>
+<%= link_to @car, :id => "showLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
+<% end %> 
+<%= link_to cars_path, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
+<% end %>
+
+>>>>>>> cd8dc2cb4c71e11dfba2fd4b7fcce4cd537ad8f8

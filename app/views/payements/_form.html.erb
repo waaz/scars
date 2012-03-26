@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 
 <%= form_for([@booking,@payement]) do |f| %>
+=======
+<%= form_for([@booking,@payement, :html => {:id => 'newpaymentForm'}]) do |f| %>
+>>>>>>> a8e993e59f5a58df651634c683ad2d9440497fc5
   <% if @payement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@payement.errors.count, "error") %> prohibited this payement from being saved:</h2>
@@ -66,5 +70,20 @@
   </div>
 <% end %>
 
+<<<<<<< HEAD
 
 
+=======
+<script language="JavaScript" type="text/javascript">
+
+    var frmvalidator  = new Validator("newpaymentForm");
+    frmvalidator.EnableMsgsTogether();
+    frmvalidator.EnableFocusOnError(false);
+    //frmvalidator.addValidation("car_class_car_class_name","req","Missing \"Car class name\"");
+    //frmvalidator.addValidation("car_class_description","req","Missing \"Description\"");
+
+    //frmvalidator.addValidation("car_class_car_class_name","alnum_s","Car class name allows only alphabetic, numeric and space characters ");
+    //frmvalidator.addValidation("car_class_tarrif","num","Tarrif can only contain numbers");
+
+</script>
+>>>>>>> a8e993e59f5a58df651634c683ad2d9440497fc5

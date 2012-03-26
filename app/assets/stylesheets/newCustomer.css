@@ -1,4 +1,4 @@
-#signUp
+#creaCustomer
 {
 	width: 410px;
 	background: url(button2.png);
@@ -11,20 +11,19 @@
 	border-top-right-radius: 10px;
 }
 
-#signUp img
+#creaCustomer img
 {
 	margin-right: 5px;
 	margin-left: 5px;
 }
 
-#UserForm
+#CustomerForm
 {
 	position: relative;
 	border:solid;
 	border-color:#A9A9A9;
 	padding:5px;
 	width:400px;
-	height:185px;
 }
 
 form label
@@ -47,20 +46,10 @@ form input
 	padding:1px;
 }
 
-#user_is_admin
-{
-	width: 20px;
-}
-
 .actions input
 {
 	width:120px;
 	float:right;
 	border-radius:100px;
 	margin-left: 120px;
-}
-
-#showLink, #backLink
-{
-	visibility: hidden;
 }

@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag    "showCars" %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -20,5 +22,10 @@
   <%= @car.status %>
 </p>
 
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to edit_car_path(@car), :id => "editLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
+<% end %> |
+<%= link_to cars_path, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
+<% end %>
+

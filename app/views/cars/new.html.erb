@@ -1,5 +1,5 @@
-<h1>New car</h1>
+<%= stylesheet_link_tag    "newCar" %>
+<h1 id="newCar"><%= image_tag("arrow.png", :alt => "Arrow")%>New Car</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', cars_path %>

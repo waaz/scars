@@ -1,3 +1,4 @@
+<div id="UserForm">
 <%= form_for @user do |f| %>
  <% if @user.errors.any? %>
   <div class="error_messages">
@@ -23,8 +24,8 @@
   <%= f.password_field :password, :id =>"password" %><br/><br/>
  </div>
 <div class="field">
-  <%= f.label :password_confirmation, "Confirm Password: " %><br/>
-  <%= f.password_field :password_confirmation, :id =>"password_confirmation" %>
+  <%= f.label :password_confirmation, "Confirm Password: " %>
+  <%= f.password_field :password_confirmation, :id =>"password_confirmation" %><br/><br/>
  </div>
 <div class="field">
   <%= f.label :is_admin, "Admin: " %>
@@ -42,7 +43,16 @@
 	 </div>
 	 <% end %>
  <% end %>
+ <br/>
  <div class="actions"><%= f.submit %></div>
+<% end %>
+</div>
+<br/>
+<%= link_to @user, :id => "showLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>View</p>
+<% end %> 
+<%= link_to users_url, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
 <% end %>
 <script language="JavaScript" type="text/javascript">
 

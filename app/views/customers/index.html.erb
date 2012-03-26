@@ -1,19 +1,36 @@
+<%= stylesheet_link_tag    "IndexCustomer" %>
+<h1 id="listingCustomers"><%= image_tag("arrow.png", :alt => "Arrow")%>Listing Customers</h1>
+
+<div id="List">
+
 <table>
-<thead>
-<tr><td>Full</td><td>Edit</td><td>Destroy</td><td>Customer ID</td><td>User ID</td><td>First Name</td><td>Last Name</td></tr>
-</thead>
-<tbody>
-<% @customers.each do |customer| %>
- <tr>
- <td><%= link_to 'show', customer_path(customer.id) %></td>
- <td><%= link_to 'edit', edit_customer_path(customer.id) %></td>
- <td><%= link_to 'destroy', customer, confirm: 'Are you sure?', method: :delete %></td>
- <td><%= customer.id %></td>
- <td><%= customer.user_id ||= 'nil' %></td>
- <td><%= customer.first_name ||= 'nil' %></td>
- <td><%= customer.last_name ||= 'nil' %></td>
- </tr>
-<% end %>
-</tbody>
+	<thead>
+		<tr>
+			<td>Full</td>
+			<td>Edit</td>
+			<td>Destroy</td>
+			<td>Customer ID</td>
+			<td>User ID</td>
+			<td>First Name</td>
+			<td>Last Name</td>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<% @customers.each do |customer| %>
+		 <tr>
+			 <td><%= link_to 'show', customer_path(customer.id) %></td>
+			 <td><%= link_to 'edit', edit_customer_path(customer.id) %></td>
+			 <td><%= link_to 'destroy', customer, confirm: 'Are you sure?', method: :delete %></td>
+			 <td><%= customer.id %></td>
+			 <td><%= customer.user_id ||= 'nil' %></td>
+			 <td><%= customer.first_name ||= 'nil' %></td>
+			 <td><%= customer.last_name ||= 'nil' %></td>
+		 </tr>
+		<% end %>
+	</tbody>
 </table>
-<%= link_to 'create', new_customer_path %>
+</div><br/>
+<%=link_to new_customer_path do %>
+	<h1 id="createCustomerAccess"><%= image_tag("arrow.png", :alt => "Arrow")%>Create</h1>
+<% end %>

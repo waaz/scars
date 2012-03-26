@@ -1,0 +1,128 @@
+#listingCarClass
+{
+	width: 900px;
+	background: url(button2.png);
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left:5px;
+	color: white;
+	margin-bottom: 2px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#listingCarClass img
+{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+#List
+{
+	border:solid;
+	border-color:#A9A9A9;
+	width: 900px;
+}
+
+table
+{
+	margin: 5px;
+	width: 890px;
+	border-collapse: collapse;
+	padding:5px;
+	height:auto;
+}
+
+td, th
+{
+	text-align: center;
+    border: 1px solid black;
+}
+
+#noBorder
+{
+	border:none;
+}
+
+#editLink
+{
+	text-decoration: none;
+}
+
+#editLink p
+{
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonEdit.png);
+}
+
+#editLink p img
+{
+	margin-right: 6px;
+}
+
+#showLink
+{
+	text-decoration: none;
+}
+
+#showLink p
+{
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonShow.png);
+}
+
+#showLink p img
+{
+	margin-right: 6px;
+}
+
+#destroyLink
+{
+	text-decoration: none;
+}
+
+#destroyLink p
+{
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonDestroy.png);
+}
+
+#destroyLink p img
+{
+	margin-right: 6px;
+}
+
+#newCarClassAccess
+{
+	color: white;
+	border: 5px outset #A9A9A9;
+	background: url(button3.png);
+	margin-bottom: 5px;
+	width: 150px;
+	padding-top: 8px;
+	padding-right: 5px;
+	padding-bottom: 8px;
+	padding-left:5px;
+}
+
+#newCarClassAccess img
+{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+#newCarClassAccess:hover
+{
+	border: 5px inset #A9A9A9;
+}

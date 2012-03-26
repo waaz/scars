@@ -1,29 +1,49 @@
-<h1>Listing cars</h1>
+<%= stylesheet_link_tag    "IndexCar" %>
+<h1 id="listingCars"><%= image_tag("arrow.png", :alt => "Arrow")%>Listing Cars</h1>
 
+<div id="List">
 <table>
   <tr>
     <th>Reg</th>
     <th>Model</th>
     <th>Class</th>
     <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th id="noBorder" style="width: 84px;"></th>
+    <th id="noBorder" style="width: 84px;"></th>
+    <th id="noBorder" style="width: 111px;"></th>
   </tr>
 
 <% @cars.each do |car| %>
   <tr>
     <td><%= car.reg %></td>
     <td><%= car.model %></td>
+<<<<<<< HEAD
     <td><%= CarClass.find(car.car_class_id).car_class_name %></td>
+=======
+<!--<<<<<<< HEAD-->
+<!--=======-->
+    <td><%= CarClass.find(car.car_class_id).car_class_name %></td>
+<!-- >>>>>>> 5de0fbe71f159cf1eebd2a08959acac6bd433541-->
+>>>>>>> a8e993e59f5a58df651634c683ad2d9440497fc5
     <td><%= car.status %></td>
-    <td><%= link_to 'Show', car %></td>
-    <td><%= link_to 'Edit', edit_car_path(car) %></td>
-    <td><%= link_to 'Destroy', car, confirm: 'Are you sure?', method: :delete %></td>
+	<td id="noBorder"><%= link_to car, :id => "showLink" do %>
+		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
+	<% end %>
+	</td>
+    <td id="noBorder"><%= link_to edit_car_path(car), :id => "editLink" do %>
+		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
+	<% end %>
+	</td>
+    <td id="noBorder" style><%= link_to car, confirm: 'Are you sure?', method: :delete, :id => "destroyLink" do %>
+		<p><%= image_tag("cross.png", :alt => "Cross")%>Destroy</p>
+	<% end %>
+	</td>
   </tr>
 <% end %>
 </table>
-
+</div>
 <br />
 
-	<%= link_to 'New Car', new_car_path %>
+<%=link_to new_car_path do %>
+	<h1 id="newCarAccess"><%= image_tag("arrow.png", :alt => "Arrow")%>New Car</h1>
+<% end %>

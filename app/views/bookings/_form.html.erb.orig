@@ -1,0 +1,185 @@
+<div id="BookingForm", style="float: left;">
+
+<%= form_for(@booking, :html => {:id => 'bookingForm', :onSubmit => "return validate_date_fields();" }) do |f| %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% @booking.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date_of_departure, "Departure date:" %>
+    <div id = "dod"><%= f.text_field :date_of_departure, :id=>"dodInput" %></div>
+  </div>
+  
+  <div class="field">
+    <%= f.label :date_of_arrival, "Return date:" %>
+    <div id = "dor"><%= f.text_field :date_of_arrival, :id=>"dorInput" %></div>
+  </div>
+  
+  <div class="field">
+    <%= f.label :collect, "Deliver/Collect:" %>
+    <%= f.select :collect,[["",0],["I want my car delivered",false],["I want to collect My Car",true]] %>
+  </div><br/>
+  
+  <div class="field">
+    <%= f.label :car_class, "Car class:" %>
+    <%= f.collection_select(:car_class, CarClass.all, :id, :car_class_name, :onchange => 'carInfo(this.value)') %>
+  </div><br/>
+  
+  <div id="addressInfo" style="display: none;">
+  <div class="field">
+	<%= f.label :address_one, "Address Line One:"%>
+	<%= f.text_field :address_one, :id =>"address_one", :size =>"25"%>
+  </div>
+  
+  <div class="field">
+	<%= f.label :address_two, "Address Line Two:"%>
+	<%= f.text_field :address_two, :id =>"address_two", :size =>"25"%>
+  </div>
+  
+  <div class="field">
+	<%= f.label :city, "City:"%>
+	<%= f.text_field :city, :id =>"city", :size =>"25"%>
+  </div>
+    
+  <div class="field">
+	<%= f.label :postcode, "PostCode:"%>
+	<%= f.text_field :postcode, :id =>"postcode", :size =>7%><br/>
+  </div>
+  
+  </div><!-- end of addressinfo -->
+
+  <div class="field">
+	<%= f.label :promocode, "Promocode:"%>
+	<%= f.text_field :promocode%><br/>
+  </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> b48d03e87338ad7160679860a355ed5d9116fa6f
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+<% end %>
+</div><br/>
+
+<div id="carInfoDiv" style="float:right;border:1px solid red;visibility:hidden;width:250px;height:250px;">
+</div>
+
+<script language="JavaScript" type="text/javascript">
+
+    window.onload = function(){
+
+     //$('#booking_car_class').onchange(function()){
+       //    $post($(this).value, $this.serialize()
+       // }
+       //
+     $('body').delegate('#booking_collect','change', function(){
+
+
+
+      if($("#booking_collect").val() ==  'false'){
+       $("#addressInfo").show("slow");
+
+      }
+      else{
+       $("#addressInfo").hide("slow");
+      }
+      });
+
+      new JsDatePick({
+       useMode:2,
+       target:"dorInput",
+       dateFormat:"%Y-%m-%d",
+       yearsRange:[2012,2014]
+      });
+      new JsDatePick({
+       useMode:2,
+       target:"dodInput",
+       dateFormat:"%Y/%m/%d",
+       yearsRange:[2012,2014]
+      });
+    };
+
+    function DoCustomDateValidation()
+    {
+            var frm = document.forms['bookingForm'];
+            var dod = new Date(frm.dodInput.value);
+            var dor = new Date(frm.dorInput.value);
+            var today = new Date();
+
+            if (dod.getYear()<today.getYear() || dod.getMonth()<today.getMonth() || (dod.getMonth()==today.getMonth() && dod.getDate()<today.getDate())){
+                sfm_show_error_msg('Departure date is before today!');
+                return false;
+            }
+            else if(dod.getTime()>dor.getTime())
+            {
+                sfm_show_error_msg('Departure date is before return date!');
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+    }
+
+    var frmvalidator  = new Validator("bookingForm");
+    frmvalidator.EnableMsgsTogether();
+    frmvalidator.EnableFocusOnError(false);
+    frmvalidator.addValidation("dodInput","req","Missing \"Departure date\"");
+    frmvalidator.addValidation("dorInput","req","Missing \"Return date\"");
+    frmvalidator.setAddnlValidationFunction(DoCustomDateValidation);
+    frmvalidator.addValidation("booking_collect","dontselect=0","Missing \"Collection Method\"");
+    frmvalidator.addValidation("postcode","req","Missing \"Postcode\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
+    frmvalidator.addValidation("city","req","Missing \"City\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
+    frmvalidator.addValidation("city","alpha","Allow only alphabetic characters on \"City\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
+    frmvalidator.addValidation("address_one","req","Missing \"Address\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
+    frmvalidator.addValidation("address_one","alnum_s","Alphabetic, numeric and space characters only on \"Address\"" ,"VWZ_IsListItemSelected( document.getElementById('booking_collect'),'false')");
+
+    function DoCustomPostcodeValidation()
+    {
+        var e = document.getElementById("booking_collect");
+        var method = e.options[e.selectedIndex].value;
+
+        if (method == "false"){
+            var frm = document.forms['bookingForm'];
+
+            var postCodeValue = frm.postcode.value.replace(/\s/g, "");
+            postCodeValue = postCodeValue.toUpperCase();
+            var matchPostcode = /^((((A[BL]|B[ABDHLNRSTX]?|C[ABFHMORTVW]|D[ADEGHLNTY]|E[HNX]?|F[KY]|G[LUY]?|H[ADGPRSUX]|I[GMPV]|JE|K[ATWY]|L[ADELNSU]?|M[EKL]?|N[EGNPRW]?|O[LX]|P[AEHLOR]|R[GHM]|S[AEGKLMNOPRSTY]?|T[ADFNQRSW]|UB|W[ADFNRSV]|YO|ZE)[1-9]?[0-9]|((E|N|NW|SE|SW|W)1|EC[1-4]|WC[12])[A-HJKMNPR-Y]|(SW|W)([2-9]|[1-9][0-9])|EC[1-9][0-9])[0-9])[ABD-HJLNP-UW-Z]{2}|GIR0AA)$/.test(postCodeValue);
+            if (!matchPostcode){
+                sfm_show_error_msg('Invalid Postcode!');
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    }
+    frmvalidator.setAddnlValidationFunction(DoCustomPostcodeValidation);
+    //$(document).ready(function() {
+
+    //});
+
+    /*function carInfo(obj){
+        console.log('test');
+        if (obj.value == "") {
+            $("#carInfoDiv").css("visibility","hidden");
+        }
+        else {
+            $.post('ajax/test.html', function(data) {
+                $("#carInfoDiv").html(data);
+            });
+            $("#carInfoDiv").css("visibility","visible");
+        }
+    } */
+</script>

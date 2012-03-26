@@ -1,6 +1,10 @@
-<div id="CustomerForm", style="float: left;">
+<<<<<<< HEAD
 <%= form_for(@customer, :html => {:id => 'newCustomerForm'}) do |f| %>
+=======
+<div id="CustomerForm", style="float: left;">
 
+<%= form_for(@customer) do |f| %>
+>>>>>>> cd8dc2cb4c71e11dfba2fd4b7fcce4cd537ad8f8
  <% if @customer.errors.any? %>
   <div class="error_messages">
    <h2><%= pluralize(@customer.errors.count, "error") %>:</h2>
@@ -47,7 +51,7 @@
  </div>
  <div class="actions"><%= f.submit %></div>
 <% end %>
-</div>
+<<<<<<< HEAD
 
 <script language="JavaScript" type="text/javascript">
     window.onload = function(){
@@ -136,3 +140,6 @@
     }
     frmvalidator.setAddnlValidationFunction(DoCustomPostcodeValidation);
     </script>
+=======
+</div>
+>>>>>>> cd8dc2cb4c71e11dfba2fd4b7fcce4cd537ad8f8

@@ -1,11 +1,17 @@
-<h1>Listing Car Classes</h1>
+<%= stylesheet_link_tag    "IndexCarClass" %>
+<h1 id="listingCarClass"><%= image_tag("arrow.png", :alt => "Arrow")%>Listing Car Classes</h1>
 
+<div id="List">
 <table>
   <tr>
+    <th>Class ID</th>
     <th>Class Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Description</th>
+    <th>Tarif</th>
+	<th>Preview</th>
+	<th id="noBorder" style="width: 84px;"></th>
+    <th id="noBorder" style="width: 84px;"></th>
+	<th id="noBorder" style="width: 111px;"></th>
   </tr>
 
 <% @car_classes.each do |car_class| %>
@@ -16,13 +22,24 @@
     <td><%= car_class.description%></td>
     <td><%= car_class.tarrif %></td>
     <td><%= image_tag(car_class.image_url) %></td>
-    <td><%= link_to 'Show', car_class %></td>
-    <td><%= link_to 'Edit', edit_car_class_path(car_class) %></td>
-    <td><%= link_to 'Destroy', car_class, confirm: 'Are you sure?', method: :delete %></td>
+	<td id="noBorder"><%= link_to car_class, :id => "showLink" do %>
+		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
+	<% end %>
+	</td>
+    <td id="noBorder"><%= link_to edit_car_class_path(car_class), :id => "editLink" do %>
+		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
+	<% end %>
+	</td>
+    <td id="noBorder" style><%= link_to car_class, confirm: 'Are you sure?', method: :delete, :id => "destroyLink" do %>
+		<p><%= image_tag("cross.png", :alt => "Cross")%>Destroy</p>
+	<% end %>
+	</td>
   </tr>
 <% end %>
 </table>
-
+</div>
 <br />
 
-<%= link_to 'New Car class', new_car_class_path %>
+<%=link_to new_car_class_path do %>
+	<h1 id="newCarClassAccess"><%= image_tag("arrow.png", :alt => "Arrow")%>New Car class</h1>
+<% end %>

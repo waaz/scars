@@ -1,5 +1,9 @@
 --- 
 open_files: 
-  - app/controllers/application_controller.rb
+  - app/models/car.rb
+  - app/models/car_class.rb
+  - app/models/customer.rb
+  - app/models/payement.rb
+  - app/models/user.rb
   - app/models/booking.rb
-  - app/controllers/home_controller.rb
+  - Gemfile

@@ -15,11 +15,7 @@
   <tr>
     <td><%= car.reg %></td>
     <td><%= car.model %></td>
-<<<<<<< HEAD
-    <td><%= car.car_class %></td>
-=======
     <td><%= CarClass.find(car.car_class_id).car_class_name %></td>
->>>>>>> 5de0fbe71f159cf1eebd2a08959acac6bd433541
     <td><%= car.status %></td>
     <td><%= link_to 'Show', car %></td>
     <td><%= link_to 'Edit', edit_car_path(car) %></td>

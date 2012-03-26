@@ -1,4 +1,4 @@
-1332523856
+1332711775
 AddAddressToCustomer	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120311091417_add_address_to_customer.rb	class AddAddressToCustomer 
 AddBookingAddressToBookings	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206142654_add_booking_address_to_bookings.rb	class AddBookingAddressToBookings 
 AddBookingPostcodeToBookings	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206143038_add_booking_postcode_to_bookings.rb	class AddBookingPostcodeToBookings 
@@ -115,7 +115,9 @@ add_validationdesc	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascrip
 admin	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/home_controller.rb	 def admin
 alert_clearmsg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function alert_clearmsg(msgs)
 alert_showmsg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function alert_showmsg(msgs)
-car_class	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class
+and	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
+car_class	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
+car_class	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 card_number	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  attr_accessor :card_number, :card_verification
 card_verification	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  attr_accessor :card_number, :card_verification
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120322154424_add_ip_address_to_payements.rb	  def change
@@ -145,6 +147,7 @@ create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/customers_contro
 create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def create
 create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/cars_controller.rb	  def create
 create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	  def create
+creates	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 credit_card	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  def credit_card
 current_user	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/application_controller.rb	 def current_user
 destroy	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/users_controller.rb	 def destroy
@@ -183,6 +186,7 @@ edit	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controlle
 element_div_name	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function element_div_name(input_element)
 form_error_div_name	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function form_error_div_name(msgs)
 form_submit_handler	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function form_submit_handler()
+get	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 handle_item_on_killfocus	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function handle_item_on_killfocus()
 index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/users_controller.rb	 def index
 index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/payements_controller.rb	  def index
@@ -190,7 +194,10 @@ index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/customers_control
 index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def index
 index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/cars_controller.rb	  def index
 index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	  def index
+instance	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 is_customer	C:/Users/Ryan/rails_project/scars2/scars/app/models/user.rb	 def is_customer
+methods	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
+necessary	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 new	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/users_controller.rb	 def new
 new	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/payements_controller.rb	  def new
 new	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/customers_controller.rb	 def new
@@ -204,6 +211,7 @@ purchase_options	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb
 run_addnl_validations	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function run_addnl_validations()
 sb_div_clearmsg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function sb_div_clearmsg(msgs)
 sb_div_showmsg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function sb_div_showmsg(msgs)
+set	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 set_addnl_vfunction	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function set_addnl_vfunction(functionname)
 sfm_ErrorDisplayHandler	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function sfm_ErrorDisplayHandler()
 sfm_disable_validations	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function sfm_disable_validations()
@@ -222,6 +230,8 @@ show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/cars_controller.rb
 show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	  def show
 show_div_msg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function show_div_msg(divname, msgstring)
 test_homepage	C:/Users/Ryan/rails_project/scars2/scars/test/performance/browsing_test.rb	  def test_homepage
+the	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
+to	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120322133446_update_payements.rb	  def up
 up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120320144423_change_ip_address_string_to_ip_address.rb	  def up
 up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120320141945_change_orders.rb	  def up
@@ -247,6 +257,7 @@ validateInput	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/ge
 validate_card	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  def validate_card
 validator_enable_OPED	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function validator_enable_OPED()
 validator_enable_OPED_SB	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function validator_enable_OPED_SB()
+variable	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 vdesc_validate	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function vdesc_validate()
 vset_validate	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function vset_validate()
 was	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	     redirect_to @car_class, notice: 'Car class was 

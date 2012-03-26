@@ -1,3 +1,5 @@
+<div id="CustomerForm", style="float: left;">
+
 <%= form_for(@customer) do |f| %>
  <% if @customer.errors.any? %>
   <div class="error_messages">
@@ -45,3 +47,4 @@
  </div>
  <div class="actions"><%= f.submit %></div>
 <% end %>
+</div>

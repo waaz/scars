@@ -1,4 +1,6 @@
+<%= stylesheet_link_tag    "newCustomer" %>
 <h1>Link Account</h1>
+
 <%= render 'form' %>
 <% if current_user && current_user.is_admin? %>
  <%= link_to 'Back', customers_url %>

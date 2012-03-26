@@ -1,0 +1,69 @@
+#listingCustomers
+{
+	width: 900px;
+	background: url(button2.png);
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left:5px;
+	color: white;
+	margin-bottom: 2px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#listingCustomers img
+{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+#List
+{
+	border:solid;
+	border-color:#A9A9A9;
+	width: 900px;
+}
+
+table
+{
+	margin: 5px;
+	width: 890px;
+	border-collapse: collapse;
+	padding:5px;
+	height:auto;
+}
+
+td, th
+{
+	text-align: center;
+    border: 1px solid black;
+}
+
+#createCustomerAccess
+{
+	color: white;
+	border: 5px outset #A9A9A9;
+	background: url(button3.png);
+	margin-bottom: 5px;
+	width: 88px;
+	padding-top: 8px;
+	padding-right: 5px;
+	padding-bottom: 8px;
+	padding-left:5px;
+}
+
+#createCustomerAccess img
+{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+#createCustomerAccess:hover
+{
+	border: 5px inset #A9A9A9;
+}

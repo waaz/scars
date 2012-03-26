@@ -1,3 +1,5 @@
+<div id="CarClassForm">
+
 <%= form_for(@car_class) do |f| %>
   <% if @car_class.errors.any? %>
     <div id="error_explanation">
@@ -12,22 +14,30 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :car_class_name %><br />
+    <%= f.label :car_class_name, "Car class name:" %>
     <%= f.text_field :car_class_name %>
   </div>
     <div class="field">
-      <%= f.label :description %><br />
+      <%= f.label :description, "Description:" %>
       <%= f.text_area :description %>
     </div>
     <div class="field">
-      <%= f.label :tarrif %><br />
+      <%= f.label :tarrif, "Tarrif:" %>
       <%= f.text_field :tarrif %>
     </div>
     <div class="field">
-      <%= f.label :image_url %><br />
+      <%= f.label :image_url, "Image URL:" %>
       <%= f.text_field :image_url %>
     </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+</div>
+<br/>
+<%= link_to @car_class, :id => "showLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
+<% end %> 
+<%= link_to car_classes_path, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
 <% end %>

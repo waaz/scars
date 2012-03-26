@@ -1,8 +1,13 @@
+<%= stylesheet_link_tag    "showCarClass" %>
 <p id="notice"><%= notice %></p>
    <%= @tarrif%>
 <p>
-  <%= render 'show_car'  %>>
+  <%= render 'show_car'  %>
 </p>
 
-<%= link_to 'Edit', edit_car_class_path(@car_class) %> |
-<%= link_to 'Back', car_classes_path %>
+<%= link_to edit_car_class_path(@car_class), :id => "editLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
+<% end %> |
+<%= link_to car_classes_path, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
+<% end %>

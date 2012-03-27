@@ -1,4 +1,4 @@
-1332856697
+1332860607
 AddAddressToCustomer	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120311091417_add_address_to_customer.rb	class AddAddressToCustomer 
 AddBookingAddressToBookings	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206142654_add_booking_address_to_bookings.rb	class AddBookingAddressToBookings 
 AddBookingPostcodeToBookings	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206143038_add_booking_postcode_to_bookings.rb	class AddBookingPostcodeToBookings 

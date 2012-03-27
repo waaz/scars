@@ -1,4 +1,24 @@
 --- 
-cursor_positions: []
-
+cursor_positions: 
+  - :path: db\migrate\20120327110555_change_tarrif_in_car_classes.rb
+    :cursor_offset: 175
+    :timestamp: 2012-03-27 12:07:03.404000 +01:00
+  - :path: app/models/booking.rb
+    :cursor_offset: 494
+    :timestamp: 2012-03-27 15:41:37.656000 +01:00
+  - :path: Gemfile
+    :cursor_offset: 201
+    :timestamp: 2012-03-25 21:55:22.504000 +01:00
+  - :path: app\views\layouts\application.html.erb
+    :cursor_offset: 55
+    :timestamp: 2012-03-25 13:47:17.105000 +01:00
+  - :path: app\views\payements\_form.html.erb
+    :cursor_offset: 974
+    :timestamp: 2012-03-27 11:37:30.441000 +01:00
+  - :path: app\views\sessions\_new.html.erb
+    :cursor_offset: 135
+    :timestamp: 2012-03-26 13:29:50.535000 +01:00
+  - :path: app\controllers\sessions_controller.rb
+    :cursor_offset: 346
+    :timestamp: 2012-03-27 11:50:07.923000 +01:00
 files_to_retain: 0

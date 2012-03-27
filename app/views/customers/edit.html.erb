@@ -1,9 +1,6 @@
 <%= stylesheet_link_tag    "newCustomer" %>
-<h1>Link Account</h1>
+<%= stylesheet_link_tag    "editCustomer" %>
+<h1 id="linkAccount"><%= image_tag("arrow.png", :alt => "Arrow")%>Link Account</h1>
 
 <%= render 'form' %>
-<% if current_user && current_user.is_admin? %>
- <%= link_to 'Back', customers_url %>
-<% else %>
- <%= link_to 'Home', root_url %>
-<% end %>
+

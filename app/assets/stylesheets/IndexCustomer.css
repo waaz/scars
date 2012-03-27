@@ -39,6 +39,65 @@ td, th
     border: 1px solid black;
 }
 
+#noBorder
+{
+	border:none;
+}
+
+#editLink
+{
+	text-decoration: none;
+}
+
+#editLink p
+{
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonEdit.png);
+}
+
+#editLink p img
+{
+	margin-right: 6px;
+}
+
+#showLink
+{
+	text-decoration: none;
+}
+
+#showLink p
+{
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonShow.png);
+}
+
+#showLink p img
+{
+	margin-right: 6px;
+}
+
+#destroyLink
+{
+	text-decoration: none;
+}
+
+#destroyLink p
+{
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonDestroy.png);
+}
+
+#destroyLink p img
+{
+	margin-right: 6px;
+}
+
 #createCustomerAccess
 {
 	color: white;

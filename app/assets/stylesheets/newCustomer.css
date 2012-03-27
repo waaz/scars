@@ -24,6 +24,7 @@
 	border-color:#A9A9A9;
 	padding:5px;
 	width:400px;
+	height: 360px;
 }
 
 form label
@@ -52,4 +53,24 @@ form input
 	float:right;
 	border-radius:100px;
 	margin-left: 120px;
+}
+
+#backLink
+{
+	text-decoration: none;
+}
+
+#backLink p
+{
+	text-align: center;
+	width: 80px;
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonDestroy.png);
+}
+
+#backLink p img
+{
+	margin-right: 6px;
 }

@@ -1,4 +1,4 @@
-<div id="CustomerForm", style="float: left;">
+<div id="CustomerForm">
 <%= form_for(@customer, :html => {:id => 'newCustomerForm'}) do |f| %>
 
  <% if @customer.errors.any? %>
@@ -14,41 +14,50 @@
  <% if @customer.id != nil %>
  <div class="field">
   <%= f.label :customer_id, "Customer ID:" %>
-  <%= @customer.id %><br/>
+  <p id="customerId"><%= @customer.id %></p>
  </div>
  <% end %>
  <div class="field">
   <%= f.label :user_id, "User ID:" %>
-  <%= f.text_field :user_id %><br/>
+  <%= f.text_field :user_id %>
  </div>
  <div class="field">
   <%= f.label :first_name, "First Name:" %>
-  <%= f.text_field :first_name %><br/>
+  <%= f.text_field :first_name %>
  </div>
  <div class="field">
   <%= f.label :last_name, "Last Name:" %>
-  <%= f.text_field :last_name %><br/>
+  <%= f.text_field :last_name %>
  </div>
  <div class="field">
   <%= f.label :address_one, "Address Line One:" %>
-  <%= f.text_field :address_one %><br/>
+  <%= f.text_field :address_one %>
  </div>
  <div class="field">
   <%= f.label :address_two, "Address Line Two:" %>
-  <%= f.text_field :address_two %><br/>
+  <%= f.text_field :address_two %>
  </div>
  <div class="field">
   <%= f.label :city, "City:" %>
-  <%= f.text_field :city %><br/>
+  <%= f.text_field :city %>
  </div>
  <div class="field">
   <%= f.label :postcode, "Postcode:" %>
-  <%= f.text_field :postcode %><br/>
+  <%= f.text_field :postcode %>
  </div>
  <div class="actions"><%= f.submit %></div>
 <% end %>
 </div>
-
+<br/>
+<% if current_user && current_user.is_admin? %>
+<%= link_to customers_url, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
+<% end %>
+<% else %>
+<%= link_to root_url, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Home</p>
+<% end %>
+<% end %>
 <script language="JavaScript" type="text/javascript">
     window.onload = function(){
         $('body').delegate('#booking_collect','change', function(){

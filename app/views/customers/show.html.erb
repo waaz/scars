@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag    "showCustomer" %>
 <h1>Customer Details:</h1>
 <p>Customer ID: <%= @customer.id %></p>
 <p>User ID:  <%= @customer.user_id %></p>
@@ -7,6 +8,12 @@
 <p>Address Line Two: <%= @customer.address_two %></p>
 <p>City: <%= @customer.city %></p>
 <p>Postcde: <%= @customer.postcode %></p>
-<p><%= link_to 'Edit Details', edit_customer_path(@customer.id) %> |
-<%= link_to 'Index', customers_url %></p>
+
+<%= link_to edit_customer_path(@customer.id), :id => "editLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit Details</p>
+<% end %> |
+<%= link_to customers_url, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
+<% end %>
+<br/>
 

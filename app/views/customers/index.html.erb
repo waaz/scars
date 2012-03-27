@@ -6,26 +6,35 @@
 <table>
 	<thead>
 		<tr>
-			<td>Full</td>
-			<td>Edit</td>
-			<td>Destroy</td>
 			<td>Customer ID</td>
 			<td>User ID</td>
 			<td>First Name</td>
 			<td>Last Name</td>
+			<td id="noBorder" style="width: 94px;"></td>
+			<td id="noBorder" style="width: 94px;"></td>
+			<td id="noBorder" style="width: 111px;"></td>
 		</tr>
 	</thead>
 	
 	<tbody>
 		<% @customers.each do |customer| %>
 		 <tr>
-			 <td><%= link_to 'show', customer_path(customer.id) %></td>
-			 <td><%= link_to 'edit', edit_customer_path(customer.id) %></td>
-			 <td><%= link_to 'destroy', customer, confirm: 'Are you sure?', method: :delete %></td>
 			 <td><%= customer.id %></td>
 			 <td><%= customer.user_id ||= 'nil' %></td>
 			 <td><%= customer.first_name ||= 'nil' %></td>
 			 <td><%= customer.last_name ||= 'nil' %></td>
+			 <td id="noBorder"><%= link_to customer_path(customer.id), :id => "showLink" do %>
+				<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
+			<% end %>
+			</td>
+			<td id="noBorder"><%= link_to edit_customer_path(customer.id), :id => "editLink" do %>
+				<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
+			<% end %>
+			</td>
+			<td id="noBorder" style><%= link_to customer, confirm: 'Are you sure?', method: :delete, :id => "destroyLink" do %>
+				<p><%= image_tag("cross.png", :alt => "Cross")%>Destroy</p>
+			<% end %>
+			</td>
 		 </tr>
 		<% end %>
 	</tbody>

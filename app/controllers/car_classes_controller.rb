@@ -51,7 +51,7 @@ class CarClassesController < ApplicationController
     if @car_class.update_attributes(params[:car_class])
      redirect_to @car_class, notice: 'Car class was successfully updated.'
     else
-	 format.html { render action: "edit" }
+	   format.html { render action: "edit" }
     end
    else
     redirect_to root_url, notice: 'Must be logged in as admin!'
@@ -67,4 +67,11 @@ class CarClassesController < ApplicationController
     redirect_to root_url, notice: 'Must be logged in as admin!'
    end
   end
+  
+  def show_in_view
+   @car_class = CarClass.find(params[:id])
+   format.html{render action "show", :layout => false}
+   
+  end
+    
 end

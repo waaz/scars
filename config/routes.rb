@@ -1,7 +1,9 @@
 Scars::Application.routes.draw do
   resources :orders
 
- resources :car_classes
+ resources :car_classes do 
+	get "show_in_view" => "car_classes#show_in_view"
+ end
 
  get "login" => "sessions#new", :as => "login"
  get "logout" => "sessions#destroy", :as => "logout"

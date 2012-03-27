@@ -1,4 +1,4 @@
-1332852968
+1332856697
 AddAddressToCustomer	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120311091417_add_address_to_customer.rb	class AddAddressToCustomer 
 AddBookingAddressToBookings	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206142654_add_booking_address_to_bookings.rb	class AddBookingAddressToBookings 
 AddBookingPostcodeToBookings	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206143038_add_booking_postcode_to_bookings.rb	class AddBookingPostcodeToBookings 
@@ -123,8 +123,10 @@ car_class	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_ac
 car_class	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 card_number	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  attr_accessor :card_number, :card_verification
 card_verification	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  attr_accessor :card_number, :card_verification
+change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120327111304_add_status_to_bookings.rb	  def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120322154424_add_ip_address_to_payements.rb	  def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120322153731_add_names_to_payements.rb	  def change
+change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120314125529_add_fields_to_car_class.rb	  def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120311110436_create_car_classes.rb	 def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120311091417_add_address_to_customer.rb	  def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120305134908_add_car_id_to_bookings.rb	  def change
@@ -141,28 +143,27 @@ change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120203065611_create
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120202222100_create_customers.rb	  def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120201231601_add_is_admin_to_user.rb	  def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120201103111_create_users.rb	  def change
-change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120314125529_add_fields_to_car_class.rb	  def change
-change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120327111304_add_status_to_bookings.rb	  def change
 clear_all_validations	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function clear_all_validations()
 create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/users_controller.rb	 def create
+create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/sessions_controller.rb	 def create
 create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/payements_controller.rb	  def create
 create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/customers_controller.rb	 def create
-create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def create
 create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/cars_controller.rb	  def create
-create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/sessions_controller.rb	 def create
 create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	  def create
+create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def create
 creates	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 credit_card	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  def credit_card
 current_user	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/application_controller.rb	 def current_user
 destroy	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/users_controller.rb	 def destroy
+destroy	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/sessions_controller.rb	 def destroy
 destroy	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/payements_controller.rb	  def destroy
 destroy	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/customers_controller.rb	 def destroy
-destroy	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def destroy
 destroy	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/cars_controller.rb	  def destroy
-destroy	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/sessions_controller.rb	 def destroy
 destroy	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	  def destroy
+destroy	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def destroy
 div_clearmsg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function div_clearmsg(msgs)
 div_showmsg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function div_showmsg(msgs)
+down	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120327110555_change_tarrif_in_car_classes.rb	  def down
 down	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120322133446_update_payements.rb	  def down
 down	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120320144423_change_ip_address_string_to_ip_address.rb	  def down
 down	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120320141945_change_orders.rb	  def down
@@ -177,7 +178,6 @@ down	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120305130920_remove_c
 down	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120304173230_remove_class_from_cars.rb	  def down
 down	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206140109_remove_class_from_bookings.rb	  def down
 down	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206135922_remove_class_from_car.rb	  def down
-down	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120327110555_change_tarrif_in_car_classes.rb	  def down
 edh_EnableOnPageDisplay	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function edh_EnableOnPageDisplay(single_box)
 edh_FinalShowMsg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function edh_FinalShowMsg()
 edh_ShowMsg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function edh_ShowMsg(msg, input_element)
@@ -185,9 +185,9 @@ edh_clear_msgs	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/g
 edit	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/users_controller.rb	 def edit
 edit	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/payements_controller.rb	  def edit
 edit	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/customers_controller.rb	 def edit
-edit	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def edit
 edit	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/cars_controller.rb	  def edit
 edit	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	  def edit
+edit	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def edit
 element_div_name	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function element_div_name(input_element)
 form_error_div_name	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function form_error_div_name(msgs)
 form_submit_handler	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function form_submit_handler()
@@ -196,9 +196,9 @@ handle_item_on_killfocus	C:/Users/Ryan/rails_project/scars2/scars/app/assets/jav
 index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/users_controller.rb	 def index
 index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/payements_controller.rb	  def index
 index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/customers_controller.rb	def index
-index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def index
 index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/cars_controller.rb	  def index
 index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	  def index
+index	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def index
 instance	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 is_customer	C:/Users/Ryan/rails_project/scars2/scars/app/models/user.rb	 def is_customer
 methods	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
@@ -206,9 +206,9 @@ necessary	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_ac
 new	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/users_controller.rb	 def new
 new	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/payements_controller.rb	  def new
 new	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/customers_controller.rb	 def new
-new	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def new
 new	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/cars_controller.rb	  def new
 new	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	  def new
+new	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def new
 not	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	      redirect_to new_booking_path, notice: 'Selected car class not 
 price_in_pence	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  def price_in_pence
 purchase	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  def purchase
@@ -230,13 +230,15 @@ sfm_validator_message_disp_pos	C:/Users/Ryan/rails_project/scars2/scars/app/asse
 show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/users_controller.rb	 def show
 show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/payements_controller.rb	  def show
 show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/customers_controller.rb	 def show
-show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def show
 show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/cars_controller.rb	  def show
 show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	  def show
+show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def show
 show_div_msg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function show_div_msg(divname, msgstring)
+show_in_view	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def show_in_view
 test_homepage	C:/Users/Ryan/rails_project/scars2/scars/test/performance/browsing_test.rb	  def test_homepage
 the	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 to	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
+up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120327110555_change_tarrif_in_car_classes.rb	  def up
 up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120322133446_update_payements.rb	  def up
 up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120320144423_change_ip_address_string_to_ip_address.rb	  def up
 up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120320141945_change_orders.rb	  def up
@@ -251,13 +253,12 @@ up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120305130920_remove_car
 up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120304173230_remove_class_from_cars.rb	  def up
 up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206140109_remove_class_from_bookings.rb	  def up
 up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206135922_remove_class_from_car.rb	  def up
-up	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120327110555_change_tarrif_in_car_classes.rb	  def up
 update	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/users_controller.rb	 def update
 update	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/payements_controller.rb	  def update
 update	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/customers_controller.rb	 def update
-update	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def update
 update	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/cars_controller.rb	  def update
 update	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	  def update
+update	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def update
 validateEmail	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function validateEmail(email)
 validateInput	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function validateInput(strValidateStr, objValue, strError)
 validate_card	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  def validate_card

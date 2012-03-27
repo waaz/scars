@@ -25,7 +25,7 @@
   
   <div class="field">
     <%= f.label :collect, "Deliver/Collect:" %>
-    <%= f.select :collect,[["",0],["I want my car delivered",false],["I want to collect My Car",true]] %>
+    <%= f.select :collect,[["",0],["I want my car delivered", 'false' ],["I want to collect My Car", 'true']] %>
   </div><br/>*
   
   <div class="field">
@@ -78,7 +78,7 @@
     $('body').delegate('#booking_car_class','change', function(){
         var carId = $("#booking_car_class").val();
         if(carId !=  ''){
-         $.get("/car_classes/" + carId, function(data) {
+         $.get("/car_classes/" + carId + "/show_in_view", function(data) {
                  $("#carInfoDiv").html(data);
              $("#carInfoDiv").css("visibility","visible");
              alert("Data Loaded: " + data);

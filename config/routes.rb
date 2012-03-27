@@ -9,6 +9,8 @@ Scars::Application.routes.draw do
  
  root :to => 'home#index'
  match "admin" => "home#admin"
+ match "admin/reports" => "home#reports"
+ match "admin/statistics" => "home#statistics"
  resources :users
  resources :customers
  resources :sessions
@@ -18,3 +20,4 @@ Scars::Application.routes.draw do
    resources :payements
  end
 end
+

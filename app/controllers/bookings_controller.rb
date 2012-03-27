@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
        end
     else
      redirect_to root_url, notice: 'access denied'
-   end
+    end
   end
 
   def show
@@ -28,7 +28,6 @@ class BookingsController < ApplicationController
   def new
    if current_user
      @booking = Booking.new
-
    else
      redirect_to root_url, notice: 'Must be logged in to create booking.'
    end
@@ -53,7 +52,7 @@ class BookingsController < ApplicationController
 	  @cars = Car.where("car_class_id = ?", @booking.car_class)
 
     @cars.each do |c|
-	   @bookings = Booking.where("car_id = ?", c.id).where("((:start_date >= date_of_departure AND :start_date <= date_of_arrival) OR (:end_date >= date_of_departure AND :end_date <= date_of_arrival))",
+	   @bookings = Booking.where("car_id = ?", c.id).where("(status IS NULL) AND ((:start_date >= date_of_departure AND :start_date <= date_of_arrival) OR (:end_date >= date_of_departure AND :end_date <= date_of_arrival))",
       {:start_date => @booking.date_of_departure, :end_date => @booking.date_of_arrival})
 	   if @bookings.empty?
 	    @booking.car_id = c.id

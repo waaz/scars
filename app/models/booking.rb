@@ -12,7 +12,7 @@ validates :user_id, :presence => true, :numericality => true
 #VALIDATES  customer_id ????
 
 #VALIDATES presence of collect and ensure collect is boolean 
-validates :presence => true 
+validates :collect, :presence => true 
 
 #VALIDATES: the presence of address information if the user requires delivery
 validates :address_one, :presence => true, :if => Proc.new { |o| o.collect != true }

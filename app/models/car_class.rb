@@ -5,7 +5,7 @@ class CarClass < ActiveRecord::Base
 
  validates :description, :presence => true
 
- validates, :tarrif, :presence => true, 
+ validates :tarrif, :presence => true, 
 
  
 end

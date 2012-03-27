@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 
 <%= form_for([@booking,@payement]) do |f| %>
-=======
-<%= form_for([@booking,@payement, :html => {:id => 'newpaymentForm'}]) do |f| %>
->>>>>>> a8e993e59f5a58df651634c683ad2d9440497fc5
   <% if @payement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@payement.errors.count, "error") %> prohibited this payement from being saved:</h2>
@@ -70,10 +66,6 @@
   </div>
 <% end %>
 
-<<<<<<< HEAD
-
-
-=======
 <script language="JavaScript" type="text/javascript">
 
     var frmvalidator  = new Validator("newpaymentForm");
@@ -86,4 +78,3 @@
     //frmvalidator.addValidation("car_class_tarrif","num","Tarrif can only contain numbers");
 
 </script>
->>>>>>> a8e993e59f5a58df651634c683ad2d9440497fc5

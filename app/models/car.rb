@@ -5,8 +5,8 @@ class Car < ActiveRecord::Base
  # VALIDATES: model is present
  validates :model, :presence => true
  
- # VALIDATES: car_class_name is present
- validates :presence => true
+ # VALIDATES: car_class_id is present
+ validates :car_class_id, :presence => true, :numericality => true
 
  # car belongs to booking
  belongs_to :booking

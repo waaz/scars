@@ -1,4 +1,4 @@
-1332711775
+1332844650
 AddAddressToCustomer	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120311091417_add_address_to_customer.rb	class AddAddressToCustomer 
 AddBookingAddressToBookings	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206142654_add_booking_address_to_bookings.rb	class AddBookingAddressToBookings 
 AddBookingPostcodeToBookings	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206143038_add_booking_postcode_to_bookings.rb	class AddBookingPostcodeToBookings 
@@ -122,7 +122,6 @@ card_number	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  at
 card_verification	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  attr_accessor :card_number, :card_verification
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120322154424_add_ip_address_to_payements.rb	  def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120322153731_add_names_to_payements.rb	  def change
-change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120314125529_add_fields_to_car_class.rb	  def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120311110436_create_car_classes.rb	 def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120311091417_add_address_to_customer.rb	  def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120305134908_add_car_id_to_bookings.rb	  def change
@@ -139,6 +138,7 @@ change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120203065611_create
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120202222100_create_customers.rb	  def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120201231601_add_is_admin_to_user.rb	  def change
 change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120201103111_create_users.rb	  def change
+change	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120314125529_add_fields_to_car_class.rb	  def change
 clear_all_validations	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function clear_all_validations()
 create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/users_controller.rb	 def create
 create	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/sessions_controller.rb	 def create

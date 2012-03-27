@@ -10,7 +10,10 @@ class CarClassesController < ApplicationController
 
   def show
    if current_user && current_user.is_admin?
-    @car_class = CarClass.find(params[:id])
+    respond_to do |format|
+     format.html { @car_class = CarClass.find(params[:id]) }
+	 format.json { render :json => CarClass.find(params[:id]) }
+	end
    else
     redirect_to root_url, notice: 'Must be logged in as admin!'
    end

@@ -7,5 +7,6 @@ class CarClass < ActiveRecord::Base
 
  validates :tarrif, :presence => true 
 
+
  
 end

@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
+  
   def index
-
-   if current_user
+    if current_user
        if current_user.is_admin?
          @bookings = Booking.all
        else
@@ -53,7 +53,7 @@ class BookingsController < ApplicationController
 	  @cars = Car.where("car_class_id = ?", @booking.car_class)
 
     @cars.each do |c|
-	   @bookings = Booking.where("car_id = ?", c.id).where("(:start_date >= date_of_departure AND :start_date <= date_of_arrival) OR (:end_date >= date_of_departure AND :end_date <= date_of_arrival)",
+	   @bookings = Booking.where("car_id = ?", c.id).where("((:start_date >= date_of_departure AND :start_date <= date_of_arrival) OR (:end_date >= date_of_departure AND :end_date <= date_of_arrival))",
       {:start_date => @booking.date_of_departure, :end_date => @booking.date_of_arrival})
 	   if @bookings.empty?
 	    @booking.car_id = c.id
@@ -91,6 +91,8 @@ class BookingsController < ApplicationController
       redirect_to :back,notice: 'must be logged in'
     end
   end
+  
+  
   def destroy
     if current_user && current_user.is_admin?
      @booking = Booking.find(params[:id])
@@ -100,5 +102,16 @@ class BookingsController < ApplicationController
       redirect_to bookings_url, notice: 'Access Denied: Admin Only!!'
     end
   end
+  
+  def cancel
+    @booking = Booking.find(params[:booking_id])
+    if current_user.id == @booking.user_id || current_user.is_admin
+      @booking.update_attribute(:status, 'cancel')
+      redirect_to bookings_url, notice: 'Booking cancelled successfully'
+    else 
+      redirect_to bookings_url, notice: 'you do not have permission to cancel this booking'
+    end
+  end
+    
 end
 

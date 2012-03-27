@@ -12,12 +12,18 @@ cursor_positions:
   - :path: tmp/cache/assets/D5A/EA0/sprockets%2Fd771ace226fc8215a3572e0aa35bb0d6
     :cursor_offset: 0
     :timestamp: 2012-03-08 14:13:23.694000 +00:00
+  - :path: app/models/booking.rb
+    :cursor_offset: 584
+    :timestamp: 2012-03-25 22:42:55.587000 +01:00
+  - :path: Gemfile
+    :cursor_offset: 674
+    :timestamp: 2012-03-25 21:55:22.504000 +01:00
   - :path: app/models/car.rb
-    :cursor_offset: 288
-    :timestamp: 2012-03-25 22:42:55.375000 +01:00
+    :cursor_offset: 429
+    :timestamp: 2012-03-27 11:26:58.122000 +01:00
   - :path: app/models/car_class.rb
-    :cursor_offset: 164
-    :timestamp: 2012-03-25 22:42:55.435000 +01:00
+    :cursor_offset: 0
+    :timestamp: 2012-03-26 14:09:25.563000 +01:00
   - :path: app/models/customer.rb
     :cursor_offset: 0
     :timestamp: 2012-02-06 15:55:38.678000 +00:00
@@ -27,10 +33,4 @@ cursor_positions:
   - :path: app/models/user.rb
     :cursor_offset: 303
     :timestamp: 2012-03-07 13:24:44.466000 +00:00
-  - :path: app/models/booking.rb
-    :cursor_offset: 584
-    :timestamp: 2012-03-25 22:42:55.587000 +01:00
-  - :path: Gemfile
-    :cursor_offset: 674
-    :timestamp: 2012-03-25 21:55:22.504000 +01:00
 files_to_retain: 0

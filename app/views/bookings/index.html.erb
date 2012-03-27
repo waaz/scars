@@ -18,6 +18,7 @@
     <td><%= booking.date_of_arrival %></td>
     <td><%= booking.collect %></td>
     <td><%= booking.user_id %></td>
+    <td><%= booking.status %></td>
     <td id="empty"><%= link_to booking, :id => "showLink" do %>
 		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
 	<% end %>
@@ -26,9 +27,9 @@
 		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
 	<% end %>
 	</td>
-    <td id="empty"><%= link_to booking, confirm: 'Are you sure?', method: :delete, :id => "destroyLink" do %>
-		<p><%= image_tag("cross.png", :alt => "Cross")%>Destroy</p>
-	<% end %>
+    <td id="empty"><%= link_to booking_cancel_path(booking), confirm: 'Are you sure?', :id => "destroyLink" do %>
+		 <p><%= image_tag("cross.png", :alt => "Cross")%>Destroy</p>
+	  <% end %>
 	</td>
   </tr>
 <% end %>

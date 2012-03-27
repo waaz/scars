@@ -3,7 +3,11 @@ class SessionsController < ApplicationController
   user = User.find_by_email(params[:email])
   if user && user.authenticate(params[:password])
    session[:user_id] = user.id
-   redirect_to root_url
+   if user.is_admin?
+    redirect_to '/admin'
+   else
+    redirect_to root_url
+   end
   else
    redirect_to root_url, notice: "Invalid email or password."
   end

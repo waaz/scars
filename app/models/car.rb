@@ -9,7 +9,7 @@ class Car < ActiveRecord::Base
  validates :car_class_id, :presence => true, :numericality => true
 
  # car belongs to booking
- belongs_to :booking
+ has_many :bookings
 
  # car belongs to car_class
  belongs_to :car_class

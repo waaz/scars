@@ -1,6 +1,6 @@
 class Booking < ActiveRecord::Base
 has_many :payements      # A booking has many payments
-has_one :car             # A Booking has one car
+belongs_to :car          # A Booking has one car
 belongs_to :user         # A Booking Belongs to a User
 belongs_to :customer     # A Booking Belongs to a customer
 

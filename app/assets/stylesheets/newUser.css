@@ -60,6 +60,11 @@ form input
 	margin-left: 120px;
 }
 
+.field
+{
+	width:400px;
+}
+
 #showLink, #backLink
 {
 	visibility: hidden;

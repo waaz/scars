@@ -1,22 +1,14 @@
 class CarClassesController < ApplicationController
 
   def index
-    if current_user && current_user.is_admin?
-     @car_classes = CarClass.all
-	else
-	 redirect_to root_url, notice: 'Must be logged in as admin!'
-	end
+   @car_classes = CarClass.all
   end
 
   def show
-   if current_user && current_user.is_admin?
     respond_to do |format|
      format.html { @car_class = CarClass.find(params[:id]) }
 	 format.json { render :json => CarClass.find(params[:id]) }
 	end
-   else
-    redirect_to root_url, notice: 'Must be logged in as admin!'
-   end
   end
   
   def new
@@ -69,12 +61,5 @@ class CarClassesController < ApplicationController
    else
     redirect_to root_url, notice: 'Must be logged in as admin!'
    end
-  end
-  
-  def show_in_view
-   @car_class = CarClass.find(params[:id])
-   format.html{render action "show", :layout => false}
-   
-  end
-    
+  end    
 end

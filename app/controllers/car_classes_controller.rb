@@ -71,10 +71,5 @@ class CarClassesController < ApplicationController
    end
   end
   
-  def show_in_view
-   @car_class = CarClass.find(params[:id])
-   format.html{render action "show", :layout => false}
-   
-  end
     
 end

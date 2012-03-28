@@ -231,3 +231,31 @@ footer
 	color: black;
 	text-decoration: none;
 }
+#Paypal
+{
+	margin-top: -55px;
+	margin-left: 4px;
+	float:right;
+}
+#Paypal img
+{
+	display: inline-block;
+}
+
+#PaypalLogo
+{
+	width:120px;
+	height:35px;
+}
+
+#Visa
+{
+	width:62px;
+	height:48px;
+}
+
+#Mastercard
+{
+	width:71px;
+	height:48px;
+}

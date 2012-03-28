@@ -48,12 +48,16 @@
 	   <%= yield %>
        <div style="clear:both;"></div>
 	  </article>
-	 </section><br/>
+<<<<<<< HEAD
+	 </section>
      </div>
+=======
+	 </section><br/>
 	 <footer>
 		<div id="rights"> All content belongs to SCars </div>
 	</footer>
 		
+>>>>>>> 9938a9cf67dc6b054641bb75740a3bd2e7bb7f18
    </body>
 
 <script language="JavaScript" type="text/javascript">

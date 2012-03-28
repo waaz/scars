@@ -110,7 +110,5 @@ class BookingsController < ApplicationController
     else 
       redirect_to bookings_url, notice: 'you do not have permission to cancel this booking'
     end
-  end
-    
+  end 
 end
-

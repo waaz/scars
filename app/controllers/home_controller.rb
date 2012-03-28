@@ -9,12 +9,20 @@ class HomeController < ApplicationController
   end
   
   def statistics
-   #params[:name]
-   #params[:name2]
-   #@stats = Booking.find_by_sql("SELECT * FROM Bookings WHERE date_of_departure > #{Date.today}");
-   @stats = Booking.find(:all, :conditions => ['date_of_departure > ? AND date_of_departure < ?', Date.today.beginning_of_week.to_time + 1.hour, Date.today.end_of_week.to_time + 1.hour])
+   @stats = Booking.find(:all,
+   :select => 'count(*) count, car_id, car_class_id',
+   :group => 'car_class_id',
+   :joins => :car,
+   :conditions => ['(bookings.status IS NULL) AND date_of_departure > ? AND date_of_departure < ? ', Date.today.beginning_of_week.to_time + 1.hour, Date.today.end_of_week.to_time + 1.hour])
+   
+   @data = Hash.new
+   @stats.each do |s|
+    details = CarClass.find(s.car_class_id)
+    @data[details.car_class_name] = s.count
+   end
+   
    respond_to do |format|
-    format.json  { render :json => @stats }
+    format.json  { render :json => @data }
    end
   end
 end

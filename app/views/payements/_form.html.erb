@@ -15,12 +15,20 @@
   <% end %>
   <%fullstring = "Full Payment: £" << @total_cost.to_s%>
   <%depositstring = "Deposit: £" << @deposit.to_s%>
-  <%additionalstring = "Final Payment: £" << @final_payment.to_s%>
-  <%options1 = [ ["", 0],[fullstring ,@total_cost],[depositstring, @deposit], [additionalstring, @final_payment]]%>
+  <%additionalstring = "Remaining Balance: £" << @remaining_balance.to_s%>
+  <%if (@total_cost - @remaining_balance) < @deposit
+     options1 = [ ["", 0],[fullstring ,@total_cost],[depositstring, @deposit]]
+  %>
   <div class="field">
     <%= f.label :amount, "Payment Type" %>
     <%= f.select :amount, options_for_select(options1) %>
   </div>
+  <% else %>
+   <div class="field">
+    <%= f.label :amount, "Payment Type" %>
+    <%= f.text_field :amount, :value => @remaining_balance, :readonly => "readonly" %>
+  </div>
+  <% end %>  
   <div id="personal Information">
    <div class="field">
      <%= f.label :first_name%>
@@ -61,23 +69,8 @@
        <%= f.date_select :expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
      </div>
    </div>
-
-
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
 </div>
-
-<script language="JavaScript" type="text/javascript">
-
-    var frmvalidator  = new Validator("newpaymentForm");
-    frmvalidator.EnableMsgsTogether();
-    frmvalidator.EnableFocusOnError(false);
-    //frmvalidator.addValidation("car_class_car_class_name","req","Missing \"Car class name\"");
-    //frmvalidator.addValidation("car_class_description","req","Missing \"Description\"");
-
-    //frmvalidator.addValidation("car_class_car_class_name","alnum_s","Car class name allows only alphabetic, numeric and space characters ");
-    //frmvalidator.addValidation("car_class_tarrif","num","Tarrif can only contain numbers");
-
-</script>

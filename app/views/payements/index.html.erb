@@ -17,11 +17,8 @@
     <td><%= payement.amount %></td>
     <td><%= payement.payement_type %></td>
     <td><%= payement.booking_id %></td>
-    <td><%= payement.created_at %></td>
-    <td><%= link_to 'Show', booking_payement_path(payement.booking_id, payement.id) %></td>
-    <td><%= link_to 'Edit', edit_booking_payement_path(payement.booking_id, payement.id) %></td>
-    <td><%= link_to 'Destroy', booking_payement_path(params[:id]), confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <td><%= payement.created_at.to_date %></td>
+ </tr>
 <% end %>
 </table>
 

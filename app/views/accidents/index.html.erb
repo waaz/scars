@@ -1,0 +1,43 @@
+<h1>Listing accidents</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Address line 1</th>
+    <th>Address line 2</th>
+    <th>Postcode</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Reg</th>
+    <th>Model</th>
+    <th>Damage report</th>
+    <th>Accident report</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @accidents.each do |accident| %>
+  <tr>
+    <td><%= accident.first_name %></td>
+    <td><%= accident.last_name %></td>
+    <td><%= accident.address_line_1 %></td>
+    <td><%= accident.address_line_2 %></td>
+    <td><%= accident.postcode %></td>
+    <td><%= accident.email %></td>
+    <td><%= accident.phone %></td>
+    <td><%= accident.reg %></td>
+    <td><%= accident.model %></td>
+    <td><%= accident.damage_report %></td>
+    <td><%= accident.accident_report %></td>
+    <td><%= link_to 'Show', car_accident_path(accident.car_id, accident.id)%></td>
+    <td><%= link_to 'Edit', edit_car_accident_path(accident.car_id, accident.id) %></td>
+    <td><%= link_to 'Destroy', car_accident_path(@car,accident), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Accident', new_car_accident_path(@car) %>

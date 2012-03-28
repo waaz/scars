@@ -69,6 +69,7 @@ GEM
     money (3.7.1)
       i18n (~> 0.4)
     multi_json (1.0.4)
+    nested_scaffold (0.1.0)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.1)
@@ -127,6 +128,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   date_validator
   jquery-rails
+  nested_scaffold
   rails (= 3.2.0)
   sass-rails (~> 3.2.3)
   sqlite3

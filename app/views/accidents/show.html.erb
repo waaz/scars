@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @accident.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @accident.last_name %>
+</p>
+
+<p>
+  <b>Address line 1:</b>
+  <%= @accident.address_line_1 %>
+</p>
+
+<p>
+  <b>Address line 2:</b>
+  <%= @accident.address_line_2 %>
+</p>
+
+<p>
+  <b>Postcode:</b>
+  <%= @accident.postcode %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @accident.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @accident.phone %>
+</p>
+
+<p>
+  <b>Reg:</b>
+  <%= @accident.reg %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @accident.model %>
+</p>
+
+<p>
+  <b>Damage report:</b>
+  <%= @accident.damage_report %>
+</p>
+
+<p>
+  <b>Accident report:</b>
+  <%= @accident.accident_report %>
+</p>
+
+
+<%= link_to 'Edit', edit_car_accident_path(@car,@accident) %> |
+<%= link_to 'Back', car_accidents_path %>

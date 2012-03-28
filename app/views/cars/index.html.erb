@@ -33,6 +33,14 @@
 		<p><%= image_tag("cross.png", :alt => "Cross")%>Destroy</p>
 	<% end %>
 	</td>
+	 <td id="noBorder" style><%= link_to new_car_accident_path(car), :id => "destroyLink" do %>
+		<p><%= image_tag("cross.png", :alt => "Cross")%>New Accident</p>
+	<% end %>
+	</td>
+	<td id="noBorder" style><%= link_to car_accident_path(car), :id => "destroyLink" do %>
+	  <p><%= image_tag("cross.png", :alt => "Cross")%>View Accidents</p>
+	<% end %>
+	</td>
   </tr>
 <% end %>
 </table>

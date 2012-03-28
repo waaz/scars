@@ -66,9 +66,15 @@ form input, select
 	margin-left: 120px;
 }
 
-.field
+.field, .verifField
 {
 	width:400px;
+}
+
+.verifField input
+{
+	width: 23px;
+	margin-right: 100px;
 }
 
 #deposit2, #cost2

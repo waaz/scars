@@ -1,6 +1,58 @@
 <script>
-$.getJSON("statistics.json", function(json) {
-    alert(json);
+    var data = $.getJSON("", function() {
+        alert("1" + data.abc);
     });
+
+    var p = $.get("/admin/statistics.json", function(data) {
+
+        var chart;
+        $(document).ready(function() {
+            chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'container',
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false
+                },
+                title: {
+                    text: 'Total Car Class Shares'
+                },
+                tooltip: {
+                    formatter: function() {
+                        return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                    }
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            formatter: function() {
+                                return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                            }
+                        }
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: 'Total Car Class Shares',
+                    data: [
+                        ['abc',   data.abc],
+                        ['abc',       data.abc],
+                        ['abc',    data.abc],
+                        ['abc',     data.abc],
+                        ['abc',   data.abc]
+                    ]
+                }]
+            });
+        });
+    });
+
+
 </script>
 <div id="images"></div>
+
+<div id="container" style="width: 800px; height: 400px; margin: 0 auto"></div>

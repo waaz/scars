@@ -1,7 +1,7 @@
 <div id=paymentOptions>
 <div class="field"><p id="cost">Cost of Rental: £ <%= @total_cost %></p></div>
 <div class="field"><p id="deposit">Deposit: £ <%= @deposit %></p></div>
-<%= form_for([@booking,@payement]) do |f| %>
+<%= form_for([@booking,@payement], :html => {:id => 'newpaymentForm'}) do |f| %>
   <% if @payement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@payement.errors.count, "error") %> prohibited this payement from being saved:</h2>
@@ -15,12 +15,20 @@
   <% end %>
   <%fullstring = "Full Payment: £" << @total_cost.to_s%>
   <%depositstring = "Deposit: £" << @deposit.to_s%>
-  <%additionalstring = "Final Payment: £" << @final_payment.to_s%>
-  <%options1 = [ ["", 0],[fullstring ,@total_cost],[depositstring, @deposit], [additionalstring, @final_payment]]%>
+  <%additionalstring = "Remaining Balance: £" << @remaining_balance.to_s%>
+  <%if (@total_cost - @remaining_balance) < @deposit
+     options1 = [ ["", 0],[fullstring ,@total_cost],[depositstring, @deposit]]
+  %>
   <div class="field">
     <%= f.label :amount, "Payment Type" %>
     <%= f.select :amount, options_for_select(options1) %>
   </div>
+  <% else %>
+   <div class="field">
+    <%= f.label :amount, "Payment Type" %>
+    <%= f.text_field :amount, :value => @remaining_balance, :readonly => "readonly" %>
+  </div>
+  <% end %>  
   <div id="personal Information">
    <div class="field">
      <%= f.label :first_name%>
@@ -52,7 +60,7 @@
        <%= f.label :card_number %>
        <%= f.text_field :card_number %>
      </div>
-     <div class="field">
+     <div class="verifField">
        <%= f.label :card_verification, "Card Verification Value (CVV)" %><br />
        <%= f.text_field :card_verification %>
      </div>
@@ -61,8 +69,6 @@
        <%= f.date_select :expires_on, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
      </div>
    </div>
-
-
   <div class="actions">
     <%= f.submit %>
   </div>
@@ -74,10 +80,42 @@
     var frmvalidator  = new Validator("newpaymentForm");
     frmvalidator.EnableMsgsTogether();
     frmvalidator.EnableFocusOnError(false);
-    //frmvalidator.addValidation("car_class_car_class_name","req","Missing \"Car class name\"");
-    //frmvalidator.addValidation("car_class_description","req","Missing \"Description\"");
+    frmvalidator.addValidation("payement_first_name","req","Missing \"First Name\"");
+    frmvalidator.addValidation("payement_last_name","req","Missing \"Last Name\"");
+    frmvalidator.addValidation("payement_billing_address_line_1","req","Missing \"Address line 1\"");
+    frmvalidator.addValidation("payement_billing_postcode","req","Missing \"Postcode\"");
+    frmvalidator.addValidation("payement_card_number","req","Missing \"Card Number\"");
+    frmvalidator.addValidation("payement_card_verification","req","Missing \"Card Verification\"");
 
-    //frmvalidator.addValidation("car_class_car_class_name","alnum_s","Car class name allows only alphabetic, numeric and space characters ");
-    //frmvalidator.addValidation("car_class_tarrif","num","Tarrif can only contain numbers");
+    frmvalidator.addValidation("payement_first_name","alpha_s","Allows alphabetic and space characters in \"First Name\"");
+    frmvalidator.addValidation("payement_last_name","alpha_s","Allows alphabetic and space characters in \"Last Name\"");
+    frmvalidator.addValidation("payement_amount","dontselect=0","Missing \"Payment Type\"");
+    frmvalidator.addValidation("payement_billing_address_line_1","alnum_s","Alphabetic, numeric and space characters only on \"Address Line 1\"");
+    frmvalidator.addValidation("payement_card_number","num","Invalid \"Card Number\"");
+    frmvalidator.addValidation("payement_card_verification","num","Invalid \"Card Verification\"");
+    frmvalidator.addValidation("payement_card_verification","maxlen=3","Invalid \"Card Verification\"");
+    frmvalidator.addValidation("payement_card_verification","minlen=3","Invalid \"Card Verification\"");
 
+    function DoCustomPostcodeValidation()
+    {
+                var frm = document.forms['newpaymentForm'];
+        if (frm.payement_billing_postcode.value != "")
+        {
+                var postCodeValue = frm.payement_billing_postcode.value.replace(/\s/g, "");
+                postCodeValue = postCodeValue.toUpperCase();
+                var matchPostcode = /^((((A[BL]|B[ABDHLNRSTX]?|C[ABFHMORTVW]|D[ADEGHLNTY]|E[HNX]?|F[KY]|G[LUY]?|H[ADGPRSUX]|I[GMPV]|JE|K[ATWY]|L[ADELNSU]?|M[EKL]?|N[EGNPRW]?|O[LX]|P[AEHLOR]|R[GHM]|S[AEGKLMNOPRSTY]?|T[ADFNQRSW]|UB|W[ADFNRSV]|YO|ZE)[1-9]?[0-9]|((E|N|NW|SE|SW|W)1|EC[1-4]|WC[12])[A-HJKMNPR-Y]|(SW|W)([2-9]|[1-9][0-9])|EC[1-9][0-9])[0-9])[ABD-HJLNP-UW-Z]{2}|GIR0AA)$/.test(postCodeValue);
+                if (!matchPostcode){
+                    sfm_show_error_msg('Invalid Postcode!');
+                    return false;
+                }
+                else{
+                    return true;
+                }
+        }
+        else
+        {
+            return false;
+        }
+    }
+    frmvalidator.setAddnlValidationFunction(DoCustomPostcodeValidation);
 </script>

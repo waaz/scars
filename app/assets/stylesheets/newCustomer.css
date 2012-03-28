@@ -55,6 +55,11 @@ form input
 	margin-left: 120px;
 }
 
+.field
+{
+	width:400px;
+}
+
 #backLink
 {
 	text-decoration: none;

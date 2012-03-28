@@ -49,6 +49,10 @@ border-radius:100px;
 margin-left: 30px;
 }
 
+.field 
+{
+	width: 400px;
+}
 #car_car_class_id
 {
 	margin-bottom: 20px;

@@ -57,6 +57,12 @@ float:right;
 border-radius:100px;
 margin-left: 30px;
 }
+
+.field
+{
+	width:400px;
+}
+
 textarea {
     resize: none;
 }

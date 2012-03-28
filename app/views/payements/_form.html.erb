@@ -1,4 +1,6 @@
-
+<div id=paymentOptions>
+<div class="field"><p id="cost">Cost of Rental: £ <%= @total_cost %></p></div>
+<div class="field"><p id="deposit">Deposit: £ <%= @deposit %></p></div>
 <%= form_for([@booking,@payement]) do |f| %>
   <% if @payement.errors.any? %>
     <div id="error_explanation">
@@ -16,9 +18,9 @@
   <%additionalstring = "Final Payment: £" << @final_payment.to_s%>
   <%options1 = [ ["", 0],[fullstring ,@total_cost],[depositstring, @deposit], [additionalstring, @final_payment]]%>
   <div class="field">
-    <%= f.label :amount, "Please Select Payment Type" %><br />
+    <%= f.label :amount, "Payment Type" %>
     <%= f.select :amount, options_for_select(options1) %>
-  </div><br/>
+  </div>
   <div id="personal Information">
    <div class="field">
      <%= f.label :first_name%>
@@ -65,6 +67,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>
 
 <script language="JavaScript" type="text/javascript">
 

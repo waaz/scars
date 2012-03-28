@@ -1,5 +1,5 @@
 <div id="UserForm">
-<%= form_for @user do |f| %>
+<%= form_for(@user, :html => {:id => 'newUserForm'}) do |f| %>
  <% if @user.errors.any? %>
   <div class="error_messages">
    <h2>Form is invalid</h2>
@@ -31,18 +31,6 @@
   <%= f.label :is_admin, "Admin: " %>
   <%= f.check_box :is_admin, default: false %>
  </div>
- <% if not @user.is_admin %>
-	 <%= f.fields_for :customer do |c| %>
-	 <div>
-	  <%= c.label :first_name, "First Name: " %>
-	  <%= c.text_field :first_name%>
-	 </div>
-	 <div>
-	  <%= c.label :last_name, "First Name: " %>
-	  <%= c.text_field :last_name %>
-	 </div>
-	 <% end %>
- <% end %>
  <br/>
  <div class="actions"><%= f.submit %></div>
 <% end %>
@@ -56,7 +44,8 @@
 <% end %>
 <script language="JavaScript" type="text/javascript">
 
-    var frmvalidator  = new Validator("new_user");
+    if(document.forms['newUserForm']){
+    var frmvalidator  = new Validator("newUserForm");
     frmvalidator.EnableMsgsTogether();
     frmvalidator.EnableFocusOnError(false);
     frmvalidator.addValidation("email","req","Missing \"Email\"");
@@ -65,5 +54,5 @@
 
     frmvalidator.addValidation("email","email","Invalid \"Email\"");
     frmvalidator.addValidation("password_confirmation","eqelmnt=password","The confirmed password is not same as password");
-
+    }
 </script>

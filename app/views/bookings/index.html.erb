@@ -29,7 +29,7 @@
 	<% end %>
 	</td>
     <td id="empty"><%= link_to booking_cancel_path(booking), confirm: 'Are you sure?', :id => "destroyLink" do %>
-		 <p><%= image_tag("cross.png", :alt => "Cross")%>Destroy</p>
+		 <p><%= image_tag("cross.png", :alt => "Cross")%>Cancel</p>
 	  <% end %>
 	</td>
   </tr>
@@ -42,6 +42,11 @@
 	<h1 id="newBookingAccess"><%= image_tag("arrow.png", :alt => "Arrow")%>New Booking</h1>
 <% end %>
 
+<% if current_user && current_user.is_admin? %>
 <%= link_to admin_path do %>
 	<h1 id="adminAccess"><%= image_tag("arrow.png", :alt => "Arrow")%>Back</h1>
 <% end %>
+<% else %>
+
+<% end %>
+

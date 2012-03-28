@@ -1,30 +1,31 @@
 #main_wrapper
 {
-    width: 900px;
-    margin: auto;
+	width: 900px;
+	margin: auto;
+	margin-top: -10px;
 }
 
-body
+#body
 {
 	font-family: 'Trebuchet MS', Arial, sans-serif;
-    color: black;
+	color: #181818;
 }
-article h1{
-padding:0px;
-margin:0px;
-}
-header
+
+#header
 {
-	
 	position: relative;
-	margin-bottom: 0px;
-	border-bottom-color:#78affb;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
 	border-bottom:solid 3px;
 }
-#header li a:hover{
-  color:#136BE4;
+
+#header li a:hover
+{
+	color:#136BE4;
 }
-header > ul{
+
+#header ul
+{
 	list-style-type: none;
 	position:absolute;
 	right:0em;
@@ -33,89 +34,124 @@ header > ul{
 	margin-top:0px;
 	padding-top:0px;
 }
-#main_nav ul{
-padding-top:0px;
-margin-top:0px;
-}
 
-
-
-#main_nav li
+#article h1
 {
-	display: inline-block;
-	border: 2px solid #136BE4;
-	border-top:none;
-	border-bottom-left-radius: 15px;
-	/*border-bottom-right-radius: 15px;*/
-	padding: 5px;
-	background-color: #78AFFB;
-	
-}
-#main_nav li a
-{
-	text-decoration:none;
-	font-size: 1.5em;
-	color:#124465;	
-}
-
-#main_nav li a:hover
-{
-	color:#136BE4;
+	padding:0px;
+	margin:0px;
 }
 
 #main_nav
 {
-	/*border: 2px solid #000000;*/
-	text-align: center;
-	margin-bottom: 10px;
-	margin-top:0px;
-	padding-top:0px;
+	position: relative;
+	z-index: 2;
+	background-image: url(navbar.png);
+	background-repeat: repeat-x;
+	border-bottom-left-radius: 7px;	
+	border-bottom-right-radius: 7px;	
+	margin-top: -25px;
 }
 
-section
+#main_nav ul
 {
-	/*border: 2px solid #000000;*/
+	padding-top: 5px; 
+	padding-bottom: 0px;
+	padding-left: 0px;
+	height: 31px; 
+	width: 900px; 
+	list-style-type: none;
+	margin: 0;
 }
 
-aside
+#main_nav li
 {
 	display: inline-block;
-	/*border: 2px solid #000000;*/
-	vertical-align: top;
 }
 
-article
+#main_nav li a
 {
-	/*width: 700px;*/
-	margin-right: 10px;
-	display: inline-block;
-	/*border: 2px solid #000000;*/
+	text-decoration:none;
+	font-family: 'Trebuchet MS', Arial, sans-serif;
+	color: white;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	padding-right: 5px;
+	margin: 0;
+}
+
+#main_nav li a:hover
+{
+	background-image: url(button_hover.png);
+	padding-top: 5px;
+	padding-bottom: 10px;
+	padding-right: 5px;
+	height: 20;
+	margin: 0;
+	color: black;
+	}
+	
+#second_tab a, #second_tab a:hover
+{
+	padding-left:5px;
+}
+
+#first_tab a
+{
+	padding-left: 10px;
+}
+
+#first_tab a:hover
+{
+	border-bottom-left-radius: 7px;
+}
+
+#main_nav li img
+{
+	vertical-align: -3px;
+	margin: 0;
+}
+
+#notice
+{
+	margin-left: 400px;
+	text-decoration:none;
+	font-family: 'Trebuchet MS', Arial, sans-serif;
+	color: white;
 }
 
 #main_login a
 {
-	border : 2px solid #136BE4;
+	right: 0px; 
+	left: 830px;
+	top: 0px;
+	border-bottom-width: 0px; 
+	margin-bottom: 5px; 
+	margin-top: 0px; 
+	position: absolute;
 	padding-left : 5px;
 	padding-right : 5px;
 	padding-top : 5px;
-	border-radius: 5px;
-	background-color : #78AFFB;
-	position: relative;
-	bottom: 0px;
-	text-decoration:none;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+	z-index: 2;
+	background-image : url(navbar.png);
+	text-decoration: none;
 	color:#124465;
 }
 
 #login_dropdown
 {
-	position: absolute;
-	background-color: white;
-	padding: 10px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	box-shadow: 0px 4px 8px #124465;
 	display: none;
-	right: 0px;
+	position: absolute;
+	width: 300px;
+	padding: 10px;
+	padding-left: 10px;
+	top: 32px; 
+	left: 580px; 
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	box-shadow: 0px 4px 8px #181818;
+	text-decoration:none;
 }
 
 #login_dropdown p
@@ -128,19 +164,34 @@ article
 	padding-left: 5px;
 }
 
+#aside
+{
+	border: 3px solid #000000;  
+	display: inline-block;
+	width: 200px;
+	height: 500px;
+	margin-top: 5px;
+}
+
+#advertisement
+{ 
+	display: inline-block;
+	width: 682px;
+	height: 300px;
+	vertical-align: top;
+	margin-top: 5px;
+}
+
+#article
+{
+	width: 700px;
+	margin-right: 10px;
+	display: inline-block;
+}
+
 .error
 {
     font-size: 0.7em;
     color: #900;
     background-color : #ffff00;
 }
-
-/*#Line
-{
-	padding-bottom: 7px;
-}*/
-/*
-#main_nav
-{
-	background: url('/assets/Line.png') repeat-x bottom;
-}*/

@@ -1,11 +1,6 @@
+<%= stylesheet_link_tag "newPayment" %>
+<h1 id="newPayment"><%= image_tag("arrow.png", :alt => "Arrow")%>New Payment</h1>
 
-<h1>New payement</h1>
-
-<div id="paymentInfo">
-Cost of Rental: £<b><%= @total_cost %></b><br/>
-Deposit: £<b><%= @deposit %></b><br/>
-</div>
-<div id=paymentOptions>
  <%= render 'form' %>
-</div>
+
 

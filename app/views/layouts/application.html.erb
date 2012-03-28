@@ -9,27 +9,23 @@
 	<body>
 	 <div id="main_wrapper">
 	  <header>
-	   <%= image_tag("logo.png", :alt => "Sample App") %>
-	   <%= flash[:notice] %>
-	   <% if current_user %>
-        <p>Logged in as <%= current_user.email %>.</p>
-        <%= link_to "Logout", "/logout" %>
-       <% else %>
-        <ul>
-         <li id="main_login"><a href="#" onclick=myFunction();>Login<%= image_tag("arrow_down.png", :alt => "Arrow Down", :id => "Arrow") %></a></li>
-		</ul>
-		<div id="login_dropdown">
-			<%= render partial: "sessions/new" %>
-        </div>
-       <% end %>	   
+	   <%= image_tag("banner.jpg", :alt => "S-Cars") %>	   
 	  </header>
 	 <div id="main_nav">
 	  <nav>
 	   <ul>
-	    <li><%= link_to 'Home', root_path%></li>
-	    <li><%=link_to 'Booking', new_booking_path%></li>
-	    <li><a href="#"> Contact</a></li>
-	    <li><a href="#"> About</a></li>
+	    <li id="first_tab"><%= link_to 'Home', root_path%></li>
+	    <li id="second_tab"><%=link_to 'Bookings', new_booking_path%></li>
+		<li id="notice"><%= flash[:notice] %></li>
+		<% if current_user %>
+        <li id="notice">Logged in as <%= current_user.email %>.</li>
+        <li id="main_login"><%= link_to "Logout", "/logout" %></li>
+       <% else %>
+		<li id="main_login"><a href="#" onclick=myFunction();>Login<%= image_tag("arrow_down.gif", :alt => "Arrow Down", :id => "Arrow") %></a></li>
+		<div id="login_dropdown">
+			<%= render partial: "sessions/new" %>
+        </div>
+       <% end %>
 	   </ul>
 	  </nav>
 	 </div>
@@ -38,15 +34,7 @@
 	   <%= yield %>
        <div style="clear:both;"></div>
 	  </article>
-	  <!--<aside>
-	   <h1>New Offer </h1>
-	   <%= image_tag("promo.jpeg", :alt => "Promotional Material")%>
-	  </aside>-->
 	 </section>
-	 <footer>
-	  <div id="rights"> All content belongs to Clear Solutions </div>
-	 </footer>
-	</div>
    </body>
 
 <script language="JavaScript" type="text/javascript">
@@ -55,12 +43,12 @@
    var arrow = document.getElementById('Arrow');
 	if(drop.style.display == "block"){
 		drop.style.display = "none";
-		arrow.src = "/assets/arrow_down.png";
+		arrow.src = "/assets/arrow_down.gif";
 		arrow.alt = "Arrow Down";
 	}
 	else{
 		drop.style.display = "block";
-		arrow.src = "/assets/arrow_up.png";
+		arrow.src = "/assets/arrow_up.gif";
 		arrow.alt = "Arrow Up";
 	}
    }

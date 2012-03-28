@@ -198,3 +198,16 @@
     background-color : #ffff00;
 }
 
+footer
+{
+    background:	url('bar.png') repeat-x top, url('shadow.png') repeat-x top;
+    padding-top: 25px;
+}
+
+
+#rights
+{
+	text-align: center;
+    font-size: 1.1em;
+	margin-top: 20px;
+}

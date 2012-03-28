@@ -1,4 +1,4 @@
-1332860607
+1332860915
 AddAddressToCustomer	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120311091417_add_address_to_customer.rb	class AddAddressToCustomer 
 AddBookingAddressToBookings	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206142654_add_booking_address_to_bookings.rb	class AddBookingAddressToBookings 
 AddBookingPostcodeToBookings	C:/Users/Ryan/rails_project/scars2/scars/db/migrate/20120206143038_add_booking_postcode_to_bookings.rb	class AddBookingPostcodeToBookings 
@@ -213,6 +213,7 @@ not	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller
 price_in_pence	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  def price_in_pence
 purchase	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  def purchase
 purchase_options	C:/Users/Ryan/rails_project/scars2/scars/app/models/payement.rb	  def purchase_options
+reports	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/home_controller.rb	  def reports
 run_addnl_validations	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function run_addnl_validations()
 sb_div_clearmsg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function sb_div_clearmsg(msgs)
 sb_div_showmsg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function sb_div_showmsg(msgs)
@@ -234,7 +235,7 @@ show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/cars_controller.rb
 show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/bookings_controller.rb	  def show
 show	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def show
 show_div_msg	C:/Users/Ryan/rails_project/scars2/scars/app/assets/javascripts/gen_validatorv4.js	function show_div_msg(divname, msgstring)
-show_in_view	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/car_classes_controller.rb	  def show_in_view
+statistics	C:/Users/Ryan/rails_project/scars2/scars/app/controllers/home_controller.rb	  def statistics
 test_homepage	C:/Users/Ryan/rails_project/scars2/scars/test/performance/browsing_test.rb	  def test_homepage
 the	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable
 to	C:/Users/Ryan/rails_project/scars2/scars/app/models/booking.rb	attr_accessor :car_class #creates necessary methods to get and set the car_class instance variable

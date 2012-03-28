@@ -71,9 +71,5 @@ class CarClassesController < ApplicationController
    end
   end
   
-  def show_in_view
-   render action: "show", :layout => false
-   
-  end
     
 end

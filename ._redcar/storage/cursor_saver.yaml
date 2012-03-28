@@ -21,4 +21,7 @@ cursor_positions:
   - :path: app\controllers\sessions_controller.rb
     :cursor_offset: 346
     :timestamp: 2012-03-27 11:50:07.923000 +01:00
+  - :path: db\migrate\20120327111304_add_status_to_bookings.rb
+    :cursor_offset: 0
+    :timestamp: 2012-03-27 12:13:04.526000 +01:00
 files_to_retain: 0

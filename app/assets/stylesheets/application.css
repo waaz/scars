@@ -146,7 +146,9 @@
 	width: 300px;
 	padding: 10px;
 	padding-left: 10px;
-	top: 32px; 
+	top: 36px; 
+	background-color: white;
+	z-index: -1;
 	left: 580px; 
 	border-bottom-left-radius: 7px;
 	border-bottom-right-radius: 7px;
@@ -195,3 +197,4 @@
     color: #900;
     background-color : #ffff00;
 }
+

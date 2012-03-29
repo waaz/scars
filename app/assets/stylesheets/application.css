@@ -113,8 +113,14 @@
 
 #notice
 {
-	margin-left: 400px;
-	text-decoration:none;
+	margin-top:10px;
+	color:red;
+	font-family:Arial;
+}
+
+#noticeLogin
+{
+	margin-left: 330px;
 	font-family: 'Trebuchet MS', Arial, sans-serif;
 	color: white;
 }
@@ -240,6 +246,17 @@ footer
 #Paypal img
 {
 	display: inline-block;
+}
+
+#facebookLink, #twitterLink
+{
+	display: inline-block;
+}
+
+#TwitterLogo, #FacebookLogo
+{
+	width:50px;
+	height:50px;
 }
 
 #PaypalLogo

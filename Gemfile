@@ -43,4 +43,6 @@ gem 'validates_as_uk_postcode'
 
 gem 'activemerchant'
 
-gem 'nested_scaffold'
+gem 'prawn'
+
+gem 'prawnto'

@@ -63,5 +63,9 @@
 
 <%= link_to car_accidents_path, :id => "backLink" do %>
 	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
+<% end %><br/>
+
+<%= link_to car_accident_path(@car,@accident,:format => 'pdf'), :id => "generateLink" do %>
+	<%= image_tag("generate_pdf.png", :alt => "PDF Button", :title => "Generate PDF")%>
 <% end %>
 

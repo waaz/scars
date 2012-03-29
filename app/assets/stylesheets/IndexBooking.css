@@ -99,6 +99,24 @@ td, th
 	margin-right: 6px;
 }
 
+#payementLink
+{
+	text-decoration: none;
+}
+
+#payementLink p
+{
+	margin: 5px;
+	color: white;
+	border: 2px solid #A9A9A9;
+	background: url(buttonPayement.png);
+}
+
+#payementLink p img
+{
+	margin-right: 6px;
+}
+
 #newBookingAccess
 {
 	margin-right: 5px;

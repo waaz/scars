@@ -14,8 +14,6 @@
     <th>Phone</th>
     <th>Reg</th>
     <th>Model</th>
-    <th>Damage report</th>
-    <th>Accident report</th>
     <th id="noBorder" style="width: 84px;"></th>
     <th id="noBorder" style="width: 84px;"></th>
     <th id="noBorder" style="width: 111px;"></th>
@@ -32,8 +30,6 @@
     <td><%= accident.phone %></td>
     <td><%= accident.reg %></td>
     <td><%= accident.model %></td>
-    <td><%= accident.damage_report %></td>
-    <td><%= accident.accident_report %></td>
 	<td id="noBorder"><%= link_to car_accident_path(accident.car_id, accident.id), :id => "showLink" do %>
 		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
 	<% end %>

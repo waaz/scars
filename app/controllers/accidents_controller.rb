@@ -3,9 +3,12 @@ class AccidentsController < ApplicationController
   # GET /accidents.json
   
     before_filter do
-    @car = Car.find(params[:car_id])
-  end
-  
+      @car = Car.find(params[:car_id])
+	  if !(current_user.is_admin?)
+		redirect_to root_url
+	  end
+    end
+	  
   def index
   
   
@@ -21,10 +24,10 @@ class AccidentsController < ApplicationController
   # GET /accidents/1.json
   def show
     @accident = @car.accidents.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @accident }
+	  format.pdf { render :layout => false }
     end
   end
 
@@ -50,8 +53,11 @@ class AccidentsController < ApplicationController
     @accident = @car.accidents.build(params[:accident])
     
       if @accident.save
-        redirect_to admin_path
+        redirect_to admin_path, notice: "accident report submittdd"
+	  else
+		redirect_to new_car_accident_path(@car,@accident)
       end
+	  
 
   end
 
@@ -75,4 +81,5 @@ class AccidentsController < ApplicationController
     
 	redirect_to cars_url, notice: "car destroyed"
   end
+
 end

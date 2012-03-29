@@ -50,8 +50,11 @@ class AccidentsController < ApplicationController
     @accident = @car.accidents.build(params[:accident])
     
       if @accident.save
-        redirect_to admin_path
+        redirect_to admin_path, notice: "accident report submittdd"
+	  else
+		redirect_to new_car_accident_path(@car,@accident)
       end
+	  
 
   end
 

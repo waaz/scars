@@ -24,7 +24,7 @@
 	border-color:#A9A9A9;
 	padding:5px;
 	width:400px;
-	height: 481px;
+	height: 720px;
 }
 
 form label
@@ -58,6 +58,18 @@ form input
 .field
 {
 	width:400px;
+}
+
+textarea
+{
+	resize: none;
+	float:left;
+	padding:4px 2px;
+	border:solid 1px #aacfe4;
+	width:200px;
+	margin:2px 0px 20px 0px;
+	padding:1px;
+	height:135px;
 }
 
 #backLink

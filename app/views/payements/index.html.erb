@@ -1,5 +1,12 @@
 <%= stylesheet_link_tag    "IndexPayment" %>
+<% if not @paid.empty? %>
+   <% if @paid.first.paid >= @total_cost %>
+     <b>Balance paid in full.</b><br />
+ <% end %>
+<% end %>
 <h1 id="listingPayments"><%= image_tag("arrow.png", :alt => "Arrow")%>Listing Payments</h1>
+
+<div id="List">
 
 <table>
   <tr>
@@ -7,26 +14,19 @@
     <th>Payement type</th>
     <th>Booking</th>
     <th>Payement date</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @payements.each do |payement| %>
   <tr>
     <td><%= payement.amount %></td>
+	<td></td>
     <td><%= payement.booking_id %></td>
     <td><%= payement.created_at.to_date %></td>
  </tr>
 <% end %>
 </table>
-
-<% if not @paid.empty? %>
-   <% if @paid.first.paid >= @total_cost %>
-     <b>Balance paid in full.</b><br />
- <% end %>
-<% end %>
-
+</div>
 <br />
-
-<%= link_to 'New Payement', new_booking_payement_path(params[:id]) %>
+<%=link_to new_booking_payement_path(params[:id]) do %>
+	<h1 id="newPayementAccess"><%= image_tag("arrow.png", :alt => "Arrow")%>New Payement</h1>
+<% end %>

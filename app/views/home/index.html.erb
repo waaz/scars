@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag    "scrollable-horizontal.css" %>
 <%= stylesheet_link_tag    "scrollable-buttons.css" %>
+<%= stylesheet_link_tag    "mainStyleSheet" %>
 <%= javascript_include_tag "http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js" %>
 <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js" type="text/javascript"></script>
  
@@ -56,6 +57,18 @@
 	 
 	</div>
 </div>
+
+<div id="Description">
+	<h1 id="mainTitle"><%= image_tag("arrow.png", :alt => "Arrow")%>Welcome !</h1>
+	<div id="welcome">
+		<%= image_tag("JWells.jpg", :alt => "Joe Wells")%>
+		<p>Welcome to S-Cars! We are a small, independent automotive garage, which is now specialising in affordable, 
+		local car rentals. This website has been designed to allow you to create a booking of a car simply and quickly. 
+		If you would like to book a car out, please create an account, we only rent out cars to our valuable members, you may even get special offers!
+		</p>
+	</div>
+</div>
+	
 
 <script type="text/javascript">
 		$(function() {

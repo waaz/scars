@@ -1,5 +1,5 @@
-<h1>New accident</h1>
+<%= stylesheet_link_tag "newAccident" %>
+<h1 id="newAccident"><%= image_tag("arrow.png", :alt => "Arrow")%>Declaring an accident</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', car_accidents_path(@car) %>

@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "showAccidents" %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -55,6 +57,11 @@
   <%= @accident.accident_report %>
 </p>
 
+<%= link_to edit_car_accident_path(@car,@accident), :id => "editLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
+<% end %>
 
-<%= link_to 'Edit', edit_car_accident_path(@car,@accident) %> |
-<%= link_to 'Back', car_accidents_path %>
+<%= link_to car_accidents_path, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
+<% end %>
+

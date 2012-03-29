@@ -1,6 +1,5 @@
-<h1>Editing accident</h1>
+<%= stylesheet_link_tag "newAccident" %>
+<%= stylesheet_link_tag "editAccident" %>
+<h1 id="editAccident"><%= image_tag("arrow.png", :alt => "Arrow")%>Editing accident</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', car_accident_path %> 
-<%= link_to 'Back', car_accidents_path %>

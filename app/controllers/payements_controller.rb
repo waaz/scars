@@ -3,6 +3,12 @@ class PayementsController < ApplicationController
     @booking = Booking.find_by_id(params[:booking_id])
     @car= Car.find_by_id(@booking.car_id)
     @car_class = CarClass.find_by_id(@car.car_class_id)
+	@paid = Payement.find(:all,
+                :select => "SUM(amount) as paid",
+                :group => "booking_id",
+				:conditions => ["booking_id = ?", @booking.id])
+	@booking_duration = (((@booking.date_of_arrival) - (@booking.date_of_departure)).to_i) / 60 / 60 / 24
+	@total_cost = @booking_duration * @car_class.tarrif
   end
   
   def index
@@ -14,19 +20,18 @@ class PayementsController < ApplicationController
   end
 
   def new
-    @booking_duration = (((@booking.date_of_arrival) - (@booking.date_of_departure)).to_i) / 60 / 60 / 24
-    @total_cost = @booking_duration * @car_class.tarrif
+    if not @paid.empty?
+	 if @paid.first.paid >= @total_cost
+	  redirect_to bookings_path, notice: "Booking already paid in full!"
+	 end
+	end
+	
     @deposit = @total_cost*0.1
     @final_payment = @total_cost - @deposit
     @payement = @booking.payements.build
 	
-	@payments = Payement.find(:all,
-                :select => "SUM(amount) as paid",
-                :group => "booking_id",
-				:conditions => ["booking_id = ?", @booking.id])
-	
-	unless @payments.empty?
-	 @remaining_balance = @total_cost - @payments.first.paid
+	unless @paid.empty?
+	 @remaining_balance = @total_cost - @paid.first.paid
 	else
 	 @remaining_balance = @total_cost
 	end

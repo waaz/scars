@@ -15,12 +15,17 @@
 <% @payements.each do |payement| %>
   <tr>
     <td><%= payement.amount %></td>
-    <td><%= payement.payement_type %></td>
     <td><%= payement.booking_id %></td>
     <td><%= payement.created_at.to_date %></td>
  </tr>
 <% end %>
 </table>
+
+<% if not @paid.empty? %>
+   <% if @paid.first.paid >= @total_cost %>
+     <b>Balance paid in full.</b><br />
+ <% end %>
+<% end %>
 
 <br />
 

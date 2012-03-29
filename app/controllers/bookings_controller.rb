@@ -91,7 +91,6 @@ class BookingsController < ApplicationController
     end
   end
   
-  
   def destroy
     if current_user && current_user.is_admin?
      @booking = Booking.find(params[:id])

@@ -12,6 +12,12 @@
       </ul>
     </div>
   <% end %>
+  <% if current_user && current_user.is_admin %>
+  <div class="field">
+	<%= f.label :customer_id, "Customer ID:"%>
+	<%= f.text_field :customer_id %>
+  </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :date_of_departure, "Departure date:" %>

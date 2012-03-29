@@ -5,7 +5,6 @@
   <% if @payement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@payement.errors.count, "error") %> prohibited this payement from being saved:</h2>
-
       <ul>
       <% @payement.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

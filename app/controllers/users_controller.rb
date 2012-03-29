@@ -24,7 +24,11 @@ class UsersController < ApplicationController
   if @user.save
    @customer = Customer.create(user_id: @user.id) unless @user.is_admin?
    session[:user_id] = @user.id
-   redirect_to user_path(@user.id)
+   if @user.is_admin?
+    redirect_to "/admin"
+   else
+    redirect_to bookings_path
+   end
   else
    render 'new'
   end

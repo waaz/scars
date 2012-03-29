@@ -11,6 +11,7 @@
     <th id="empty"></th>
     <th id="empty"></th>
     <th id="empty"></th>
+	<th id="empty"></th>
   </tr>
 
 <% @bookings.each do |booking| %>
@@ -27,8 +28,8 @@
     <td id="empty"><%= link_to edit_booking_path(booking), :id => "editLink" do %>
 		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
 	<% end %>
-	<td id="empty"><%= link_to booking_payement_path(booking), :id => "bookingLink" do %>
-		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Payments</p>
+	<td id="empty"><%= link_to booking_payement_path(booking), :id => "payementLink" do %>
+		<p> £ Payments</p>
 	<% end %>
 	</td>
     <td id="empty"><%= link_to booking_cancel_path(booking), confirm: 'Are you sure?', :id => "destroyLink" do %>

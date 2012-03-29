@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
  attr_readonly :email
 
  #####Use for testing only#####
- attr_accessible :is_admin
+ attr_protected :is_admin
  ##############################
 
  validates :email, uniqueness: true, presence: true

@@ -61,7 +61,7 @@
      </div>
      <div class="verifField">
        <%= f.label :card_verification, "Card Verification Value (CVV)" %><br />
-       <%= f.text_field :card_verification %>
+       <%= f.text_field :card_verification, :maxlength => 3%>
      </div>
      <div class="field">
        <%= f.label :expires_on %><br />

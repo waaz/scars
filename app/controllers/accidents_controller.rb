@@ -4,6 +4,9 @@ class AccidentsController < ApplicationController
   
     before_filter do
       @car = Car.find(params[:car_id])
+	  if !(current_user.is_admin?)
+		redirect_to root_url
+	  end
     end
 	  
   def index

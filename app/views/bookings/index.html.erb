@@ -27,10 +27,14 @@
     <td id="empty"><%= link_to edit_booking_path(booking), :id => "editLink" do %>
 		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
 	<% end %>
+	<td id="empty"><%= link_to booking_payement_path(booking), :id => "bookingLink" do %>
+		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Payments</p>
+	<% end %>
 	</td>
     <td id="empty"><%= link_to booking_cancel_path(booking), confirm: 'Are you sure?', :id => "destroyLink" do %>
 		 <p><%= image_tag("cross.png", :alt => "Cross")%>Cancel</p>
 	  <% end %>
+	  
 	</td>
   </tr>
 <% end %>

@@ -204,10 +204,58 @@ footer
     padding-top: 25px;
 }
 
-
 #rights
 {
-	text-align: center;
-    font-size: 1.1em;
-	margin-top: 20px;
+    font-size: 1em;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	margin-top: -8px;
+	font-family: Arial;
+	color: #A9A9A9
+}
+
+#subFooter
+{
+	border: 1px solid #A9A9A9;
+	margin-top: -7px;
+}
+
+#smallNav
+{
+	padding: 10px;
+}
+
+#smallNav a
+{
+	font-family: Arial;
+	color: black;
+	text-decoration: none;
+}
+#Paypal
+{
+	margin-top: -55px;
+	margin-left: 4px;
+	float:right;
+}
+#Paypal img
+{
+	display: inline-block;
+}
+
+#PaypalLogo
+{
+	width:120px;
+	height:35px;
+}
+
+#Visa
+{
+	width:62px;
+	height:48px;
+}
+
+#Mastercard
+{
+	width:71px;
+	height:48px;
 }

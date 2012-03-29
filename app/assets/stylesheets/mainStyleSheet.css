@@ -1,0 +1,48 @@
+#Description h1
+{
+	width: 900px;
+	background: url(button2.png);
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left:5px;
+	color: white;
+	margin-bottom: 2px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#Description h1 img
+{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+#welcome
+{
+	border:solid;
+	border-color:#A9A9A9;
+	padding:5px;
+	width:891px;
+	height:209px;
+}
+
+#welcome p
+{
+	width:725px;
+	margin-top:10px;
+	vertical-align:top;
+	font-size:1.2em;
+	text-align:justify;
+	display: inline-block;
+}
+
+#welcome img
+{
+	border:solid;
+	border-color:#A9A9A9;
+	position:relative;
+	margin-top:10px;
+	margin-right:10px;
+	margin-left: 10px;
+	display: inline-block;
+}

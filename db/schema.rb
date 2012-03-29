@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327111304) do
+ActiveRecord::Schema.define(:version => 20120328160840) do
+
+  create_table "accidents", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "postcode"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "reg"
+    t.string   "model"
+    t.string   "damage_report"
+    t.string   "accident_report"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "car_id"
+  end
 
   create_table "bookings", :force => true do |t|
     t.datetime "date_of_departure"
@@ -22,11 +39,11 @@ ActiveRecord::Schema.define(:version => 20120327111304) do
     t.datetime "updated_at",        :null => false
     t.string   "promocode"
     t.integer  "customer_id"
+    t.integer  "car_id"
     t.string   "address_one"
     t.string   "address_two"
     t.string   "city"
     t.string   "postcode"
-    t.integer  "car_id"
     t.string   "status"
   end
 
@@ -64,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20120327111304) do
 
   create_table "orders", :force => true do |t|
     t.integer  "payement_id"
+    t.string   "ip_address"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "card_type"
@@ -73,7 +91,6 @@ ActiveRecord::Schema.define(:version => 20120327111304) do
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
     t.date     "card_expires_on"
-    t.string   "ip_address"
   end
 
   create_table "payements", :force => true do |t|

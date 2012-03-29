@@ -1,0 +1,73 @@
+<div id="AccidentForm">
+<%= form_for([@car,@accident]) do |f| %>
+  <% if @accident.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@accident.errors.count, "error") %> prohibited this accident from being saved:</h2>
+
+      <ul>
+      <% @accident.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :address_line_1 %>
+    <%= f.text_field :address_line_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :address_line_2 %>
+    <%= f.text_field :address_line_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :postcode %>
+    <%= f.text_field :postcode %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :reg %>
+    <%= f.text_field :reg %>
+  </div>
+  <div class="field">
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+
+    <%= f.label :damage_report %><br />
+    <%= f.text_area:damage_report %>
+  </div>
+  <div class="field">
+    <%= f.label :accident_report %>
+    <%= f.text_area :accident_report %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+<br/>
+
+<%= link_to car_accident_path, :id => "showLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
+<% end %>
+
+<%= link_to car_accidents_path, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
+<% end %>

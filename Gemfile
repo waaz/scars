@@ -42,3 +42,7 @@ gem 'date_validator'
 gem 'validates_as_uk_postcode'
 
 gem 'activemerchant'
+
+gem 'prawn'
+
+gem 'prawnto'

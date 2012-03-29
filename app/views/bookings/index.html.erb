@@ -5,34 +5,57 @@
   <tr>
     <th>Date of departure</th>
     <th>Date of arrival</th>
-    <th>Collect</th>
+    <th>Collecting</th>
+	<% if current_user && current_user.is_admin? %>
     <th>User</th>
+	<% end %>	
 	<th>Status</th>
     <th id="empty"></th>
     <th id="empty"></th>
     <th id="empty"></th>
+	<th id="empty"></th>
   </tr>
 
 <% @bookings.each do |booking| %>
+ <% if booking.status != 'cancel' && booking.date_of_arrival > Date.today.to_time %>
   <tr>
-    <td><%= booking.date_of_departure %></td>
-    <td><%= booking.date_of_arrival %></td>
-    <td><%= booking.collect %></td>
-    <td><%= booking.user_id %></td>
-    <td><%= booking.status %></td>
-    <td id="empty"><%= link_to booking, :id => "showLink" do %>
+    <td><%= booking.date_of_departure.to_date %></td>
+    <td><%= booking.date_of_arrival.to_date %></td>
+    <td>
+	<% if booking.collect %>
+	 Yes
+	<% else %>
+	 No
+	<% end %>
+	</td>
+	<% if current_user && current_user.is_admin? %>
+     <td><%= booking.user_id %></td>
+	<% end %>
+    <td>
+	<% if not booking.status %>
+		OK
+	<% else %>
+	  <%= booking.status %>
+	<% end %>
+	</td>
+    <td id="empty"><%= link_to booking_path(booking), :id => "showLink" do %>
 		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
 	<% end %>
 	</td>
     <td id="empty"><%= link_to edit_booking_path(booking), :id => "editLink" do %>
 		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
 	<% end %>
+	<td id="empty"><%= link_to booking_payement_path(booking), :id => "payementLink" do %>
+		<p> £ Payments</p>
+	<% end %>
 	</td>
     <td id="empty"><%= link_to booking_cancel_path(booking), confirm: 'Are you sure?', :id => "destroyLink" do %>
-		 <p><%= image_tag("cross.png", :alt => "Cross")%>Destroy</p>
+		 <p><%= image_tag("cross.png", :alt => "Cross")%>Cancel</p>
 	  <% end %>
+	  
 	</td>
   </tr>
+ <% end %>
 <% end %>
 </table>
 </div>
@@ -42,6 +65,11 @@
 	<h1 id="newBookingAccess"><%= image_tag("arrow.png", :alt => "Arrow")%>New Booking</h1>
 <% end %>
 
+<% if current_user && current_user.is_admin? %>
 <%= link_to admin_path do %>
 	<h1 id="adminAccess"><%= image_tag("arrow.png", :alt => "Arrow")%>Back</h1>
 <% end %>
+<% else %>
+
+<% end %>
+

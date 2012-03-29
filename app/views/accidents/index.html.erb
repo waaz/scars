@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag    "IndexAccidents" %>
+<h1 id="listingAccidents"><%= image_tag("arrow.png", :alt => "Arrow")%>Listing Accidents</h1>
+
+<div id="List">
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Address line 1</th>
+    <th>Address line 2</th>
+    <th>Postcode</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Reg</th>
+    <th>Model</th>
+    <th id="noBorder" style="width: 84px;"></th>
+    <th id="noBorder" style="width: 84px;"></th>
+    <th id="noBorder" style="width: 111px;"></th>
+  </tr>
+
+<% @accidents.each do |accident| %>
+  <tr>
+    <td><%= accident.first_name %></td>
+    <td><%= accident.last_name %></td>
+    <td><%= accident.address_line_1 %></td>
+    <td><%= accident.address_line_2 %></td>
+    <td><%= accident.postcode %></td>
+    <td><%= accident.email %></td>
+    <td><%= accident.phone %></td>
+    <td><%= accident.reg %></td>
+    <td><%= accident.model %></td>
+	<td id="noBorder"><%= link_to car_accident_path(accident.car_id, accident.id), :id => "showLink" do %>
+		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
+	<% end %>
+	</td>
+	<td id="noBorder"><%= link_to edit_car_accident_path(accident.car_id, accident.id), :id => "editLink" do %>
+		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
+	<% end %>
+	</td>
+	<td id="noBorder" style><%= link_to car_accident_path(@car,accident), confirm: 'Are you sure?', method: :delete, :id => "destroyLink" do %>
+		<p><%= image_tag("cross.png", :alt => "Cross")%>Delete</p>
+	<% end %>
+	</td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+
+<%=link_to new_car_accident_path(@car) do %>
+	<h1 id="declareNewAccident"><%= image_tag("arrow.png", :alt => "Arrow")%>Declare a new accident</h1>
+<% end %>
+
+<%=link_to cars_path do %>
+	<h1 id="carAccess"><%= image_tag("arrow.png", :alt => "Arrow")%>Back</h1>
+<% end %>

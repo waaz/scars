@@ -27,10 +27,20 @@
   <%= f.label :password_confirmation, "Confirm Password: " %>
   <%= f.password_field :password_confirmation, :id =>"password_confirmation" %><br/><br/>
  </div>
-<div class="field">
-  <%= f.label :is_admin, "Admin: " %>
-  <%= f.check_box :is_admin, default: false %>
- </div>
+ <% if not @user.is_admin %>
+	 <%= f.fields_for :customer do |c| %>
+	 <div>
+	  <%= c.label :first_name, "First Name: " %>
+	  <%= c.text_field :first_name%>
+	 </div>
+	 <div>
+	  <%= c.label :last_name, "Last Name: " %>
+	  <%= c.text_field :last_name %>
+	 </div>
+	 <% end %>
+ <% end %>
+
+
  <br/>
  <div class="actions"><%= f.submit %></div>
 <% end %>

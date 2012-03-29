@@ -13,10 +13,11 @@ class BookingsController < ApplicationController
   end
 
   def show
-
     if current_user
-      if current_user.is_admin || current_user.id == params[:id]
-        @booking = Booking.find(params[:id])
+	  @booking = Booking.find(params[:id])
+      
+	  if current_user.is_admin? || (current_user.id == @booking.user_id)
+        render 'show'
       else
         redirect_to :back, notice: 'access denied.'
       end
@@ -90,7 +91,6 @@ class BookingsController < ApplicationController
       redirect_to :back,notice: 'must be logged in'
     end
   end
-  
   
   def destroy
     if current_user && current_user.is_admin?

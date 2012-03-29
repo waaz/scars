@@ -1,0 +1,71 @@
+<%= stylesheet_link_tag "showAccidents" %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @accident.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @accident.last_name %>
+</p>
+
+<p>
+  <b>Address line 1:</b>
+  <%= @accident.address_line_1 %>
+</p>
+
+<p>
+  <b>Address line 2:</b>
+  <%= @accident.address_line_2 %>
+</p>
+
+<p>
+  <b>Postcode:</b>
+  <%= @accident.postcode %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @accident.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @accident.phone %>
+</p>
+
+<p>
+  <b>Reg:</b>
+  <%= @accident.reg %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @accident.model %>
+</p>
+
+<p>
+  <b>Damage report:</b>
+  <%= @accident.damage_report %>
+</p>
+
+<p>
+  <b>Accident report:</b>
+  <%= @accident.accident_report %>
+</p>
+
+<%= link_to edit_car_accident_path(@car,@accident), :id => "editLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
+<% end %>
+
+<%= link_to car_accidents_path, :id => "backLink" do %>
+	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Back</p>
+<% end %><br/>
+
+<%= link_to car_accident_path(@car,@accident,:format => 'pdf'), :id => "generateLink" do %>
+	<%= image_tag("generate_pdf.png", :alt => "PDF Button", :title => "Generate PDF")%>
+<% end %>
+

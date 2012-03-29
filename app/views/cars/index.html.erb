@@ -10,7 +10,9 @@
     <th>Status</th>
     <th id="noBorder" style="width: 84px;"></th>
     <th id="noBorder" style="width: 84px;"></th>
-    <th id="noBorder" style="width: 111px;"></th>
+    <th id="noBorder" style="width: 150px;"></th>
+	<th id="noBorder" style="width: 145px;"></th>
+	<th id="noBorder" style="width: 93px;"></th>
   </tr>
 
 <% @cars.each do |car| %>
@@ -29,8 +31,16 @@
 		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>
 	<% end %>
 	</td>
-    <td id="noBorder" style><%= link_to car, confirm: 'Are you sure?', method: :delete, :id => "destroyLink" do %>
-		<p><%= image_tag("cross.png", :alt => "Cross")%>Destroy</p>
+	 <td id="noBorder" style><%= link_to new_car_accident_path(car), :id => "destroyLink" do %>
+		<p><%= image_tag("lightning_bolt.png", :alt => "LightningBolt")%>New Accident</p>
+	<% end %>
+	</td>
+	<td id="noBorder" style><%= link_to car_accident_path(car), :id => "destroyLink" do %>
+	  <p><%= image_tag("lightning_bolt.png", :alt => "LightningBolt")%>View Accidents</p>
+	<% end %>
+	</td>
+	<td id="noBorder" style><%= link_to car, confirm: 'Are you sure?', method: :delete, :id => "destroyLink" do %>
+		<p><%= image_tag("cross.png", :alt => "Cross")%>Delete</p>
 	<% end %>
 	</td>
   </tr>

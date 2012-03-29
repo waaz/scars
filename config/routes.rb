@@ -1,6 +1,5 @@
 Scars::Application.routes.draw do
-  resources :orders
-
+  
  resources :car_classes do 
 	get "show_in_view" => "car_classes#show_in_view"
  end
@@ -16,7 +15,9 @@ Scars::Application.routes.draw do
  resources :users
  resources :customers
  resources :sessions
- resources :cars
+ resources :cars do 
+	resources :accidents
+ end
  resources :bookings do
    get "cancel" => "bookings#cancel", :as => "cancel"
    resources :payements

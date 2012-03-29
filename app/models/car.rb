@@ -10,6 +10,9 @@ class Car < ActiveRecord::Base
 
  # car belongs to booking
  has_many :bookings
+ 
+ has_many :accidents
+ 
 
  # car belongs to car_class
  belongs_to :car_class

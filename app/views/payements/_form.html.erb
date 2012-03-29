@@ -5,7 +5,6 @@
   <% if @payement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@payement.errors.count, "error") %> prohibited this payement from being saved:</h2>
-
       <ul>
       <% @payement.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -62,7 +61,7 @@
      </div>
      <div class="verifField">
        <%= f.label :card_verification, "Card Verification Value (CVV)" %><br />
-       <%= f.text_field :card_verification %>
+       <%= f.text_field :card_verification, :maxlength => 3%>
      </div>
      <div class="field">
        <%= f.label :expires_on %><br />

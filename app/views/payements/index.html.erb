@@ -4,7 +4,6 @@
 <table>
   <tr>
     <th>Amount</th>
-    <th>Payement type</th>
     <th>Booking</th>
     <th>Payement date</th>
     <th></th>
@@ -22,11 +21,13 @@
 </table>
 
 <% if not @paid.empty? %>
-   <% if @paid.first.paid >= @total_cost %>
+  <% if @paid.first.paid >= @total_cost %>
      <b>Balance paid in full.</b><br />
+  <% else %>
+   <%= link_to 'New Payement', new_booking_payement_path(params[:id]) %>
  <% end %>
 <% end %>
-
 <br />
+<%= link_to 'Bookings', bookings_url %>
 
-<%= link_to 'New Payement', new_booking_payement_path(params[:id]) %>
+

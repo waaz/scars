@@ -15,12 +15,7 @@
 <p>
   <b>Collect:</b>
   <%= @booking.collect %>
-</p>
-
-<p>
-	<b>Car Class:</b>
-	<%= @booking.car_class%>
-</p>
+</p>	
 
 <%= link_to edit_booking_path(@booking), :id => "editLink" do %>
 	<p><%= image_tag("arrow.png", :alt => "Arrow")%>Edit</p>

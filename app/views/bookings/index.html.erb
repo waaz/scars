@@ -5,8 +5,10 @@
   <tr>
     <th>Date of departure</th>
     <th>Date of arrival</th>
-    <th>Collect</th>
+    <th>Collecting</th>
+	<% if current_user && current_user.is_admin? %>
     <th>User</th>
+	<% end %>	
 	<th>Status</th>
     <th id="empty"></th>
     <th id="empty"></th>
@@ -14,12 +16,27 @@
   </tr>
 
 <% @bookings.each do |booking| %>
+ <% if booking.status != 'cancel' && booking.date_of_arrival > Date.today.to_time %>
   <tr>
-    <td><%= booking.date_of_departure %></td>
-    <td><%= booking.date_of_arrival %></td>
-    <td><%= booking.collect %></td>
-    <td><%= booking.user_id %></td>
-    <td><%= booking.status %></td>
+    <td><%= booking.date_of_departure.to_date %></td>
+    <td><%= booking.date_of_arrival.to_date %></td>
+    <td>
+	<% if booking.collect %>
+	 Yes
+	<% else %>
+	 No
+	<% end %>
+	</td>
+	<% if current_user && current_user.is_admin? %>
+     <td><%= booking.user_id %></td>
+	<% end %>
+    <td>
+	<% if not booking.status %>
+		OK
+	<% else %>
+	  <%= booking.status %>
+	<% end %>
+	</td>
     <td id="empty"><%= link_to booking, :id => "showLink" do %>
 		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
 	<% end %>
@@ -33,6 +50,7 @@
 	  <% end %>
 	</td>
   </tr>
+ <% end %>
 <% end %>
 </table>
 </div>

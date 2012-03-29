@@ -21,7 +21,7 @@
     <td><%= car_class.car_class_name %></td>
     <td><%= car_class.description%></td>
     <td><%= car_class.tarrif %></td>
-    <td><%= image_tag(car_class.image_url) %></td>
+    <td><%= image_tag(car_class.image_url, :id => "Car") %></td>
 	<td id="noBorder"><%= link_to car_class, :id => "showLink" do %>
 		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
 	<% end %>

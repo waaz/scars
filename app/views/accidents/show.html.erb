@@ -58,3 +58,4 @@
 
 <%= link_to 'Edit', edit_car_accident_path(@car,@accident) %> |
 <%= link_to 'Back', car_accidents_path %>
+<%= link_to 'Generate PDF', car_accident_path(@car,@accident,:format => 'pdf') %>

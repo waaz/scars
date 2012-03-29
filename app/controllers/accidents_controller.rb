@@ -3,9 +3,9 @@ class AccidentsController < ApplicationController
   # GET /accidents.json
   
     before_filter do
-    @car = Car.find(params[:car_id])
-  end
-  
+      @car = Car.find(params[:car_id])
+    end
+	  
   def index
   
   
@@ -21,10 +21,10 @@ class AccidentsController < ApplicationController
   # GET /accidents/1.json
   def show
     @accident = @car.accidents.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @accident }
+	  format.pdf { render :layout => false }
     end
   end
 
@@ -75,4 +75,5 @@ class AccidentsController < ApplicationController
     
 	redirect_to cars_url, notice: "car destroyed"
   end
+
 end

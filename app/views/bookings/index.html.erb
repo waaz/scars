@@ -37,7 +37,7 @@
 	  <%= booking.status %>
 	<% end %>
 	</td>
-    <td id="empty"><%= link_to booking, :id => "showLink" do %>
+    <td id="empty"><%= link_to booking_path(booking), :id => "showLink" do %>
 		<p><%= image_tag("arrow.png", :alt => "Arrow")%>Show</p>
 	<% end %>
 	</td>

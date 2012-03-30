@@ -1,5 +1,8 @@
 <b>Class name: </b>
 <%= @car_class.car_class_name %><br/>
 <b>Description: </b><%= @car_class.description%><br/>
-<b>Preview: </b><%= image_tag(@car_class.image_url)%><br/>
-<b>Tariff: </b><%=number_to_currency(@car_class.tarrif)  %>
+
+<b>Preview: </b><%= image_tag(@car_class.image_url, :id => "Car")%><br/>
+<b>Tariff: </b><%=@car_class.tarrif  %>
+
+

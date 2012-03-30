@@ -1,14 +1,16 @@
 class AccidentsController < ApplicationController
   # GET /accidents
   # GET /accidents.json
-  
+	
+	#admin rights 
     before_filter do
       @car = Car.find(params[:car_id])
 	  if !(current_user.is_admin?)
 		redirect_to root_url
 	  end
     end
-	  
+  
+  #all accidents linked to car  
   def index
   
   
@@ -20,8 +22,7 @@ class AccidentsController < ApplicationController
     end
   end
 
-  # GET /accidents/1
-  # GET /accidents/1.json
+  #show one payment
   def show
     @accident = @car.accidents.find(params[:id])
     respond_to do |format|
@@ -33,6 +34,7 @@ class AccidentsController < ApplicationController
 
   # GET /accidents/new
   # GET /accidents/new.json
+  #generate new accident
   def new
     @accident = @car.accidents.build
 
@@ -43,6 +45,7 @@ class AccidentsController < ApplicationController
   end
 
   # GET /accidents/1/edit
+  #edit accident
   def edit
     @accident = @car.accidents.find(params[:id])
   end

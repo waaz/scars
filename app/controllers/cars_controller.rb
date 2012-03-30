@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+
   def index
    if current_user && current_user.is_admin?
     @cars = Car.all

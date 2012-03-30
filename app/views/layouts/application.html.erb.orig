@@ -30,8 +30,9 @@
 	   <ul>
 	    <li id="first_tab"><%= link_to 'Home', root_path%></li>
 	    <li id="second_tab"><%=link_to 'Bookings', new_booking_path%></li>
+		<li id="notice"><%= flash[:notice] %></li>
 		<% if current_user %>
-        <li id="noticeLogin">Logged in as <%= current_user.email %>.</li>
+        <li id="notice">Logged in as <%= current_user.email %>.</li>
         <li id="main_login"><%= link_to "Logout", "/logout" %></li>
        <% else %>
 		<li id="main_login"><a href="#" onclick=myFunction();>Login<%= image_tag("arrow_down.gif", :alt => "Arrow Down", :id => "Arrow") %></a></li>
@@ -42,31 +43,21 @@
 	   </ul>
 	  </nav>
 	 </div>
-	 <div id="notice"><%= flash[:notice] %></div>
 	 <section>
 	  <article>
 	   <%= yield %>
        <div style="clear:both;"></div>
 	  </article>
-	 </section><br/>
+<<<<<<< HEAD
+	 </section>
      </div>
+=======
+	 </section><br/>
 	 <footer>
-		<div id="subFooter">
-		<div id="smallNav"><b><%= link_to 'Home', root_path%> | <%=link_to 'Bookings', new_booking_path%></b></div>
-		<div id="rights"> SCars © 2012 Privacy Policy</div>
-		<div id="Paypal"><%= link_to "https://twitter.com/#!/Scarshire", :id => "twitterLink" do %>
-							<%= image_tag("twitter.png", :alt => "TwitterLogo", :id => "TwitterLogo") %>
-						<% end %>
-						<%= link_to "http://www.facebook.com/pages/S-Cars/243572372392540?sk=wall", :id => "facebookLink" do %>
-							<%= image_tag("facebook.png", :alt => "FacebookLogo", :id => "FacebookLogo") %>
-						<% end %>
-						<%= image_tag("Paypal_logo.png", :alt => "PaypalLogo", :id => "PaypalLogo") %>
-						<%= image_tag("Visa.png", :alt => "Visa", :id => "Visa") %>
-						<%= image_tag("Mastercard.png", :alt => "Mastercard", :id => "Mastercard") %>
-		</div>
-		</div>
+		<div id="rights"> All content belongs to SCars </div>
 	</footer>
-</div>
+		
+>>>>>>> 9938a9cf67dc6b054641bb75740a3bd2e7bb7f18
    </body>
 
 <script language="JavaScript" type="text/javascript">

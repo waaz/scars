@@ -85,7 +85,7 @@
         var carId = $("#booking_car_class").val();
         if(carId !=  ''){
          $.get("/car_classes/" + carId + ".json", function(data) {
-             var carDetails = "<h1 id='carClassInfo'>Car Class Info</h1>" + "<div id='info'>" + data.image_url + "<br/><b>Car Class: </b>" + data.car_class_name + "<br/><b>Description: </b>" + data.description + "<br/><br/><b>Tarrif: </b>" + data.tarrif + "</div>";
+             var carDetails = "<h1 id='carClassInfo'>Car Class Info</h1>" + "<div id='info'>" + "<br/><b>Car Class: </b>" + data.car_class_name + "<br/><b>Description: </b>" + data.description + "<br/><br/><b>Tarrif: £</b>" + data.tarrif + "0</div>";
              $("#carInfoDiv").html(carDetails);
              $("#carInfoDiv").css("visibility","visible");
          });

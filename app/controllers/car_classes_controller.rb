@@ -1,9 +1,17 @@
 class CarClassesController < ApplicationController
-
+  	#admin rights 
+    before_filter do
+	  if !(current_user.is_admin?)
+		redirect_to root_url
+	  end
+    end 	
+  
+  #dispaly all car_classes  
   def index
    @car_classes = CarClass.all
   end
-
+  
+  #show car_class
   def show
     respond_to do |format|
      format.html { @car_class = CarClass.find(params[:id]) }
@@ -11,6 +19,7 @@ class CarClassesController < ApplicationController
 	end
   end
   
+  #new car class
   def new
     if current_user && current_user.is_admin?
      @car_class = CarClass.new
@@ -19,6 +28,7 @@ class CarClassesController < ApplicationController
 	end
   end
   
+  #edit car class
   def edit
    if current_user && current_user.is_admin?
     @car_class = CarClass.find(params[:id])
@@ -26,7 +36,8 @@ class CarClassesController < ApplicationController
      redirect_to root_url, notice: 'Must be logged in as admin!'
    end
   end
-
+  
+  #save accident to database
   def create
    if current_user && current_user.is_admin?
     @car_class = CarClass.new(params[:car_class])
@@ -40,6 +51,7 @@ class CarClassesController < ApplicationController
    end
   end
   
+  #update database
   def update
    if current_user && current_user.is_admin?
     @car_class = CarClass.find(params[:id])
@@ -53,6 +65,7 @@ class CarClassesController < ApplicationController
    end
   end
   
+  #destroy car_class
   def destroy
    if current_user && current_user.is_admin?
     @car_class = CarClass.find(params[:id])
